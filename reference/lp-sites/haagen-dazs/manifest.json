@@ -1,0 +1,5 @@
+{
+  "source": "https://www.haagen-dazs.co.jp/",
+  "mode": "live",
+  "reason": "The source returned HTTP 403 to command-line asset downloads from this environment. The browser can display it inside the comparison page."
+}
