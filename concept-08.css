@@ -357,8 +357,10 @@
   .concept-08 .hero__visual {
     grid-column: 1;
     grid-row: 1;
+    align-self: center;
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 8 / 3; /* match the 1920x720 video so no letterbox bars */
   }
   .concept-08 .hero__inner {
     grid-column: 2;
@@ -381,15 +383,21 @@
 
 .concept-08 .hero__visual {
   position: relative;
-  /* contain: keep all of TELEMO visible at any container ratio; bg colour matches the studio-white video edge */
-  background: #f7f8fa url("./assets/telemo-blender/telemo-poster.png") center / contain no-repeat;
+  /* bg colour approximates the studio-white video edge; poster shows until the video plays and under reduced motion */
+  background: #f5f6f8 url("./assets/telemo-blender/telemo-poster.jpg") center / cover no-repeat;
 }
 .concept-08 .hero__video {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  /* TELEMO sits in the middle ~31-67% of the frame height, so wide boxes can crop top/bottom safely */
+  object-fit: cover;
   object-position: center;
+}
+/* Boxes narrower than ~2.3:1 would crop the letters' sides: show the whole frame instead */
+@media (min-width: 768px) and (max-width: 900px), (min-width: 901px) and (max-aspect-ratio: 9 / 8) {
+  .concept-08 .hero__visual { background-size: contain; }
+  .concept-08 .hero__video { object-fit: contain; }
 }
 @media (prefers-reduced-motion: reduce) {
   .concept-08 .hero__video { display: none; }
