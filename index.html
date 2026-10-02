@@ -18,8 +18,10 @@
     />
     <link rel="icon" type="image/png" href="./reference/giguuu-logo.png" />
     <link rel="stylesheet" href="./boundary.css" />
+    <link rel="stylesheet" href="./model-viewer.css" />
     <link rel="stylesheet" href="./concept-08.css" />
     <link rel="stylesheet" href="./mi-header.css" />
+    <link rel="stylesheet" href="./about-vision-split.css" />
 
     <!-- importmap：CDN(unpkg) の Three.js を "three" で読み込む -->
     <script type="importmap">
@@ -92,14 +94,12 @@
         <nav class="nav__links ggh__navigation" id="navLinks" aria-label="メインナビゲーション">
           <div class="ggh__main">
             <div class="ggh__primary">
-              <a href="#business">事業紹介</a>
+              <a href="./business.html">事業紹介</a>
               <a href="#telemo">TELEMO</a>
               <a href="#recruit">採用情報</a>
               <a href="#news">お知らせ</a>
-            </div>
-            <div class="ggh__actions">
-              <a class="ggh__action" href="https://demoaudio-cxpuxivk.manus.space/?code=o6yvTD42hExQnTLqYbpxvH" target="_blank" rel="noopener noreferrer">音声を聴く</a>
-              <a class="ggh__action ggh__action--contact nav__cta" href="#contact">お問い合わせ</a>
+              <a href="https://demoaudio-cxpuxivk.manus.space/?code=o6yvTD42hExQnTLqYbpxvH" target="_blank" rel="noopener noreferrer">音声を聴く</a>
+              <a href="#contact">お問い合わせ</a>
             </div>
           </div>
         </nav>
@@ -110,9 +110,9 @@
       <!-- ============ HERO ============ -->
       <section class="hero" id="hero">
         <div class="hero__visual" aria-hidden="true">
-          <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="./assets/telemo-blender/telemo-poster.jpg">
-            <source src="./assets/telemo-blender/telemo-hero-loop.mp4" type="video/mp4" />
-          </video>
+          <div class="model-viewer hero__model" data-model-viewer data-src="./assets/models/telemo.glb"
+               data-poster="./assets/telemo-blender/telemo-poster.jpg" data-label="TELEMO" data-keyboard="false"
+               data-fit-padding="1.3" data-pitch-limit="8"></div>
         </div>
         <div class="hero__inner">
           <p class="eyebrow reveal">▸ ABOUT GIGUUU</p>
@@ -125,7 +125,7 @@
             属人化していた“勝ちパターン”を、誰もが使える仕組みに変える。
           </p>
           <div class="hero__actions reveal">
-            <a class="btn btn--primary" href="#business">
+            <a class="btn btn--primary" href="./business.html">
               <span>事業を見る</span>
               <i class="btn__arrow">→</i>
             </a>
@@ -223,14 +223,17 @@
           <h2 class="sec__title">MISSION</h2>
           <span class="sec__line"></span>
         </div>
-        <div class="statement reveal">
-          <h3 class="statement__main">
-            人の可能性を、<br /><span class="hlbox"><span class="hlbox__t">AIで拡張する</span></span>
-          </h3>
-          <p class="statement__sub">
-            AIは人を置き換えるためではなく、人が本質的な仕事に集中するためにある。
-            繰り返しを機械に、創造を人に。私たちはその境界を引き直します。
-          </p>
+        <div class="editorial-split reveal">
+          <div class="editorial-split__media" aria-hidden="true"><!-- 今後、MISSIONの画像を配置 --></div>
+          <div class="statement editorial-split__content">
+            <h3 class="statement__main">
+              人の可能性を、<br /><span class="hlbox"><span class="hlbox__t">AIで拡張する</span></span>
+            </h3>
+            <p class="statement__sub">
+              AIは人を置き換えるためではなく、人が本質的な仕事に集中するためにある。
+              繰り返しを機械に、創造を人に。私たちはその境界を引き直します。
+            </p>
+          </div>
         </div>
       </section>
 
@@ -241,14 +244,17 @@
           <h2 class="sec__title">VISION</h2>
           <span class="sec__line"></span>
         </div>
-        <div class="statement reveal">
-          <h3 class="statement__main">
-            誰もが、挑戦できる<br /><span class="hlbox"><span class="hlbox__t">社会をつくる</span></span>
-          </h3>
-          <p class="statement__sub">
-            才能や環境の差を、技術で埋める。規模や経歴に関わらず、
-            挑戦する人がフェアに勝てる世界へ。
-          </p>
+        <div class="editorial-split reveal">
+          <div class="statement editorial-split__content">
+            <h3 class="statement__main">
+              誰もが、挑戦できる<br /><span class="hlbox"><span class="hlbox__t">社会をつくる</span></span>
+            </h3>
+            <p class="statement__sub">
+              才能や環境の差を、技術で埋める。規模や経歴に関わらず、
+              挑戦する人がフェアに勝てる世界へ。
+            </p>
+          </div>
+          <div class="editorial-split__media" aria-hidden="true"><!-- 今後、VISIONの画像を配置 --></div>
         </div>
       </section>
 
@@ -386,7 +392,7 @@
           </article>
         </div>
         <div class="sec__cta reveal">
-          <a class="btn btn--primary btn--lg" href="#telemo">
+          <a class="btn btn--primary btn--lg" href="./business.html">
             <span>事業紹介を詳しく見る</span><i class="btn__arrow">→</i>
           </a>
         </div>
@@ -614,7 +620,7 @@
         <nav class="footer__nav">
           <a href="#about">GIGUUUとは</a>
           <a href="#company">会社情報</a>
-          <a href="#business">事業紹介</a>
+          <a href="./business.html">事業紹介</a>
           <a href="#telemo">TELEMO</a>
           <a href="#news">お知らせ</a>
           <a href="#recruit">採用情報</a>
@@ -634,5 +640,6 @@
     </footer>
 
     <script src="./boundary-ui.js" defer></script>
+    <script type="module" src="./model-viewer.js"></script>
   </body>
 </html>

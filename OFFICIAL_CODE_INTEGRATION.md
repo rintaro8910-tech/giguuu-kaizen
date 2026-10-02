@@ -14,6 +14,7 @@
 | 対象 | 現在のファイル・要素 | 正式コードで確認すること |
 | --- | --- | --- |
 | トップページ構成・文章 | `index.html` の `#hero`、`#about`、`#business`、`#telemo` など | 公式のページ構成・表現と照合し、採用するセクションを決める |
+| ABOUT〜VISIONの交互2カラム | `index.html` の `#about`、`#mission`、`#vision` と `about-vision-split.css` | 左・右・左の文章配置を移し、MISSION・VISIONの空画像枠へ正式素材を入れる |
 | ヘッダー・モバイルメニュー | `index.html` の `.ggh`、`mi-header.css`、`boundary-ui.js` | 公式のナビ項目・リンク先・メニュー動作に合わせる |
 | ヒーローの映像・レイアウト | `index.html` の `.hero`、`concept-08.css`、`assets/telemo-blender/` | 公式素材・動画の表示条件・スマホ時の見切れを照合する |
 | ボタンの色とホバー | `mi-header.css` の `.ggh__action`、`concept-08.css` の `.hero__actions .btn--ghost` | 公式ブランド色に揃え、キーボード操作も確認する |

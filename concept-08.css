@@ -383,22 +383,25 @@
 
 .concept-08 .hero__visual {
   position: relative;
-  /* bg colour approximates the studio-white video edge; poster shows until the video plays and under reduced motion */
-  background: #f5f6f8 url("./assets/telemo-blender/telemo-poster.jpg") center / cover no-repeat;
+  /* white studio backdrop behind the transparent 3D canvas (tones taken from the hero render) */
+  background: radial-gradient(120% 140% at 22% 8%, #fefdfb 0%, #f6f7f9 52%, #e9ecf0 100%);
 }
-.concept-08 .hero__video {
-  display: block;
+.concept-08 .hero__visual .model-viewer {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  /* TELEMO sits in the middle ~31-67% of the frame height, so wide boxes can crop top/bottom safely */
-  object-fit: cover;
-  object-position: center;
+  max-width: none;
+  margin: 0;
+  aspect-ratio: auto;
 }
-/* Boxes narrower than ~2.3:1 would crop the letters' sides: show the whole frame instead */
+/* WebGL unavailable / load failure: rendered poster. TELEMO sits in ~31-68% of its height, so cover is safe up to ~6:1 */
+.concept-08 .hero__visual .model-viewer__poster { object-fit: cover; }
+/* Ultrawide-and-short screens: keep the box at most ~5.6:1 so the letters keep some headroom */
+@media (min-width: 901px) and (min-height: 760px) {
+  .concept-08 .hero__visual { min-height: calc(100vw / 5.6); }
+}
+/* Portrait/tablet boxes: use the 8:3 frame of the hero render */
 @media (min-width: 768px) and (max-width: 900px), (min-width: 901px) and (max-aspect-ratio: 9 / 8) {
-  .concept-08 .hero__visual { background-size: contain; }
-  .concept-08 .hero__video { object-fit: contain; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .concept-08 .hero__video { display: none; }
+  .concept-08 .hero__visual { flex: 0 0 auto; height: auto; min-height: 0; aspect-ratio: 8 / 3; }
 }
