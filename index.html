@@ -6,7 +6,7 @@
     <title>GIGUUU株式会社 ｜ 現場を知らないAIコールはただの空想だ。</title>
     <meta
       name="description"
-      content="GIGUUU株式会社 公式サイト。現場を知る、AIの会社。営業ノウハウをAIで再現するSaaS営業支援『TELEMO』を提供。人の可能性を、AIで拡張する。"
+      content="GIGUUU株式会社 公式サイト。現場を知る、AIの会社。営業ノウハウをAIで再現するSaaS営業支援『TELEMO』を提供。営業の現場を知るAIで、商談づくりを支援する。"
     />
 
     <!-- フォント：ディスプレイ(Orbitron/Space Grotesk) + 日本語(Noto Sans JP) -->
@@ -21,8 +21,9 @@
     <link rel="stylesheet" href="./model-viewer.css" />
     <link rel="stylesheet" href="./concept-08.css" />
     <link rel="stylesheet" href="./mi-header.css" />
-    <link rel="stylesheet" href="./about-vision-split.css" />
     <link rel="stylesheet" href="./telemo-explainer.css" />
+    <link rel="stylesheet" href="./telemo-use-cases.css?v=20261006a" />
+    <link rel="stylesheet" href="./telemo-comparison.css?v=20261006a" />
 
     <!-- importmap：CDN(unpkg) の Three.js を "three" で読み込む -->
     <script type="importmap">
@@ -138,7 +139,7 @@
             <li><strong>04</strong><span>DOMAINS</span><em>事業領域</em></li>
           </ul>
         </div>
-        <a href="#about" class="hero__scroll" aria-label="スクロール">
+        <a href="#story" class="hero__scroll" aria-label="スクロール">
           <span>SCROLL</span>
           <i></i>
         </a>
@@ -187,140 +188,10 @@
         })();
       </script>
 
-      <!-- ============ 01 ABOUT US ============ -->
-      <section class="sec" id="about">
-        <div class="sec__head reveal">
-          <span class="sec__no">01</span>
-          <h2 class="sec__title">ABOUT US</h2>
-          <span class="sec__line"></span>
-        </div>
-        <div class="panel panel--split reveal">
-          <div class="panel__lead">
-            <h3>営業の知見を、<br /><span class="grad">動く仕組みへ。</span></h3>
-          </div>
-          <div class="panel__body">
-            <p>
-              私たちGIGUUUは、<strong>営業現場の経験から生まれたAIカンパニー</strong>です。
-              主力サービス「TELEMO」では、営業歴15年以上のチームがターゲットとトークを設計し、AIが新規開拓の架電を担います。
-            </p>
-            <p>
-              全通話の録音・書き起こしと反応データをもとに、トークや分岐を継続的に改善。
-              <strong>人が設計し、AIが動かし、人が磨く。</strong>営業を属人化させず、再現できる仕組みにします。
-            </p>
-            <ul class="about__facts" aria-label="TELEMOの特徴">
-              <li><strong>13,200</strong><span>月間コール数</span></li>
-              <li><strong>全件</strong><span>録音・書き起こし</span></li>
-              <li><strong>5営業日</strong><span>最短でコール開始</span></li>
-            </ul>
-          </div>
-          <div class="about__visual" aria-hidden="true"></div>
-        </div>
-      </section>
-
-      <!-- ============ 02 MISSION ============ -->
-      <section class="sec sec--center" id="mission">
-        <div class="sec__head reveal">
-          <span class="sec__no">02</span>
-          <h2 class="sec__title">MISSION</h2>
-          <span class="sec__line"></span>
-        </div>
-        <div class="editorial-split reveal">
-          <div class="editorial-split__media" aria-hidden="true"><!-- 今後、MISSIONの画像を配置 --></div>
-          <div class="statement editorial-split__content">
-            <h3 class="statement__main">
-              人の可能性を、<br /><span class="hlbox"><span class="hlbox__t">AIで拡張する</span></span>
-            </h3>
-            <p class="statement__sub">
-              AIは人を置き換えるためではなく、人が本質的な仕事に集中するためにある。
-              繰り返しを機械に、創造を人に。私たちはその境界を引き直します。
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ 03 VISION ============ -->
-      <section class="sec sec--center" id="vision">
-        <div class="sec__head reveal">
-          <span class="sec__no">03</span>
-          <h2 class="sec__title">VISION</h2>
-          <span class="sec__line"></span>
-        </div>
-        <div class="editorial-split reveal">
-          <div class="statement editorial-split__content">
-            <h3 class="statement__main">
-              誰もが、挑戦できる<br /><span class="hlbox"><span class="hlbox__t">社会をつくる</span></span>
-            </h3>
-            <p class="statement__sub">
-              才能や環境の差を、技術で埋める。規模や経歴に関わらず、
-              挑戦する人がフェアに勝てる世界へ。
-            </p>
-          </div>
-          <div class="editorial-split__media" aria-hidden="true"><!-- 今後、VISIONの画像を配置 --></div>
-        </div>
-      </section>
-
-      <!-- ============ 04 VALUE ============ -->
-      <section class="sec" id="value">
-        <div class="sec__head reveal">
-          <span class="sec__no">04</span>
-          <h2 class="sec__title">VALUE</h2>
-          <span class="sec__line"></span>
-        </div>
-        <div class="domains">
-          <article class="domain reveal">
-            <span class="domain__num">01</span>
-            <div class="domain__body">
-              <span class="domain__tag">CHALLENGE ／ 前例がない＝伸びしろ</span>
-              <h3 class="domain__title">
-                <span class="domain__lead">挑戦を</span>
-                <span class="domain__box"><span class="domain__boxtext">止めない</span></span>
-              </h3>
-              <p class="domain__desc">失敗を恐れず挑戦する。誰もやっていないからこそ、私たちがやる意味がある。前例がないことにこそ、本当の価値がある。</p>
-            </div>
-          </article>
-
-          <article class="domain reveal">
-            <span class="domain__num">02</span>
-            <div class="domain__body">
-              <span class="domain__tag">QUESTION ／ その当たり前、本当に正しい？</span>
-              <h3 class="domain__title">
-                <span class="domain__lead">常識を</span>
-                <span class="domain__box"><span class="domain__boxtext">疑う</span></span>
-              </h3>
-              <p class="domain__desc">今までのやり方に縛られない。「当たり前」を一度立ち止まって疑い、机上の空論ではなく、現場で起きている事実から考える。</p>
-            </div>
-          </article>
-
-          <article class="domain reveal">
-            <span class="domain__num">03</span>
-            <div class="domain__body">
-              <span class="domain__tag">VALUE ／ 技術のためのAIは、作らない</span>
-              <h3 class="domain__title">
-                <span class="domain__lead">技術を</span>
-                <span class="domain__box"><span class="domain__boxtext">価値に変える</span></span>
-              </h3>
-              <p class="domain__desc">AIは目的ではなく、課題解決の手段。流行を追うのではなく、現場で本当に使われ、成果につながる形まで徹底して磨き上げる。</p>
-            </div>
-          </article>
-
-          <article class="domain reveal">
-            <span class="domain__num">04</span>
-            <div class="domain__body">
-              <span class="domain__tag">PEOPLE ／ AIの主役は、いつも人</span>
-              <h3 class="domain__title">
-                <span class="domain__lead">人を</span>
-                <span class="domain__box"><span class="domain__boxtext">主役にする</span></span>
-              </h3>
-              <p class="domain__desc">テクノロジーの先にいるのは、いつも人。まず動き、改善しながら進化する。人の可能性を広げるためにこそ、技術を使う。</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- ============ 05 OUR STORY ============ -->
+      <!-- ============ 01 OUR STORY ============ -->
       <section class="sec" id="story">
         <div class="sec__head reveal">
-          <span class="sec__no">05</span>
+          <span class="sec__no">01</span>
           <h2 class="sec__title">OUR STORY</h2>
           <span class="sec__line"></span>
         </div>
@@ -335,10 +206,10 @@
         </div>
       </section>
 
-      <!-- ============ 06 BUSINESS ============ -->
+      <!-- ============ 02 BUSINESS ============ -->
       <section class="sec" id="business">
         <div class="sec__head reveal">
-          <span class="sec__no">06</span>
+          <span class="sec__no">02</span>
           <h2 class="sec__title">BUSINESS</h2>
           <span class="sec__line"></span>
         </div>
@@ -441,10 +312,80 @@
         </div>
       </section>
 
-      <!-- ============ 07 MESSAGE ============ -->
+      <!-- ============ TELEMO / USE CASES ============ -->
+      <section class="sec telemo-cases" id="telemo-cases" aria-labelledby="telemo-cases-title">
+        <div class="telemo-cases__intro reveal">
+          <h2 id="telemo-cases-title">こんな<span>営業</span>を<span>している会社</span>に。</h2>
+          <p>TELEMOは、業種や規模を問わず、さまざまな営業シーンでご活用いただけます。</p>
+        </div>
+        <div class="telemo-cases__grid">
+          <article class="telemo-cases__card reveal"><div class="telemo-cases__card-head"><span>01</span><h3>新規法人営業</h3></div><img src="./assets/telemo-use-cases/01-new-business.webp" width="1942" height="809" alt="青空の下に建つ高層オフィスビル" loading="lazy" decoding="async" /><p>これまでアプローチできなかった企業へ、効率的にリーチできます。</p></article>
+          <article class="telemo-cases__card reveal"><div class="telemo-cases__card-head"><span>02</span><h3>大量リストへのアプローチ</h3></div><img src="./assets/telemo-use-cases/02-large-list.webp" width="1942" height="809" alt="営業資料が積まれたデスク" loading="lazy" decoding="async" /><p>数万件規模のリストにも、安定した品質で架電が可能です。</p></article>
+          <article class="telemo-cases__card reveal"><div class="telemo-cases__card-head"><span>03</span><h3>テレアポ</h3></div><img src="./assets/telemo-use-cases/03-tele-appointment.webp" width="1942" height="809" alt="ヘッドセットを着けて応対するオペレーター" loading="lazy" decoding="async" /><p>受付突破から担当者接続、温度確認、トスまで対応します。</p></article>
+          <article class="telemo-cases__card reveal"><div class="telemo-cases__card-head"><span>04</span><h3>営業代行を利用している</h3></div><img src="./assets/telemo-use-cases/04-inhouse-sales.webp" width="1942" height="809" alt="商談の席で握手する二人" loading="lazy" decoding="async" /><p>外部に頼らず、自社でコントロールできる営業基盤を構築できます。</p></article>
+          <article class="telemo-cases__card reveal"><div class="telemo-cases__card-head"><span>05</span><h3>休眠顧客の掘り起こし</h3></div><img src="./assets/telemo-use-cases/05-dormant-customers.webp" width="1942" height="809" alt="保管された顧客ファイルを取り出す手" loading="lazy" decoding="async" /><p>過去の顧客リストへ再アプローチし、眠っているニーズを発掘します。</p></article>
+          <article class="telemo-cases__card reveal"><div class="telemo-cases__card-head"><span>06</span><h3>見込み顧客への再アプローチ</h3></div><img src="./assets/telemo-use-cases/06-prospect-followup.webp" width="1942" height="809" alt="スマートフォンで連絡を確認する営業担当者" loading="lazy" decoding="async" /><p>一度接点のあった見込み顧客へ、適切なタイミングで再架電できます。</p></article>
+          <article class="telemo-cases__card reveal"><div class="telemo-cases__card-head"><span>07</span><h3>営業人員の採用・教育に悩んでいる</h3></div><img src="./assets/telemo-use-cases/07-sales-training.webp" width="1942" height="809" alt="ノートとパソコンを置いた明るいオフィスのデスク" loading="lazy" decoding="async" /><p>採用コストや教育コストを抑え、即戦力の営業活動を実現できます。</p></article>
+          <article class="telemo-cases__card reveal"><div class="telemo-cases__card-head"><span>08</span><h3>トップ営業のやり方を組織に残したい</h3></div><img src="./assets/telemo-use-cases/08-sales-knowhow.webp" width="1942" height="809" alt="窓越しに都市を見つめるビジネスパーソン" loading="lazy" decoding="async" /><p>トップ営業のトークやノウハウを仕組み化し、組織全体で再現できます。</p></article>
+        </div>
+      </section>
+
+      <!-- ============ TELEMO / SALES OPPORTUNITY COMPARISON ============ -->
+      <section class="sec telemo-compare" id="telemo-compare" aria-labelledby="telemo-compare-title">
+        <div class="telemo-compare__intro reveal">
+          <h2 id="telemo-compare-title">人1人分のコストで、<em>約<strong>5</strong>倍</em>の営業機会。</h2>
+          <p>同じコストでも、かけられる電話の数が圧倒的に違います。さらに、TELEMOは成果改善の仕組みを持っています。</p>
+        </div>
+        <div class="telemo-compare__grid reveal">
+          <article class="telemo-compare__card telemo-compare__card--human" aria-label="人による営業">
+            <header class="telemo-compare__card-header">
+              <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="11" r="7" fill="currentColor" /><path d="M5 36c1-10 6-16 15-16s14 6 15 16z" fill="currentColor" /></svg>
+              <h3>人による営業</h3><span>営業担当１人</span>
+            </header>
+            <div class="telemo-compare__card-body">
+              <img class="telemo-compare__person" src="./assets/telemo-comparison/human-sales.webp" width="1536" height="1024" alt="電話で営業する担当者" loading="lazy" decoding="async" />
+              <div class="telemo-compare__metrics">
+                <p class="telemo-compare__basis">１人あたり</p>
+                <p class="telemo-compare__cost">約 <strong>40</strong>万円／月</p>
+                <div class="telemo-compare__calls"><span>月間コール数</span><strong>4,400<small>コール</small></strong></div>
+              </div>
+            </div>
+            <div class="telemo-compare__features">
+              <p><span aria-hidden="true">◷</span>１時間<br /><strong>約25コール</strong></p>
+              <p><span aria-hidden="true">▦</span>１日（8時間）<br /><strong>約200コール</strong></p>
+              <p><span aria-hidden="true">▥</span>月間（22日稼働）<br /><strong>約4,400コール</strong></p>
+            </div>
+          </article>
+
+          <div class="telemo-compare__arrow" aria-label="約5倍の営業機会"><span>約<strong>5</strong>倍<small>の営業機会</small></span></div>
+
+          <article class="telemo-compare__card telemo-compare__card--ai" aria-label="TELEMOによる営業">
+            <header class="telemo-compare__card-header">
+              <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="8" width="30" height="25" rx="10" fill="none" stroke="currentColor" stroke-width="3" /><path d="M12 20q3-4 6 0m4 0q3-4 6 0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /><path d="M20 4v4m-2-4h4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg>
+              <h3>TELEMO</h3><span>１ID あたり</span>
+            </header>
+            <div class="telemo-compare__card-body">
+              <img class="telemo-compare__robot" src="./assets/telemo-comparison/telemo-robot.webp" width="1145" height="1374" alt="笑顔のTELEMOロボット" loading="lazy" decoding="async" />
+              <div class="telemo-compare__metrics">
+                <p class="telemo-compare__basis">１ID あたり</p>
+                <p class="telemo-compare__cost"><strong>35</strong>万円／月</p>
+                <div class="telemo-compare__calls"><span>月間コール数</span><strong>22,000<small>コール</small></strong></div>
+              </div>
+            </div>
+            <div class="telemo-compare__features">
+              <p><span aria-hidden="true">☎</span>24時間<br /><strong>自動架電</strong></p>
+              <p><span aria-hidden="true">▤</span>圧倒的な<br /><strong>コール数</strong></p>
+              <p><span aria-hidden="true">∞</span>データをもとに<br /><strong>改善し続けられる</strong></p>
+            </div>
+          </article>
+        </div>
+        <p class="telemo-compare__note">※人による営業の費用・コール数は、営業担当者１人・１日８時間・月22日稼働を想定した比較例です。TELEMOの料金・コール数は標準プランの条件です。</p>
+      </section>
+
+      <!-- ============ 03 MESSAGE ============ -->
       <section class="sec sec--center" id="message">
         <div class="sec__head reveal">
-          <span class="sec__no">08</span>
+          <span class="sec__no">03</span>
           <h2 class="sec__title">MESSAGE</h2>
           <span class="sec__line"></span>
         </div>
@@ -463,7 +404,7 @@
       <!-- ============ NEWS ============ -->
       <section class="sec" id="news">
         <div class="sec__head reveal">
-          <span class="sec__no">09</span>
+          <span class="sec__no">04</span>
           <h2 class="sec__title">NEWS</h2>
           <span class="sec__line"></span>
         </div>
@@ -492,7 +433,7 @@
       <!-- ============ RECRUIT ============ -->
       <section class="sec" id="recruit">
         <div class="sec__head reveal">
-          <span class="sec__no">10</span>
+          <span class="sec__no">05</span>
           <h2 class="sec__title">RECRUIT</h2>
           <span class="sec__line"></span>
         </div>
@@ -526,7 +467,7 @@
       <!-- ============ 会社情報 ============ -->
       <section class="sec" id="company">
         <div class="sec__head reveal">
-          <span class="sec__no">11</span>
+          <span class="sec__no">06</span>
           <h2 class="sec__title">COMPANY</h2>
           <span class="sec__line"></span>
         </div>
@@ -558,7 +499,7 @@
       <!-- ============ 各種ポリシー ============ -->
       <section class="sec" id="policy">
         <div class="sec__head reveal">
-          <span class="sec__no">12</span>
+          <span class="sec__no">07</span>
           <h2 class="sec__title">POLICY</h2>
           <span class="sec__line"></span>
         </div>
@@ -573,7 +514,7 @@
       <!-- ============ お問い合わせ ============ -->
       <section class="sec sec--center" id="contact">
         <div class="sec__head reveal">
-          <span class="sec__no">13</span>
+          <span class="sec__no">08</span>
           <h2 class="sec__title">CONTACT</h2>
           <span class="sec__line"></span>
         </div>
@@ -624,7 +565,7 @@
           <p class="footer__tag">現場を知らないAIコールはただの空想だ。</p>
         </div>
         <nav class="footer__nav">
-          <a href="#about">GIGUUUとは</a>
+          <a href="#story">GIGUUUとは</a>
           <a href="#company">会社情報</a>
           <a href="./business.html">事業紹介</a>
           <a href="#telemo">TELEMO</a>
