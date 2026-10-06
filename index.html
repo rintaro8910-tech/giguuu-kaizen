@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GIGUUU株式会社 ｜ 人の限界を、技術で超えていく</title>
+    <title>GIGUUU株式会社 ｜ 現場を知らないAIコールはただの空想だ。</title>
     <meta
       name="description"
       content="GIGUUU株式会社 公式サイト。現場を知る、AIの会社。営業ノウハウをAIで再現するSaaS営業支援『TELEMO』を提供。人の可能性を、AIで拡張する。"
@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="./concept-08.css" />
     <link rel="stylesheet" href="./mi-header.css" />
     <link rel="stylesheet" href="./about-vision-split.css" />
+    <link rel="stylesheet" href="./telemo-explainer.css" />
 
     <!-- importmap：CDN(unpkg) の Three.js を "three" で読み込む -->
     <script type="importmap">
@@ -116,9 +117,9 @@
         </div>
         <div class="hero__inner">
           <p class="eyebrow reveal">▸ ABOUT GIGUUU</p>
-          <h1 class="hero__title reveal">
-            <span class="hero__line1">人の限界を、</span>
-            <span class="hero__line2" data-text="技術で超えていく">技術で超えていく</span>
+          <h1 class="hero__title hero__title--statement reveal">
+            <span class="hero__line1">現場を知らない</span>
+            <span class="hero__line2" data-text="AIコールはただの空想だ。">AIコールは<br />ただの空想だ。</span>
           </h1>
           <p class="hero__lead reveal">
             現場を知る、AIの会社。営業会社発のテクノロジーで、<br class="brpc" />
@@ -401,12 +402,15 @@
       <!-- ============ TELEMO ============ -->
       <section class="sec" id="telemo">
         <div class="telemo reveal">
+          <div class="telemo__heading">
+            <h2>TELEMOとは？</h2>
+          </div>
           <div class="telemo__left">
             <p class="eyebrow">▸ SaaS 営業支援</p>
-            <h2 class="telemo__logo">TELEMO</h2>
-            <p class="telemo__catch">
-              営業の入口から、<span class="grad">「売れるところ」までを仕組みに。</span>
-            </p>
+            <p class="telemo__logo">TELEMO</p>
+            <h3 class="telemo__catch">
+              営業の入口から、<br /><span class="grad">「売れるところ」までを<br />仕組みに。</span>
+            </h3>
             <p class="telemo__text">
               AIによる自動架電から、担当者との会話、商品説明・ヒアリング、
               アウト返し、クロージングまでを一気通貫で行います。
@@ -421,16 +425,18 @@
             </a>
           </div>
           <div class="telemo__right">
-            <div class="telemo__viz">
-              <div class="telemo__viz-ring"></div>
-              <div class="telemo__viz-core">AI</div>
-              <ul class="telemo__viz-nodes">
-                <li>自動コール</li>
-                <li>トーク分岐</li>
-                <li>商談獲得</li>
-                <li>解析</li>
-              </ul>
-            </div>
+            <figure class="telemo__figure">
+              <img class="telemo__image" src="./assets/telemo-explainer.png" width="1672" height="939" alt="青とオレンジの光がつながる、TELEMOの会話の流れを表したイメージ" loading="lazy" decoding="async" />
+              <figcaption class="telemo__image-caption">
+                <strong>AI</strong>
+                <ul class="telemo__steps">
+                  <li>自動コール</li>
+                  <li>トーク分岐</li>
+                  <li>商談獲得</li>
+                  <li>解析</li>
+                </ul>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -615,7 +621,7 @@
         <div class="footer__brand">
           <img width="52" height="40" class="brand-logo" src="./reference/giguuu-logo.png" alt="GIGUUU株式会社 ロゴ" />
           <span>GIGUUU<span class="footer__sub">株式会社</span></span>
-          <p class="footer__tag">人の限界を、技術で超えていく</p>
+          <p class="footer__tag">現場を知らないAIコールはただの空想だ。</p>
         </div>
         <nav class="footer__nav">
           <a href="#about">GIGUUUとは</a>

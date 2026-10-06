@@ -1,25 +1,25 @@
-# Design QA — GIGUUU トップページ
+# Design QA — TELEMO explanation
 
-- 対象: `http://127.0.0.1:4173/index.html#hero`
-- 参考画像: ユーザー添付のTELEMO画像。元のヒーロー素材は `assets/concept-08-hero.png`。
-- 今回の追加: ヒーロー直下にZendesk掲載企業ロゴの参考帯。
-- 2026-10-01追加調整: PCの初期表示を画面高に合わせ、ロゴ帯を連続横スクロールに変更。
-- 2026-10-01動画化: BlenderでTELEMOの立体文字と4秒のループアニメーションを制作し、ヒーローに配置。
+- Source visual truth: user-supplied miSignal “マイシグナルとは？” screenshot (`/var/folders/3l/38v471wx4fbbqrrv78ns5q600000gn/T/TemporaryItems/NSIRD_screencaptureui_jENwKe/スクリーンショット 2026-10-05 18.14.51.png`, 1180 × 655 px). The Financial Japan screenshot informed the more human Japanese lettering.
+- Implementation: `http://127.0.0.1:4173/index.html#telemo`; Safari Computer Use captures in this conversation (the tool does not persist a screenshot path).
+- Viewports and state: Safari full-screen desktop, approximately 1920 px wide, and a narrower 884 px window; TELEMO anchor shown. Source is a design reference with different copy and assets, so comparison is at the section-frame level rather than pixel-for-pixel content matching. Capture density is not normalized.
 
-## 静的確認
+## Findings and comparison history
 
-- `index.html` の順序はヒーロー → ロゴ帯 → ABOUT US。
-- ロゴは指定どおり8社。参照画像ファイルはすべて存在し、ローカルサーバーから取得できる。
-- ページ内リンクの参照先は存在し、`index.html` 内に `business.html` へのリンクは残っていない。
-- `business.html` は削除済み。ポート8000と4173のどちらでも404を確認。
-- `index.html` と `concept-08.css` はポート4173で200。CSSの括弧数は一致。
-- 8社×2組のロゴを配置。2組目は読み上げ対象から除外。スクロールはホバー時に停止し、動きを抑える設定では停止する。
-- PC幅901px以上はヘッダー＋ヒーロー＋ロゴ帯の高さを `100svh` に合わせるCSS。高さ759px以下ではヒーロー画像と説明を横並びにする。
-- Blenderソースは `assets/telemo-blender/telemo-hero.blend`。H.264動画は1600×330px、24fps、96フレーム、4秒で、全フレームをデコードできた。
-- 動画・ポスター・HTML・CSS・JSはポート4173で200。動画はミュート・自動再生・ループ・インライン再生指定。動きを抑える設定ではJSで停止し、ポスターを表示する。
+1. The first desktop capture showed the expected centered section title, large serif copy on the left, and a landscape visual on the right. The headline wrapped in the middle of Japanese words. Fixed with intentional line breaks; the subsequent accessibility view confirms three complete lines.
+2. The first 884 px capture compressed the headline and image into narrow columns. Fixed by switching to a single column below 960 px. The subsequent Safari capture shows a readable headline, body, CTA, and image in order without horizontal overflow.
 
-## 未確認
+## Fidelity surfaces
 
-- Computer Use が `Sky Computer Use service startup request failed` で起動できず、PCとスマートフォンのレンダリング、実際に一画面へ収まるか、動画とロゴ帯の動き・見切れ方、メニュー操作、コンソールエラーは確認できていない。
+- Typography: centered sans-serif section title and Japanese Mincho headline carry the reference hierarchy. The text remains real HTML. The system Mincho fallback may vary by device.
+- Layout and rhythm: pale blue full-width section, generous top space, two desktop columns, and a stacked narrow layout match the reference frame.
+- Color: blue-on-pale-blue treatment retains GIGUUU's brand blue and existing orange action button.
+- Image: the generated TELEMO visual is a local 1672 × 939 px raster asset; the existing four process labels and “AI” remain as a caption. No miSignal-specific scientific claims or imagery are reused.
+- Copy: the existing TELEMO catch, description, tags, process labels, and CTA are retained; “TELEMOとは？” is the section heading requested by the user.
+- Interactions: header TELEMO navigation was clicked in Safari and scrolled to this section. CTA destination is unchanged. The local HTML, CSS, and image all returned HTTP 200.
 
-final result: blocked
+## Residual test gap
+
+The 390 px mobile viewport and browser console were not captured. The mobile rules were reviewed in CSS; the narrower 884 px browser capture was visually checked.
+
+final result: passed

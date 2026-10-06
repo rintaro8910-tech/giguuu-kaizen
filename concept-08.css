@@ -45,6 +45,7 @@
 }
 .concept-08 .hero__title::before,
 .concept-08 .hero__title::after { display: none; }
+.concept-08 .hero__title--statement { font-size: clamp(34px, 3.4vw, 44px); }
 .concept-08 .hero__line1,
 .concept-08 .hero__line2 {
   display: block;
@@ -193,6 +194,7 @@
   .concept-08 .hero__inner { display: block; padding-top: 32px; }
   .concept-08 .hero__inner > .eyebrow { margin-bottom: 12px; }
   .concept-08 .hero__title { margin-bottom: 22px; font-size: clamp(30px, 8vw, 40px); line-height: 1.5; }
+  .concept-08 .hero__title--statement { font-size: clamp(26px, 7vw, 34px); }
   .concept-08 .hero__lead { margin: 0 0 22px; font-size: 15px; }
   .concept-08 .hero__actions { display: flex; gap: 10px; }
   .concept-08 .hero__actions .btn--primary { width: 100%; }
@@ -336,6 +338,7 @@
   }
   .concept-08 .hero__inner > .eyebrow { margin-bottom: 8px; }
   .concept-08 .hero__title { font-size: clamp(34px, 3.4vw, 54px); line-height: 1.26; }
+  .concept-08 .hero__title--statement { font-size: clamp(30px, 2.9vw, 44px); }
   .concept-08 .hero__lead { margin: 0 0 12px; font-size: 15px; line-height: 1.7; }
   .concept-08 .hero__actions .btn { min-height: 46px; padding: 8px 20px; font-size: 13px; }
   .concept-08 .hero__stats { margin-top: 18px; }
@@ -372,6 +375,7 @@
   }
   .concept-08 .hero__inner > .eyebrow { margin-bottom: 6px; }
   .concept-08 .hero__title { margin-bottom: 9px; font-size: clamp(29px, 3vw, 43px); line-height: 1.22; }
+  .concept-08 .hero__title--statement { font-size: clamp(28px, 2.7vw, 40px); }
   .concept-08 .hero__lead { max-width: 48em; margin-bottom: 10px; font-size: 14px; line-height: 1.55; }
   .concept-08 .hero__actions { gap: 10px; }
   .concept-08 .hero__actions .btn { min-height: 42px; }
