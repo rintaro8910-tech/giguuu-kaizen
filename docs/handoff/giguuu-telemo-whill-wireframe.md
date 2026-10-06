@@ -1,8 +1,8 @@
 # GIGUUU／TELEMO × WHILL型ワイヤーフレーム
 
-視覚版：[output/giguuu-telemo-whill-wireframe.html](output/giguuu-telemo-whill-wireframe.html)
+視覚版：[../../output/giguuu-telemo-whill-wireframe.html](../../output/giguuu-telemo-whill-wireframe.html)
 
-WHILL Model C2ページから抽出した「体験 → サービス概要・行動 → 性能の根拠 → 利用イメージ → 判断材料 → 最終導線」というページ構成に、GIGUUUのTELEMO情報を配置した検討案です。内容は既存の [TELEMOページ](business.html)、[GIGUUUサイト](index.html)、および `/Users/rintaro/Downloads/提案資料0910.pdf` に基づきます。
+WHILL Model C2ページから抽出した「体験 → サービス概要・行動 → 性能の根拠 → 利用イメージ → 判断材料 → 最終導線」というページ構成に、GIGUUUのTELEMO情報を配置した検討案です。内容は既存の [TELEMOページ](../../business.html)、[GIGUUUサイト](../../index.html)、および `/Users/rintaro/Downloads/提案資料0910.pdf` に基づきます。
 
 | WHILL側の枠 | GIGUUU／TELEMOに入れた内容 |
 | --- | --- |

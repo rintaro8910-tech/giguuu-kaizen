@@ -22,7 +22,7 @@ export const CONFIG = {
   keyStep: THREE.MathUtils.degToRad(12), // ←→ キー 1 回の回転量
   idleAmplitude: THREE.MathUtils.degToRad(9), // アイドルの揺れ幅
   idlePeriod: 9,                    // アイドル 1 往復の秒数
-  idleCycles: 2,                    // 何往復したら静止するか（0 で止めない）
+  idleCycles: 0,                    // 連続してゆっくり回転（0 で止めない）
   tiltMax: THREE.MathUtils.degToRad(3.5), // カーソル追従チルトの最大角
   tiltRate: 3,                      // チルトの遅れ追従
   fov: 22,                          // 縦の画角。小さいほどパースが弱く、回転時の手前の膨らみが減る
@@ -106,6 +106,43 @@ function fallback(el) {
     img.decoding = "async";
     el.appendChild(img);
   }
+}
+
+// data-face-color / data-side-color で文字の表面・側面の色を差し替える。
+// data-accent-letter="4" data-accent-color="#..." で指定した文字だけ表面色を変える。
+// data-face-gradient="#上,#下" で表面を縦グラデーションにする(頂点カラー)。
+function recolor(root, ds) {
+  if (!ds.faceColor && !ds.sideColor && !ds.accentColor && !ds.faceGradient) return;
+  if (ds.faceGradient) {
+    const [top, bottom] = ds.faceGradient.split(",").map(c => new THREE.Color(c.trim()));
+    root.traverse(o => {
+      if (!o.isMesh || !o.material || !/face/i.test(o.material.name)) return;
+      const pos = o.geometry.attributes.position;
+      o.geometry.computeBoundingBox();
+      const { min, max } = o.geometry.boundingBox;
+      const colors = new Float32Array(pos.count * 3);
+      const c = new THREE.Color();
+      for (let i = 0; i < pos.count; i++) {
+        c.copy(bottom).lerp(top, (pos.getY(i) - min.y) / (max.y - min.y || 1));
+        colors.set([c.r, c.g, c.b], i * 3);
+      }
+      o.geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+      o.material = o.material.clone();
+      o.material.color.set(0xffffff);
+      o.material.vertexColors = true;
+    });
+  }
+  const accentName = ds.accentLetter ? `TELEMO_letter_${ds.accentLetter}` : null;
+  root.traverse(o => {
+    if (!o.isMesh || !o.material) return;
+    let isAccent = false;
+    for (let p = o; p; p = p.parent) if (accentName && p.name.replace(/\s/g, "_") === accentName) { isAccent = true; break; }
+    const isFace = /face/i.test(o.material.name);
+    const color = isFace ? (isAccent && ds.accentColor) || ds.faceColor : ds.sideColor;
+    if (!color) return;
+    o.material = o.material.clone();
+    o.material.color.set(color);
+  });
 }
 
 function disposeObject(root) {
@@ -459,6 +496,7 @@ function createViewer(el) {
     gltf => {
       if (s.destroyed) { disposeObject(gltf.scene); return; }
       model = gltf.scene;
+      recolor(model, el.dataset);
       const maxAniso = renderer.capabilities.getMaxAnisotropy();
       model.traverse(o => {
         if (!o.material) return;

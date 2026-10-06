@@ -1,7 +1,7 @@
 # WHILL Model C2 ページ構成ワイヤーフレーム
 
 参照：[WHILL公式 Model C2](https://whill.inc/jp/model-c2)（2026年10月1日確認）  
-視覚版：[output/whill-model-c2-wireframe.html](output/whill-model-c2-wireframe.html)
+視覚版：[../../output/whill-model-c2-wireframe.html](../../output/whill-model-c2-wireframe.html)
 
 ## ページの骨組み
 

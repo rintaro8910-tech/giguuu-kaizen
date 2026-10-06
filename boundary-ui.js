@@ -3,26 +3,37 @@
   "use strict";
   const burger = document.getElementById("burger");
   const links = document.getElementById("navLinks");
+  const panel = document.getElementById("gghPanel");
   const mobile = window.matchMedia("(max-width: 900px)");
+  // <=900px the burger opens the collapsed nav; wider, the nav is inline and the burger opens the small panel.
+  function syncControls() {
+    if (burger) burger.setAttribute("aria-controls", mobile.matches || !panel ? "navLinks" : "gghPanel");
+  }
   function closeMenu(restoreFocus = false) {
     if (!burger || !links) return;
     links.classList.remove("open");
+    if (panel) panel.hidden = true;
     document.body.classList.remove("menu-open");
     burger.setAttribute("aria-expanded", "false");
     burger.setAttribute("aria-label", "メニューを開く");
     if (restoreFocus) burger.focus();
   }
   if (burger && links) {
-    burger.setAttribute("aria-controls", "navLinks");
+    syncControls();
     burger.setAttribute("aria-expanded", "false");
     burger.addEventListener("click", () => {
       const opening = burger.getAttribute("aria-expanded") !== "true";
-      links.classList.toggle("open", opening);
-      document.body.classList.toggle("menu-open", opening);
+      if (mobile.matches || !panel) {
+        links.classList.toggle("open", opening);
+        document.body.classList.toggle("menu-open", opening);
+      } else {
+        panel.hidden = !opening;
+      }
       burger.setAttribute("aria-expanded", String(opening));
       burger.setAttribute("aria-label", opening ? "メニューを閉じる" : "メニューを開く");
     });
     links.querySelectorAll("a").forEach(a => a.addEventListener("click", () => closeMenu()));
+    if (panel) panel.querySelectorAll("a").forEach(a => a.addEventListener("click", () => closeMenu()));
     document.addEventListener("click", event => {
       if (!event.target.closest("#nav")) closeMenu();
     });
@@ -37,7 +48,14 @@
         else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
       }
     });
-    mobile.addEventListener("change", () => closeMenu());
+    mobile.addEventListener("change", () => { closeMenu(); syncControls(); });
+  }
+  // Header is transparent over the hero image; once scrolled it gets a translucent bar.
+  const nav = document.getElementById("nav");
+  if (nav) {
+    const syncNav = () => nav.classList.toggle("is-scrolled", window.scrollY > 24);
+    window.addEventListener("scroll", syncNav, { passive: true });
+    syncNav();
   }
   const heroVideo = document.querySelector(".hero__video");
   if (heroVideo) {

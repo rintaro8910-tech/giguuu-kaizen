@@ -1,8 +1,8 @@
 # GIGUUU / TELEMO LP ワイヤーフレーム
 
-基準にしたページ: [マイシグナル](http://127.0.0.1:8000/reference/lp-sites/#misignal)  
-ヒーロー直下のロゴ帯の参考: [Zendesk](http://127.0.0.1:8000/reference/lp-sites/#zendesk)（ユーザー指定の追加）  
-実装ページ: [business.html](business.html)  
+基準にしたページ: [マイシグナル](http://127.0.0.1:4173/reference/lp-sites/#misignal)  
+ヒーロー直下のロゴ帯の参考: [Zendesk](http://127.0.0.1:4173/reference/lp-sites/#zendesk)（ユーザー指定の追加）  
+実装ページ: [business.html](../../business.html)  
 商品情報の出典: 提案資料0910.pdf
 
 マイシグナルの「主張を示し、早い段階で信頼材料と体験を見せ、仕組み・購入判断・利用手順へ進む」流れをTELEMOに当てはめています。TELEMOの商品説明、数値、料金は提案資料に記載された内容です。マイシグナルの文章・画像・ソースコードは使用していません。Zendeskの数値とロゴは配置見本としてのみ表示します。
@@ -53,4 +53,4 @@
 └───────────────────────────────────────────────┘
 ```
 
-導入企業ロゴは実際の掲載企業が確定したら、`reference/lp-sites/stripe/logo-wall.html` の仮表示を差し替えます。仮表示を正式な導入実績としては扱いません。
+導入企業ロゴは実際の掲載企業が確定したら、`../../reference/lp-sites/stripe/logo-wall.html` の仮表示を差し替えます。仮表示を正式な導入実績としては扱いません。

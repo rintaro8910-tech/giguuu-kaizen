@@ -4,12 +4,12 @@
 
 ## 最初に読むファイル
 
-1. `telemo-wireframe.md` — 採用するページ構成と各セクションの対応表
-2. `business.html` と `telemo-lp.css` — 現在のGIGUUU / TELEMO LP
-3. `reference/lp-sites/misignal/index.html` — マイシグナルのローカル参考ページ
+1. [`telemo-wireframe.md`](telemo-wireframe.md) — 採用するページ構成と各セクションの対応表
+2. `../../business.html` と `../../telemo-lp.css` — 現在のGIGUUU / TELEMO LP
+3. `../../reference/lp-sites/misignal/index.html` — マイシグナルのローカル参考ページ
 
-プレビュー: `http://127.0.0.1:8000/business.html`  
-参照ページ: `http://127.0.0.1:8000/reference/lp-sites/#misignal`
+プレビュー: `http://127.0.0.1:4173/business.html`  
+参照ページ: `http://127.0.0.1:4173/reference/lp-sites/#misignal`
 
 ## 作業の目的
 
@@ -26,6 +26,6 @@
 
 ## 完了条件
 
-- `telemo-wireframe.md` と `business.html` のセクション順と役割が一致する。
+- [`telemo-wireframe.md`](telemo-wireframe.md) と `../../business.html` のセクション順と役割が一致する。
 - ページ内リンク、ローカル画像・CSS参照、PCとスマートフォン表示を確認する。
 - 変更したファイルと確認結果を報告する。ブラウザで確認できなければ、その点を明記する。
