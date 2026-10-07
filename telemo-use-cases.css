@@ -1,6 +1,6 @@
 /* Eight TELEMO use cases based on the supplied four-column reference. */
 .page-home main > #telemo-cases {
-  padding: 78px clamp(20px, 2vw, 40px) 96px;
+  padding: 78px max(var(--page-padding), calc((100% - 1240px) / 2)) 96px;
   background: linear-gradient(105deg, #fff 0%, #fff 70%, #f1faff 100%);
 }
 
@@ -16,6 +16,8 @@
   font-weight: 900;
   line-height: 1.2;
   letter-spacing: -.07em;
+  word-break: auto-phrase;
+  text-wrap: balance;
 }
 .page-home #telemo-cases .telemo-cases__intro h2 span { color: #00657b; }
 .page-home #telemo-cases .telemo-cases__intro p {
@@ -49,7 +51,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  min-height: 53px;
+  height: 64px;
   padding: 3px 14px 7px;
 }
 .page-home #telemo-cases .telemo-cases__card-head span {
@@ -68,7 +70,7 @@
   margin: 0;
   color: #0d1724;
   font-family: "Noto Sans JP", sans-serif;
-  font-size: clamp(14px, 1.22vw, 20px);
+  font-size: clamp(14px, 1.22vw, 17.5px);
   font-weight: 800;
   line-height: 1.35;
   letter-spacing: -.035em;
@@ -99,12 +101,12 @@
   .page-home #telemo-cases .telemo-cases__card p { font-size: 16px; }
 }
 @media (max-width: 600px) {
-  .page-home main > #telemo-cases { padding: 64px 16px 72px; }
+  .page-home main > #telemo-cases { padding: 64px var(--page-padding) 72px; }
   .page-home #telemo-cases .telemo-cases__intro h2 { font-size: clamp(32px, 8vw, 44px); letter-spacing: -.06em; }
   .page-home #telemo-cases .telemo-cases__intro p { margin-top: 16px; font-size: 15px; }
   .page-home #telemo-cases .telemo-cases__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 28px; }
   .page-home #telemo-cases .telemo-cases__card { padding: 5px; }
-  .page-home #telemo-cases .telemo-cases__card-head { flex-direction: column; align-items: flex-start; gap: 6px; min-height: 84px; padding: 6px 8px 8px; }
+  .page-home #telemo-cases .telemo-cases__card-head { flex-direction: column; align-items: flex-start; gap: 6px; height: auto; min-height: 84px; padding: 6px 8px 8px; }
   .page-home #telemo-cases .telemo-cases__card-head span { padding-right: 0; border-right: 0; font-size: 22px; }
   .page-home #telemo-cases .telemo-cases__card-head h3 { font-size: 14px; word-break: auto-phrase; }
   .page-home #telemo-cases .telemo-cases__card p { min-height: 0; padding: 8px 8px 10px; font-size: 13px; word-break: auto-phrase; }
