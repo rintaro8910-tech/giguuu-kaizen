@@ -78,7 +78,7 @@
       "bytes": 38869
     },
     "https://web-assets.zendesk.com/cdn-cgi/image/q=65,f=auto,width=1600,fit=scale-down/zendesk/pages/industry-badges/Logo_GetApp.png": {
-      "file": "assets/2f976ac982e9-Logo_GetApp.png",
+      "file": "assets/2f976ac982e9-Logo_GetApp.svg",
       "bytes": 22321
     },
     "https://web-assets.zendesk.com/fonts/VanillaSans/VanillaSans-BlackItalic.woff": {
@@ -90,7 +90,7 @@
       "bytes": 34156
     },
     "https://web-assets.zendesk.com/cdn-cgi/image/q=65,f=auto,width=1600,fit=scale-down/zendesk/pages/industry-badges/Logo_Software_Advice.png": {
-      "file": "assets/8df5727a881e-Logo_Software_Advice.png",
+      "file": "assets/8df5727a881e-Logo_Software_Advice.svg",
       "bytes": 16183
     },
     "https://web-assets.zendesk.com/fonts/VanillaSans/VanillaSans-Black.woff2": {
@@ -98,7 +98,7 @@
       "bytes": 33560
     },
     "https://web-assets.zendesk.com/cdn-cgi/image/q=65,f=auto,width=1600,fit=scale-down/zendesk/pages/industry-badges/Logo_Capterra.png": {
-      "file": "assets/6756d7e0acf7-Logo_Capterra.png",
+      "file": "assets/6756d7e0acf7-Logo_Capterra.svg",
       "bytes": 10037
     },
     "https://web-assets.zendesk.com/fonts/VanillaSans/VanillaSans-BoldItalic.woff": {

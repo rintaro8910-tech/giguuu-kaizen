@@ -26,6 +26,7 @@ SITES = {
     "misignal": "https://misignal.jp/",
     "financial-japan": "https://financialjapan.jp/recruit/",
     "elixir": "https://www.shiseido.co.jp/elixir/promotion/brightening-lotion-emulsion/",
+    "balmuda": "https://www.balmuda.com/jp/",
 }
 ASSET_SUFFIXES = {".css", ".js", ".mjs", ".png", ".jpg", ".jpeg", ".svg", ".webp", ".gif", ".avif", ".ico", ".woff", ".woff2", ".ttf", ".otf", ".mp4", ".webm"}
 CSS_URL = re.compile(r"url\(\s*(['\"]?)(.*?)\1\s*\)", re.I)

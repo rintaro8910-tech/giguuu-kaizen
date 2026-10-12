@@ -36,8 +36,10 @@ def filename(url: str) -> str:
     return f"{hashlib.sha256(url.encode()).hexdigest()[:12]}-{name}"
 
 
-def download(url: str, ips: dict[str, str]) -> tuple[str, int]:
+def download(url: str, ips: dict[str, str]) -> tuple[str, int, str]:
     path = ASSETS / filename(url)
+    if path.suffix == ".png" and path.with_suffix(".svg").exists():
+        path = path.with_suffix(".svg")
     if not path.exists() or not path.stat().st_size:
         host = urlsplit(url).hostname
         parts = urlsplit(url)
@@ -48,7 +50,11 @@ def download(url: str, ips: dict[str, str]) -> tuple[str, int]:
              "-o", str(path)],
             check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE,
         )
-    return url, path.stat().st_size
+    if path.suffix == ".png" and b"<svg" in path.read_bytes()[:1024]:
+        corrected = path.with_suffix(".svg")
+        path.rename(corrected)
+        path = corrected
+    return url, path.stat().st_size, path.name
 
 
 def main() -> None:
@@ -76,8 +82,8 @@ def main() -> None:
         for future in as_completed(futures):
             url = futures[future]
             try:
-                _, size = future.result()
-                results[url] = {"file": "assets/" + filename(url), "bytes": size}
+                _, size, name = future.result()
+                results[url] = {"file": "assets/" + name, "bytes": size}
             except Exception as exc:
                 results[url] = {"error": str(exc)}
 
