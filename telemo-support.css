@@ -411,3 +411,11 @@
   .telemo-support__closing::before,
   .telemo-support__closing::after { display: none; }
 }
+@media (max-width: 359px) {
+  /* 2 列カード（内側 116px）で「実際の音声を確認」「トーク・分岐を改善」を 1 行に */
+  .page-home .telemo-support__step-title { font-size: 13.5px; }
+  /* 「「数字を見る」だけでは終わらない。」を <br> どおり 1 行に */
+  .telemo-support__copy { font-size: 18px; }
+  /* 「定期的な結果レポート・改善提案」を 1 行に */
+  .telemo-support__items li { font-size: 14px; }
+}

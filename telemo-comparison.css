@@ -21,6 +21,7 @@
   font-size: clamp(15px, 1.45vw, 22px);
   font-weight: 600;
   line-height: 1.6;
+  text-wrap: balance;
 }
 .telemo-compare__grid {
   display: grid;
@@ -207,6 +208,11 @@
   .telemo-compare__calls { padding: 8px; }
   .telemo-compare__calls span { font-size: 12px; }
   .telemo-compare__calls strong { font-size: clamp(32px, 9vw, 44px); }
-  .telemo-compare__features p { min-height: 80px; padding-inline: 4px; font-size: 12px; }
+  .telemo-compare__features p { min-height: 80px; padding-inline: 4px; font-size: 12px; word-break: auto-phrase; }
   .telemo-compare__note { font-size: 11px; text-align: left; }
+}
+@media (max-width: 359px) {
+  /* 3 列の特長セルが 85px 幅になるので、字間と余白を詰めて「約4,400コール」を割らずに収める */
+  .telemo-compare__features p { padding-inline: 2px; letter-spacing: 0; }
+  .telemo-compare__card--human .telemo-compare__features strong { white-space: nowrap; }
 }

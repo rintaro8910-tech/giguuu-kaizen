@@ -82,7 +82,7 @@
   grid-column: 1;
   grid-row: 1;
   margin: 0 0 24px;
-  color: #0d4f9e;
+  color: #007d8c;
   font: 700 14px/1.5 Arial, "Noto Sans JP", sans-serif;
   letter-spacing: .22em;
 }
@@ -91,8 +91,8 @@
   grid-column: 1;
   grid-row: 2;
   margin: 0;
-  color: #103f78;
-  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  color: #0a2a44;
+  font-family: var(--rf-display);
   font-size: min(2.1vw, 38px); /* longest line「コールセンター経営者がつくったAI」(約16.6em) fits the 40% column */
   font-weight: 700;
   font-feature-settings: normal;
@@ -100,7 +100,7 @@
   letter-spacing: 0;
 }
 .page-home.concept-08 .hero__line1,
-.page-home.concept-08 .hero__line2 { color: #103f78; }
+.page-home.concept-08 .hero__line2 { color: #0a2a44; }
 /* boundary.css caps line2 at 7.6em on mobile (sized for the old copy) */
 .page-home.concept-08 .hero__line2 { max-width: none; }
 
@@ -142,13 +142,13 @@
 .page-home.concept-08 .hero__actions .btn--ghost {
   min-width: clamp(140px, 10.8vw, 250px);
   justify-content: center;
-  border: 1.5px solid #1260b8;
+  border: 1.5px solid #007d8c;
   background: #fff;
-  color: #1260b8;
+  color: #007d8c;
   text-decoration: none;
   box-shadow: none;
 }
-.page-home.concept-08 .hero__actions .btn--ghost:hover { background: #edf5fc; color: #0d4f9e; }
+.page-home.concept-08 .hero__actions .btn--ghost:hover { background: #eaf6f8; color: #00606c; }
 .page-home.concept-08 .hero__actions .btn__arrow {
   display: inline-grid;
   place-items: center;
@@ -168,7 +168,7 @@
   align-self: end;
   justify-self: end;
   margin: 0 -2.6vw 2vw 0;
-  color: #1765b2;
+  color: #007d8c;
   font-family: "Klee", "Hiragino Mincho ProN", "Yu Mincho", serif;
   font-size: clamp(21px, 1.85vw, 42px);
   font-style: italic;

@@ -4,7 +4,7 @@
   margin: 0 0 16px;
   font: 700 12px/1.4 "Space Grotesk", sans-serif;
   letter-spacing: .18em;
-  color: var(--rf-blue);
+  color: var(--rf-accent);
 }
 .telemo-cases__intro {
   display: grid;
@@ -15,9 +15,9 @@
 .telemo-cases__intro .telemo-story__eyebrow { grid-column: 1 / -1; }
 .telemo-cases__intro h3 {
   margin: 0;
-  font-family: var(--rf-mincho);
+  font-family: var(--rf-display);
   font-size: clamp(32px, 3.7vw, 52px);
-  font-weight: 600;
+  font-weight: 800;
   line-height: 1.4;
   color: var(--rf-heading);
 }
@@ -42,7 +42,7 @@
 .telemo-cases__grid article > span {
   font: 700 12px/1.4 "Space Grotesk", sans-serif;
   letter-spacing: .12em;
-  color: var(--rf-blue);
+  color: var(--rf-accent);
 }
 .telemo-cases__grid h4 { margin: 38px 0 12px; font-size: 18px; line-height: 1.4; color: var(--rf-heading); }
 .telemo-cases__grid p { margin: 0; font-size: 14px; line-height: 1.8; color: var(--rf-text-sub); }
@@ -69,7 +69,7 @@
 .telemo-how__intro h3 {
   margin: 0;
   font-family: var(--font-body), sans-serif;
-  font-size: clamp(32px, 4.1vw, 66px);
+  font-size: clamp(31px, 4.1vw, 51px); /* 上限 51px：本文幅 1120px に「営業の入口から、…にする。」(約 21.6em) が 1 行で収まる大きさ */
   font-weight: 800;
   line-height: 1.35;
   letter-spacing: -.05em;
@@ -84,6 +84,7 @@
   font-size: clamp(15px, 1.25vw, 20px);
   line-height: 1.8;
   font-weight: 600;
+  text-wrap: balance; /* 2 行に折れたとき末尾に「す。」だけ残さない */
 }
 .telemo-how__grid {
   display: grid;
@@ -164,6 +165,7 @@
   font-weight: 500;
   line-height: 1.7;
   color: #41505c;
+  text-wrap: pretty; /* 末尾に「す。」だけ残さない */
 }
 
 .page-home #telemo-plan { background: #fff; color: #071525; }
@@ -188,6 +190,7 @@
   font-size: clamp(15px, 1.4vw, 21px);
   line-height: 1.7;
   color: #4b5965;
+  text-wrap: balance;
 }
 .telemo-plan__pricing {
   display: grid;
@@ -238,13 +241,13 @@
 .telemo-plan__benefits > div { display: grid; grid-template-columns: 64px 1fr; column-gap: 12px; align-content: center; min-height: 118px; padding: 18px 15px; border: 1px solid #d8edf1; border-radius: 8px; background: #f6fcfd; }
 .telemo-plan__benefits span { grid-row: span 2; align-self: center; text-align: center; font: 700 52px/1 sans-serif; color: #006878; }
 .telemo-plan__benefits h4 { margin: 0; font-size: 17px; line-height: 1.5; color: #005b6c; }
-.telemo-plan__benefits p { margin: 3px 0 0; font-size: 13px; line-height: 1.5; color: #41505c; }
-.telemo-plan__effective { margin: 12px 0 0; font-size: 12px; color: #64717c; }
+.telemo-plan__benefits p { margin: 3px 0 0; font-size: 13px; line-height: 1.5; color: #41505c; text-wrap: pretty; }
+.telemo-plan__effective { margin: 12px 0 0; font-size: 12px; color: #64717c; text-wrap: pretty; }
 .telemo-plan__banner { display: flex; align-items: center; justify-content: space-between; min-height: 190px; margin-top: 18px; padding: 28px 5%; background: linear-gradient(90deg, rgba(0,55,72,.98), rgba(0,60,76,.95) 40%, rgba(0,60,76,.32)), url('assets/telemo-pricing/skyline.png') center / cover no-repeat; color: #fff; }
 .telemo-plan__banner div { border-left: 5px solid #00dbe0; padding-left: 26px; }
 .telemo-plan__banner p { margin: 0; font-size: clamp(20px, 2.4vw, 35px); line-height: 1.4; color: #fff; }
 .telemo-plan__banner strong { display: block; font-size: clamp(25px, 3vw, 43px); line-height: 1.4; color: #00dbe0; word-break: auto-phrase; text-wrap: balance; }
-.telemo-plan__banner > span { font-family: var(--rf-mincho); font-size: clamp(19px, 2.3vw, 34px); font-style: italic; line-height: 1.4; transform: rotate(-5deg); }
+.telemo-plan__banner > span { font-family: "Klee", "Hiragino Mincho ProN", "Yu Mincho", serif; font-size: clamp(19px, 2.3vw, 34px); font-style: italic; line-height: 1.4; transform: rotate(-5deg); }
 .telemo-plan__process { margin-top: 66px; }
 .telemo-plan__process-heading { text-align: center; }
 .telemo-plan__process-heading h4 {
@@ -302,7 +305,7 @@
 }
 .telemo-plan__step-body { display: grid; flex: 1; grid-template-rows: 3.6em 1fr auto; justify-items: center; min-height: 0; padding: 24px 8px 12px; text-align: center; }
 .telemo-plan__step h5 { display: flex; align-items: center; justify-content: center; margin: 0; font-size: clamp(15px, 1.2vw, 17px); font-weight: 800; line-height: 1.35; color: #00556b; word-break: auto-phrase; }
-.telemo-plan__step p { align-self: start; margin: 12px 0 0; font-size: clamp(11px, .9vw, 14px); font-weight: 500; line-height: 1.6; color: #4b5965; }
+.telemo-plan__step p { align-self: start; margin: 12px 0 0; font-size: clamp(11px, .9vw, 14px); font-weight: 500; line-height: 1.6; color: #4b5965; text-wrap: pretty; }
 .telemo-plan__step-price { width: 100%; padding: 10px 4px 5px; border-radius: 5px; background: #eaf8fc; color: #00556b; }
 .telemo-plan__step-price span { display: block; font-size: clamp(11px, .9vw, 14px); font-weight: 700; }
 .telemo-plan__step-price strong { display: block; font: 700 clamp(19px, 2.2vw, 32px)/1.25 "Space Grotesk", sans-serif; letter-spacing: -.04em; white-space: nowrap; }
@@ -311,7 +314,7 @@
 .telemo-plan__carryover { display: grid; grid-template-columns: .9fr 1.1fr; gap: 18px; margin-top: 14px; }
 .telemo-plan__carryover-intro, .telemo-plan__carryover-example { min-width: 0; padding: 20px 24px; border: 1px solid #dcecf0; border-radius: 7px; background: #effaff; }
 .telemo-plan__carryover-intro { display: flex; flex-direction: column; justify-content: center; }
-.telemo-plan__carryover-intro h5 { margin: 0; font-size: clamp(18px, 2vw, 27px); line-height: 1.4; color: #00556b; }
+.telemo-plan__carryover-intro h5 { margin: 0; font-size: clamp(18px, 2vw, 27px); line-height: 1.4; color: #00556b; text-wrap: balance; /* 320px で「し」だけ落ちるのを防ぎ 7/7 文字で折る */ }
 .telemo-plan__carryover-intro p { max-width: 32em; margin: 12px 0 0; font-size: clamp(13px, 1.15vw, 17px); line-height: 1.6; color: #4b5965; }
 .telemo-plan__carryover-example { background: #fff; }
 .telemo-plan__carryover-example > p { margin: 0 0 10px; font-size: clamp(14px, 1.4vw, 20px); font-weight: 700; color: #263541; }
@@ -411,4 +414,8 @@
   .telemo-plan__included ul { padding-right: 10px; }
   .telemo-plan__banner { padding: 24px 16px; }
   .telemo-plan__banner div { padding-left: 16px; }
+}
+@media (max-width: 359px) {
+  /* 「TELEMOについて相談する」が「相談 / する」と折れないよう、ボタン文字を 1 段小さく */
+  .telemo-plan__actions .btn { font-size: 14px; }
 }

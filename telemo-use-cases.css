@@ -27,6 +27,7 @@
   font-weight: 500;
   line-height: 1.6;
   letter-spacing: .02em;
+  text-wrap: balance;
 }
 
 .page-home #telemo-cases .telemo-cases__grid {
@@ -75,6 +76,9 @@
   line-height: 1.35;
   letter-spacing: -.035em;
   overflow-wrap: normal;
+  /* 1 行に収めるには 12.8px 以下が必要なため 2 行は許容し、「再アプロ / ーチ」のような折れ方をなくす */
+  word-break: auto-phrase;
+  text-wrap: balance;
 }
 .page-home #telemo-cases .telemo-cases__card img {
   display: block;
@@ -93,6 +97,7 @@
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0;
+  text-wrap: pretty;
 }
 
 @media (max-width: 1100px) {
