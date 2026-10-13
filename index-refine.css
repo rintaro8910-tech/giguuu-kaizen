@@ -29,7 +29,7 @@
   --rf-cta-hover: #ed7c32;
   --rf-band: var(--rf-surface-tint); /* 主張の帯。資料では濃い帯だが、白基調を保つため淡いティールの単色で敷く */
   --rf-display: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif; /* 主張の見出し。資料と同じ太いゴシック */
-  --rf-content: 1120px;
+  --rf-content: 1240px; /* 2026-10-13: 1120→1240。左右の余白を減らし、TELEMO各節（比較・活用シーン等）の幅に揃える */
   --rf-section-y: 128px;
   --rf-head-gap: 64px;
   --rf-sh-header: 0 4px 6px rgba(0, 0, 0, .05);

@@ -216,3 +216,6 @@
   .telemo-compare__features p { padding-inline: 2px; letter-spacing: 0; }
   .telemo-compare__card--human .telemo-compare__features strong { white-space: nowrap; }
 }
+
+/* カウントアップ用 span は親(strong)の書体をそのまま継承する */
+.telemo-compare .num { display: inline; font: inherit; color: inherit; letter-spacing: inherit; }
