@@ -1,0 +1,43 @@
+.telemo-concierge {
+  position: fixed;
+  z-index: 90;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  width: 340px;
+  color: #0a2a44;
+  font-family: "Noto Sans JP", sans-serif;
+  letter-spacing: 0;
+}
+.telemo-concierge *, .telemo-concierge *::before { box-sizing: border-box; }
+.telemo-concierge__scene { position: relative; display: flex; align-items: flex-end; }
+.telemo-concierge__character { width: 100px; height: 146px; object-fit: contain; flex: none; filter: drop-shadow(0 5px 5px #0a2a4415); }
+.telemo-concierge__bubble { position: relative; flex: 1; padding: 18px 18px 12px; border: 1px solid #cce4e8; border-radius: 18px 18px 18px 4px; background: #fff; box-shadow: 0 6px 28px #0a2a4410; }
+.telemo-concierge__bubble::before { content: ""; position: absolute; left: -7px; bottom: 24px; width: 12px; height: 12px; background: #fff; border-left: 1px solid #cce4e8; border-bottom: 1px solid #cce4e8; transform: rotate(45deg); }
+.telemo-concierge__comment { margin: 0; min-height: 5.4em; font-size: 14px; font-weight: 700; line-height: 1.8; overflow-wrap: anywhere; }
+.telemo-concierge__tools { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 10px; }
+.telemo-concierge__booking { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; margin-top: 14px; padding: 10px 12px; border-radius: 999px; background: #fd8e44; color: #102c40; font-size: 13px; font-weight: 800; line-height: 1.5; text-decoration: none; }
+.telemo-concierge__booking:hover { background: #ffa263; }
+.telemo-concierge button { border: 0; background: transparent; color: #536b78; font: inherit; font-size: 11px; padding: 6px 0; cursor: pointer; }
+.telemo-concierge button:hover { color: #007d8c; }
+.telemo-concierge :is(a, button):focus-visible { outline: 3px solid #007d8c; outline-offset: 4px; }
+.telemo-concierge__restore { display: none; width: 100%; text-align: right; }
+.telemo-concierge.is-collapsed .telemo-concierge__scene { display: none; }
+.telemo-concierge.is-collapsed .telemo-concierge__restore { display: block; }
+.menu-open .telemo-concierge { visibility: hidden; }
+@media (max-width: 640px) {
+  .telemo-concierge { right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); width: min(310px, calc(100vw - 24px)); }
+  .telemo-concierge__character { width: 76px; height: 114px; }
+  .telemo-concierge__bubble { padding: 12px 14px 8px; }
+  .telemo-concierge__comment { min-height: 0; font-size: 13px; line-height: 1.7; }
+  .telemo-concierge__tools { margin-top: 5px; }
+}
+@media print { .telemo-concierge { display: none; } }
+
+.telemo-booking__panel { padding: clamp(32px, 5vw, 64px) 24px; border-radius: 24px; background: #eaf6f8; text-align: center; color: #0a2a44; }
+.page-home .telemo-booking__panel h2 { margin: 0; font-size: clamp(24px, 3vw, 40px); line-height: 1.6; font-weight: 800; }
+.telemo-booking__panel > p { margin: 20px 0 28px; line-height: 1.9; }
+.telemo-booking__button { display: inline-flex; align-items: center; justify-content: center; gap: 16px; min-height: 60px; padding: 16px 28px; border: 1px solid #e17b32; border-radius: 999px; background: #fd8e44; color: #102c40; font-size: clamp(15px, 1.5vw, 18px); font-weight: 800; text-decoration: none; }
+.telemo-booking__button[aria-disabled="true"] { cursor: not-allowed; }
+.telemo-booking__button[href]:hover { background: #ffa263; }
+.telemo-booking__button:focus-visible { outline: 3px solid #007d8c; outline-offset: 4px; }
+.telemo-booking__panel > .telemo-booking__status { margin: 14px 0 0; color: #536b78; font-size: 13px; }

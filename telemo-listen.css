@@ -110,3 +110,14 @@
   .telemo-listen__qr { padding: 24px; }
 }
 @media (prefers-reduced-motion: reduce) { .telemo-listen.is-playing .telemo-listen__wave rect { animation: none; } }
+
+/* ページ内で聴ける3種類の営業デモ */
+.telemo-listen__demos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: clamp(28px, 3.5vw, 48px); }
+.telemo-listen__demo { min-width: 0; padding: 28px 24px; border: 1px solid var(--tl-line); border-radius: 20px; background: var(--tl-pale); }
+.telemo-listen__number { margin: 0 0 18px; color: var(--tl-teal); font: 700 12px/1.4 Inter, sans-serif; letter-spacing: .16em; }
+.telemo-listen__demo h3 { margin: 0; color: var(--tl-ink); font-size: clamp(20px, 2vw, 26px); font-weight: 800; }
+.telemo-listen__category { margin: 10px 0 24px; color: var(--tl-muted); font-size: 13px; }
+.telemo-listen__demo audio { display: block; width: 100%; border-radius: 8px; }
+.telemo-listen__demo audio:focus-visible { outline: 3px solid var(--tl-teal); outline-offset: 4px; }
+.telemo-listen__error { color: #9c3024; font-size: 13px; line-height: 1.7; }
+@media (max-width: 900px) { .telemo-listen__demos { grid-template-columns: 1fr; gap: 16px; } }

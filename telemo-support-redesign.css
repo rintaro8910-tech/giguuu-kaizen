@@ -1,10 +1,10 @@
 /* User-selected blue accompaniment design, 2026-10-13.
    Scoped to the replacement panel; all copy remains editable HTML. */
 .telemo-support-redesign {
-  --support-ink: #092653;
-  --support-blue: #0657db;
-  --support-pale: #e8f5ff;
-  --support-line: #b9d8fb;
+  --support-ink: #0a2a44;
+  --support-blue: #007d8c;
+  --support-pale: #eaf6f8;
+  --support-line: #cce4e8;
   container-type: inline-size;
   isolation: isolate;
   margin-top: 72px;
@@ -18,7 +18,7 @@
 .telemo-support-redesign *,
 .telemo-support-redesign *::before,
 .telemo-support-redesign *::after { box-sizing: border-box; }
-.telemo-support-redesign__stage { position: relative; height: 46.38cqw; }
+.telemo-support-redesign__stage { position: relative; height: 46.38cqw; background: #f5fafb; border-radius: 24px; overflow: hidden; }
 .telemo-support-redesign__message {
   position: absolute;
   z-index: 2;
@@ -55,7 +55,7 @@
 }
 .telemo-support-redesign__tagline {
   margin: 3.05cqw 0 0;
-  color: #608ad0;
+  color: #58818a;
   font-size: .76cqw;
   line-height: 1.7;
   letter-spacing: .35em;
@@ -69,19 +69,19 @@
 }
 .telemo-support-redesign__photo {
   position: absolute;
-  inset: 0 0 auto auto;
-  width: 61.5cqw;
-  height: 28.7cqw;
+  inset: 2cqw 2cqw auto auto;
+  width: 53cqw;
+  height: 25cqw;
   margin: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--support-pale);
 }
-.telemo-support-redesign__photo > img { display: block; width: 100%; height: 100%; object-fit: cover; }
-/* 写真の左端・上端を白背景に溶かす(2026-10-13: 青い円弧付き画像をやめ、素の写真を背景に馴染ませる) */
 .telemo-support-redesign__photo > img {
-  -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, #000 18%), linear-gradient(180deg, rgba(0,0,0,.75) 0%, #000 12%);
-  mask-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, #000 18%), linear-gradient(180deg, rgba(0,0,0,.75) 0%, #000 12%);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
+  display: block; width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(.65) contrast(.92);
 }
+.telemo-support-redesign__photo figcaption { display: none; }
 .telemo-support-redesign__photo figcaption {
   position: absolute;
   top: 4.3cqw;
@@ -113,7 +113,7 @@
   line-height: 1.4;
   letter-spacing: .05em;
 }
-.telemo-support-redesign__label::after { content: ""; flex: 1; border-top: 1px solid #92baf1; }
+.telemo-support-redesign__label::after { content: ""; flex: 1; border-top: 1px solid var(--support-line); }
 .telemo-support-redesign__items {
   display: grid;
   grid-template-columns: 1fr 1.08fr;
@@ -167,7 +167,7 @@
   .telemo-support-redesign__body br { display: none; }
   .telemo-support-redesign__tagline { margin-top: 28px; font-size: 11px; }
   .telemo-support-redesign__tagline::before { width: 64px; margin-bottom: 12px; }
-  .telemo-support-redesign__photo { position: relative; inset: auto; grid-column: 2; grid-row: 1; width: 100%; height: 100%; }
+  .telemo-support-redesign__photo { position: relative; inset: auto; grid-column: 2; grid-row: 1; width: auto; height: auto; margin: 24px 24px 24px 12px; }
   .telemo-support-redesign__photo > img { object-fit: cover; object-position: 45% center; }
   .telemo-support-redesign__photo figcaption { display: none; } /* 狭い幅では人物に被るため非表示 */
   .telemo-support-redesign__support { position: relative; inset: auto; grid-column: 1 / -1; width: auto; padding: 32px 28px; border-radius: 0; }
@@ -194,7 +194,7 @@
   .page-home .telemo-support-redesign__copy { font-size: clamp(23px, 6.2vw, 38px); line-height: 1.5; }
   .telemo-support-redesign__body { font-size: 16px; line-height: 1.9; letter-spacing: 0; }
   .telemo-support-redesign__tagline { display: none; }
-  .telemo-support-redesign__photo { width: 100%; height: auto; aspect-ratio: 1.8; }
+  .telemo-support-redesign__photo { width: auto; height: auto; margin: 0 22px 24px; aspect-ratio: 1.8; }
   .telemo-support-redesign__photo > img { object-fit: cover; object-position: center; }
   .telemo-support-redesign__photo figcaption { font-size: 9px; line-height: 1.9; }
   .telemo-support-redesign__support { padding: 28px 22px 32px; }
