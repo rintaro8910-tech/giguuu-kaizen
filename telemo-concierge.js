@@ -27,6 +27,10 @@
       '人を1人採用する前に、TELEMOを1台、一緒に育ててみませんか？',
       '商品には自信がある。でも、売る人が足りない。そんな会社さんにも。',
     ],
+    'telemo-listen': [
+      'まずは実際の営業トークを、聴いてみてください。声の自然さや、切り返しにも注目です。',
+      'どんな会話をするのか、音声で確かめてみませんか？',
+    ],
     founder: [
       '営業の現場で培ったノウハウを、TELEMOに込めています。',
       '営業の悩み、僕と一緒に考えてみませんか？',
@@ -44,6 +48,12 @@
     'telemo-compare': [
       '月35万円で22,000コール。人を雇う場合と、一度比較してみませんか？',
       'TELEMOは1コール約15.9円。月額35万円・22,000コールでの計算です。',
+    ],
+    'telemo-core': [
+      '電話の量だけでは、営業は強くならない。声・トーク設計・改善までが大事なんです。',
+    ],
+    'telemo-support': [
+      '実際の通話を聴いて、課題を見つけて、また改善。営業の現場と同じですね。',
     ],
     'telemo-support-accompaniment': [
       '導入して終わりじゃありません。結果を見ながら、一緒に育てていくんです。',
@@ -64,7 +74,11 @@
   const restore = widget.querySelector('[data-concierge-restore]');
   let current = 'hero';
   let index = 0;
-  const update = () => { copy.textContent = comments[current][index]; };
+  const update = () => {
+    copy.textContent = comments[current][index];
+    widget.dataset.section = current;
+    widget.dispatchEvent(new CustomEvent('telemo:guide-comment', { detail: { id: current } }));
+  };
   const next = () => { index = (index + 1) % comments[current].length; update(); };
   update();
   widget.querySelector('[data-concierge-next]').addEventListener('click', next);
@@ -72,6 +86,7 @@
     widget.classList.toggle('is-collapsed', value);
     scene.hidden = value;
     restore.setAttribute('aria-expanded', String(!value));
+    widget.dispatchEvent(new CustomEvent('telemo:guide-collapse', { detail: { collapsed: value } }));
     try { sessionStorage.setItem('telemo-concierge-collapsed', String(value)); } catch (_) {}
   };
   minimize.addEventListener('click', () => { collapse(true); restore.focus(); });

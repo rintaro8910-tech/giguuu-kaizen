@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="./telemo-kinetic-hero.css?v=20261013h" />
     <link rel="stylesheet" href="./telemo-support-redesign.css?v=20261019a" />
 
-    <link rel="stylesheet" href="./telemo-concierge.css?v=20261019d" />
+    <link rel="stylesheet" href="./telemo-concierge.css?v=20261020d" />
 
     <script>
       (() => {
@@ -771,21 +771,26 @@
       </div>
     </footer>
 
-    <aside class="telemo-concierge" aria-label="ミニ社長のひとこと">
+    <aside class="telemo-concierge" aria-label="ミニ社長のひとこと" data-sprite-base="./assets/concierge/president-cutout">
       <div class="telemo-concierge__scene" id="telemo-concierge-scene">
-        <img class="telemo-concierge__character" src="./assets/concierge/president-mini-v1.png" width="100" height="146" alt="ミニ社長キャラクター" />
+        <span class="telemo-concierge__avatar" data-state="idle" role="img" aria-label="TELEMOを案内するミニ社長">
+          <img class="telemo-concierge__character" src="./assets/concierge/president-mini-v1.png" width="100" height="146" alt="" />
+          <span class="telemo-concierge__sprite" aria-hidden="true"></span>
+        </span>
         <div class="telemo-concierge__bubble">
           <p class="telemo-concierge__comment">採用して、育てて、また採用。営業の人手、ずっと悩んでいませんか？</p>
           <a class="telemo-concierge__booking" href="#booking"><span>打ち合わせを予約する</span><span aria-hidden="true">↗</span></a>
           <div class="telemo-concierge__tools">
             <button type="button" data-concierge-next aria-label="次のコメントを読む">ほかの話も聞く ↻</button>
             <button type="button" data-concierge-minimize aria-controls="telemo-concierge-scene" aria-label="キャラクターと吹き出しを小さくする">小さくする</button>
+            <button type="button" data-guide-motion aria-pressed="false">動きを止める</button>
           </div>
         </div>
       </div>
       <button class="telemo-concierge__restore" type="button" data-concierge-restore aria-controls="telemo-concierge-scene" aria-expanded="false">社長のひとことを表示 ↑</button>
     </aside>
-    <script src="./telemo-concierge.js?v=20261019d" defer></script>
+    <script src="./telemo-concierge.js?v=20261020a" defer></script>
+    <script src="./telemo-walker.js?v=20261020d" defer></script>
 
     <script src="./boundary-ui.js?v=20261006i" defer></script>
     <!-- 比較セクションの数字カウントアップ(GSAP + ScrollTrigger)。reduced-motion 時と GSAP 未読込時は静的表示のまま -->
