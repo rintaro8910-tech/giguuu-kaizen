@@ -1,5 +1,5 @@
 /* Background study: fine graph paper, cut-paper edges and alternating surfaces.
-   Audio demos stack vertically; other content, typography and layout stay on the main styles.
+   Audio demos share one compact card; other content, typography and layout stay on the main styles.
    Scope: homepage main.lpsr-movie-background. No motion or third-party assets. */
 
 .page-home main.lpsr-movie-background {
@@ -24,6 +24,82 @@
 
 .page-home .lpsr-movie-background > #telemo-listen .telemo-listen__demos {
   grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  padding: 8px 28px;
+  border: 1px solid var(--rf-border);
+  border-radius: 24px;
+  background: #fff;
+}
+
+.page-home .lpsr-movie-background > #telemo-listen .telemo-listen__demo {
+  display: grid;
+  grid-template-columns: 80px minmax(190px, .55fr) minmax(280px, 1fr);
+  grid-template-areas: "number title player" "number category player";
+  align-items: center;
+  gap: 4px 24px;
+  padding: 20px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.page-home .lpsr-movie-background > #telemo-listen .telemo-listen__demo + .telemo-listen__demo {
+  border-top: 1px solid var(--rf-border);
+}
+
+.page-home .lpsr-movie-background > #telemo-listen .telemo-listen__number {
+  grid-area: number;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.page-home .lpsr-movie-background > #telemo-listen .telemo-listen__demo h3 {
+  grid-area: title;
+  align-self: end;
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.page-home .lpsr-movie-background > #telemo-listen .telemo-listen__category {
+  grid-area: category;
+  align-self: start;
+  margin: 0;
+}
+
+.page-home .lpsr-movie-background > #telemo-listen .telemo-listen__demo audio {
+  grid-area: player;
+  min-width: 0;
+}
+
+.page-home .lpsr-movie-background > #telemo-listen .telemo-listen__error {
+  grid-column: 2 / -1;
+  margin: 8px 0 0;
+}
+
+@media (max-width: 760px) {
+  .page-home .lpsr-movie-background > #telemo-listen .telemo-listen__demos {
+    padding: 4px 20px;
+    border-radius: 20px;
+  }
+
+  .page-home .lpsr-movie-background > #telemo-listen .telemo-listen__demo {
+    grid-template-columns: 64px minmax(0, 1fr);
+    grid-template-areas: "number title" "number category" "player player";
+    gap: 4px 12px;
+    padding: 16px 0;
+  }
+
+  .page-home .lpsr-movie-background > #telemo-listen .telemo-listen__demo h3 {
+    font-size: 20px;
+  }
+
+  .page-home .lpsr-movie-background > #telemo-listen .telemo-listen__demo audio {
+    margin-top: 8px;
+  }
+
+  .page-home .lpsr-movie-background > #telemo-listen .telemo-listen__error {
+    grid-column: 1 / -1;
+  }
 }
 
 /* A cut-paper backing belongs to the portrait side, leaving the story on white. */

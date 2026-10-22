@@ -1,3 +1,11 @@
+# Compact shared audio demo card — 2026-10-22
+
+The three audio demos now share one white outer card with thin dividers. Each desktop row places the demo label and description beside its native audio player; mobile moves the player beneath the label. Existing HTML copy and all audio sources are byte-identical; only the stylesheet version changes to `20261022c` and the scoped CSS is updated.
+
+Browser verification at 1440, 768, 761, 390 and 320px: all three players fit within their rows, no horizontal overflow or page exceptions, and no media errors. Desktop card-area height decreases from 779.53px to 316.53px; mobile (390px) decreases from 736.53px to 474.14px. Desktop and mobile screenshots were visually inspected. Earlier stack/background QA below describes those previous versions.
+
+---
+
 # Audio demo vertical stack — 2026-10-22
 
 The three audio demo cards now use one column at every viewport width, in the existing order: 回線デモ, デリバリーデモ, MAデモ. The override is scoped to `#telemo-listen` in `telemo-movie-background.css`; its stylesheet version is updated to `20261022b`. This intentionally increases the desktop audio section height. Existing copy, audio files, card styling and backgrounds are preserved.
