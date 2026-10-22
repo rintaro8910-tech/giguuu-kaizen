@@ -94,5 +94,14 @@
       "errors": [],
       "missing": []
     }
-  ]
+  ],
+  "copyCorrection": {
+    "greeting": "お待たせしました！ここからは僕がご案内します。",
+    "unintendedNameRemoved": true,
+    "checked": [
+      "HTML, JS, reference JSON and documentation search",
+      "browser greeting, accessible button label and manual comment wraparound"
+    ],
+    "narration": false
+  }
 }

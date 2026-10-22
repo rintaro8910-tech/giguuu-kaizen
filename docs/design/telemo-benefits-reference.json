@@ -120,7 +120,7 @@
       "path": "assets/concierge/president-cutout/poster.webp",
       "reuse": true,
       "alt": "営業を案内するミニ社長",
-      "speech": "お待たせしました、星野です！ここからは僕がご案内します。",
+      "speech": "お待たせしました！ここからは僕がご案内します。",
       "pixels": {
         "width": 256,
         "height": 384
@@ -140,7 +140,7 @@
         "on_section_exit": "hide central character and restore the existing floating guide with its prior collapsed/inert state"
       },
       "dialogue": [
-        "お待たせしました、星野です！ここからは僕がご案内します。",
+        "お待たせしました！ここからは僕がご案内します。",
         "声も、トーク設計も。営業現場の知見を詰め込んでいます。",
         "結果を見て、一緒に改善。その積み重ねが大切なんです。"
       ],
