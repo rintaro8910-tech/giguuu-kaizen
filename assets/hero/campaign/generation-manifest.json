@@ -4,7 +4,7 @@
   "actual_model": "not exposed by the tool",
   "purpose": "TELEMO campaign hero generated from supplied composition and existing own-brand assets",
   "branch": "design/telemo-campaign-hero",
-  "preview": "http://localhost:8003/?v=president-top-only",
+  "preview": "http://localhost:8003/?v=clients-first-view#hero",
   "html": "index.html#hero",
   "assets": [
     {
@@ -35,7 +35,8 @@
     "president": "Existing transparent poster.webp placed separately as a small, absolute-positioned image inside the hero. No viewport-following widget.",
     "navigation_and_ctas": "Existing functional HTML links.",
     "scope": "Hero, removal of global floating concierge markup and obsolete hero visibility script. Center benefits president/comments retained.",
-    "publication": "local review branch"
+    "publication": "local review branch",
+    "first_view": "Hero and adjacent client logo band fit together in the initial desktop and portrait-phone viewport; artwork preserves its aspect ratio."
   },
   "updated_at": "2026-10-22T10:18:25.385Z",
   "previous_assets": [

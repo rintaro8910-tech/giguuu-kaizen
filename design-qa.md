@@ -1,3 +1,17 @@
+# Hero and client logo band in the first view — 2026-10-22
+
+Preview: http://localhost:8003/?v=clients-first-view#hero. This report supersedes the preceding height/spacing measurements. Branch: `design/telemo-campaign-hero`.
+
+The hero now reserves space for the following client-logo band: 120px on desktop, 156px on tablet and 140px on mobile. Portrait phones of at least 540px height also constrain the artwork width using its original aspect ratio and the remaining viewport height. Short landscape phones retain normal scrolling for readable content. The existing heading, sample disclaimer and logo files remain unchanged. The hero president stays small and static within the hero, and CTAs retain their existing touch target sizes.
+
+`output/campaign-first-view-clients/verification.json` passes at 1920 × 1080, 1440 × 900, 1440 × 800, 1366 × 768, 1440 × 640, 1024 × 768, 768 × 1024, 767 × 900, 390 × 844, 375 × 667, 320 × 700 and 320 × 568. The full logo band, copy and logo-image height fit inside the initial viewport at every tested size. No horizontal overflow, fixed president, floating guide, character/button overlap, page exceptions or HTTP failures were found. Buttons remain at least 52px high. No JavaScript, content, image assets, links or later sections changed.
+
+Actual Chromium screenshots (deviceScaleFactor 1) are saved as `first-view-WIDTH-HEIGHT.png` in that output directory. `desktop-before-after.png` compares the live page before/after at the same 1440 × 900 CSS viewport and equal display widths. The comparison and 375 × 667 / 320 × 568 phone captures were opened and visually inspected: headline hierarchy, 3D wordmark, balloon text and native controls remain readable without distortion or clipping. No actionable P0/P1/P2 findings remain. Existing generated source/edit records and prior functional verification are preserved below. Native Safari was not independently tested.
+
+final result: passed
+
+---
+
 # Small static hero president — 2026-10-22
 
 Preview: http://localhost:8003/?v=president-top-only#hero. Branch: `design/telemo-campaign-hero`. This report supersedes the historical campaign-hero report below.

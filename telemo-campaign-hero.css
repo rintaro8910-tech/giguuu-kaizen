@@ -1,12 +1,17 @@
 /* Campaign hero study. Generated art supplies the headline and wordmark.
    A small static president belongs to this hero, with no floating guide.
-   Navigation and CTAs remain real HTML. Layout changes are scoped to this hero. */
+   Navigation and CTAs remain real HTML. Layout changes are scoped to this hero
+   and the immediately following logo band so both fit in the first view. */
+.page-home.concept-08 .lpsr-movie-background {
+  --lpsr-campaign-band-height: 120px;
+}
+
 .page-home.concept-08 #hero.lpsr-campaign-hero {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: min(100svh, calc(50vw + var(--nav-height) + 94px));
+  height: min(calc(100svh - var(--lpsr-campaign-band-height)), calc(50vw + var(--nav-height) + 94px));
   min-height: 0;
   padding: var(--nav-height) 0 0;
   background: #eaf6f8;
@@ -85,18 +90,25 @@
   pointer-events: none;
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .page-home.concept-08 #hero.lpsr-campaign-hero {
-    height: auto;
-    min-height: 0;
-  }
+.page-home.concept-08 .lpsr-campaign-hero + .reference-logo-band,
+.page-home.concept-08 .lpsr-campaign-hero + .reference-logo-band .reference-logo-band__inner {
+  height: var(--lpsr-campaign-band-height);
+  min-height: var(--lpsr-campaign-band-height);
+}
 
-  #hero.lpsr-campaign-hero .lpsr-campaign-hero__visual { flex: none; }
-  #hero.lpsr-campaign-hero .lpsr-campaign-hero__image { height: auto; }
+@media (min-width: 768px) and (max-width: 900px) {
+  .page-home.concept-08 .lpsr-movie-background {
+    --lpsr-campaign-band-height: 156px;
+  }
 }
 
 @media (max-width: 767px) {
+  .page-home.concept-08 .lpsr-movie-background {
+    --lpsr-campaign-band-height: 140px;
+  }
+
   .page-home.concept-08 #hero.lpsr-campaign-hero {
+    --lpsr-campaign-art-width: min(100%, 560px);
     height: auto;
     min-height: 0;
     padding-top: 0;
@@ -104,13 +116,13 @@
 
   #hero.lpsr-campaign-hero .lpsr-campaign-hero__visual {
     flex: none;
-    width: min(100%, 560px);
+    width: var(--lpsr-campaign-art-width);
   }
 
   #hero.lpsr-campaign-hero .lpsr-campaign-hero__image { height: auto; }
 
   .page-home #hero.lpsr-campaign-hero .lpsr-campaign-hero__president {
-    right: max(12px, calc((100% - 560px) / 2 + 12px), env(safe-area-inset-right));
+    right: max(12px, calc((100% - var(--lpsr-campaign-art-width)) / 2 + 12px), env(safe-area-inset-right));
     bottom: 102px;
     width: 64px;
   }
@@ -131,6 +143,29 @@
   }
 
   #hero.lpsr-campaign-hero .btn > span { white-space: nowrap; }
+
+  .page-home.concept-08 .lpsr-campaign-hero + .reference-logo-band .reference-logo-band__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
+    align-items: stretch;
+    padding: 12px 0;
+  }
+
+  .page-home.concept-08 .lpsr-campaign-hero + .reference-logo-band .reference-logo-band__logos {
+    margin-top: 10px;
+  }
+
+  .page-home.concept-08 .lpsr-campaign-hero + .reference-logo-band .reference-logo-band__track img {
+    height: 48px;
+  }
+}
+
+@media (max-width: 767px) and (min-height: 540px) {
+  .page-home.concept-08 #hero.lpsr-campaign-hero {
+    --lpsr-campaign-art-width: min(100%, 560px, calc((100svh - var(--nav-height) - var(--lpsr-campaign-band-height) - 90px) * .8002853));
+  }
 }
 
 @media print {
