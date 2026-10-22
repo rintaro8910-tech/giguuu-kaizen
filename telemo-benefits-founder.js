@@ -3,8 +3,8 @@
   if (!root) return;
   const section = root.closest('#telemo-core');
   const replay = root.querySelector('.lpsr-benefits-founder__replay');
-  // This second root is the existing guide that the user asked to move here.
-  const guide = document.querySelector('.telemo-concierge');
+  // A guide configured to stay fixed is independent of this center stage.
+  const guide = document.querySelector('.telemo-concierge:not([data-guide-follow="fixed"])');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   let active = false;
   let stageVisible = false;

@@ -1,0 +1,322 @@
+/* Campaign hero built with live HTML text, CSS type depth and an SVG balloon.
+   The small president keeps this hero's starting position while following scroll.
+   Navigation and CTAs remain real HTML. Layout changes are scoped to this hero
+   and the immediately following logo band so both fit in the first view. */
+.page-home.concept-08 .lpsr-movie-background {
+  --lpsr-campaign-band-height: 120px;
+}
+
+.page-home.concept-08 #hero.lpsr-campaign-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: min(calc(100svh - var(--lpsr-campaign-band-height)), calc(50vw + var(--nav-height) + 94px));
+  min-height: 0;
+  padding: var(--nav-height) 0 0;
+  background: #fff url('./assets/backgrounds/telemo-white-stripes.svg') repeat;
+}
+
+#hero.lpsr-campaign-hero .lpsr-campaign-hero__title {
+  position: absolute;
+  top: 12%;
+  left: 5%;
+  width: 92%;
+  margin: 0;
+  padding: 0;
+  color: #0a2a44;
+  font-family: var(--rf-display);
+  font-weight: 900;
+  font-feature-settings: "palt";
+  letter-spacing: -.035em;
+  line-height: 1.25;
+  white-space: nowrap;
+  border: 0;
+}
+
+#hero .lpsr-campaign-hero__headline {
+  display: block;
+  font-size: 5.5cqw;
+}
+#hero .lpsr-campaign-hero__subheadline {
+  display: block;
+  margin-top: .2em;
+  font-size: 4.85cqw;
+}
+#hero .lpsr-campaign-hero__mobile-break { display: none; }
+
+#hero.lpsr-campaign-hero .lpsr-campaign-hero__visual {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+}
+
+#hero.lpsr-campaign-hero .lpsr-campaign-hero__canvas {
+  position: relative;
+  flex: none;
+  width: min(100%, calc((100svh - var(--lpsr-campaign-band-height) - var(--nav-height) - 94px) * 2));
+  aspect-ratio: 2;
+  container-type: inline-size;
+}
+
+#hero .lpsr-campaign-hero__wordmark {
+  position: absolute;
+  top: 49%;
+  left: 4%;
+  width: max-content;
+  color: #008e9e;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 15.6cqw;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.065em;
+  white-space: nowrap;
+  transform: skewY(-2deg) scaleY(1.16);
+  transform-origin: left center;
+  -webkit-text-stroke: .045cqw #007c8a;
+  text-shadow:
+    -0.07cqw -0.035cqw 0 #f1f5f6,
+    -0.14cqw -0.070cqw 0 #f1f5f6,
+    -0.21cqw -0.105cqw 0 #f1f5f6,
+    -0.28cqw -0.140cqw 0 #f1f5f6,
+    -0.35cqw -0.175cqw 0 #f1f5f6,
+    -0.42cqw -0.210cqw 0 #f1f5f6,
+    -0.49cqw -0.245cqw 0 #f1f5f6,
+    -0.56cqw -0.280cqw 0 #f1f5f6,
+    -0.63cqw -0.315cqw 0 #f1f5f6,
+    -0.70cqw -0.350cqw 0 #f1f5f6,
+    -0.77cqw -0.385cqw 0 #f1f5f6,
+    -0.84cqw -0.420cqw 0 #f1f5f6,
+    -0.91cqw -0.455cqw 0 #f1f5f6,
+    -0.98cqw -0.490cqw 0 #f1f5f6,
+    -1.05cqw -0.525cqw 0 #f1f5f6,
+    -1.12cqw -0.560cqw 0 #f1f5f6,
+    -1.19cqw -0.595cqw 0 #f1f5f6,
+    -1.26cqw -0.630cqw 0 #f1f5f6,
+    -1.33cqw -0.665cqw 0 #f1f5f6,
+    -1.40cqw -0.700cqw 0 #bacbd0;
+  filter: drop-shadow(0 .8cqw .5cqw #0a2a4425);
+}
+
+#hero .lpsr-campaign-hero__speech {
+  position: absolute;
+  top: 54%;
+  right: 2%;
+  width: 32%;
+  aspect-ratio: 5 / 3;
+}
+#hero .lpsr-campaign-hero__speech svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+#hero .lpsr-campaign-hero__speech p {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  margin: 0;
+  color: #008c9b;
+  font-family: var(--rf-display);
+  font-size: 3.9cqw;
+  font-weight: 900;
+  font-feature-settings: "palt";
+  line-height: 1.25;
+  letter-spacing: -.025em;
+  text-align: center;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+
+#hero.lpsr-campaign-hero .lpsr-campaign-hero__actions {
+  display: flex;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: calc(100% - 40px);
+  margin: 8px 20px 28px;
+}
+
+.page-home.concept-08 #hero.lpsr-campaign-hero .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  min-width: 200px;
+  min-height: 56px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.page-home.concept-08 #hero.lpsr-campaign-hero .btn--ghost {
+  justify-content: center;
+  border: 1px solid var(--rf-accent);
+  background: #fff;
+  color: var(--rf-accent);
+  text-decoration: none;
+}
+
+.page-home.concept-08 #hero.lpsr-campaign-hero .btn--ghost:hover {
+  background: var(--rf-surface-tint);
+  color: var(--rf-accent-hover);
+}
+
+.page-home #hero.lpsr-campaign-hero .lpsr-campaign-hero__president {
+  position: absolute;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: 20px;
+  width: clamp(72px, 6vw, 112px);
+  height: auto;
+  aspect-ratio: 2 / 3;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* This guide changes only its comment. The portrait remains still. */
+.telemo-concierge.lpsr-campaign-concierge {
+  right: var(--campaign-guide-right, max(24px, env(safe-area-inset-right)));
+  bottom: var(--campaign-guide-bottom, max(20px, env(safe-area-inset-bottom)));
+  --character-width: var(--campaign-guide-width, clamp(72px, 6vw, 112px));
+  width: min(calc(var(--character-width) + 252px), calc(100vw - var(--campaign-guide-right, 24px) - 12px));
+}
+
+.lpsr-campaign-concierge .telemo-concierge__scene { gap: 12px; }
+.lpsr-campaign-concierge .telemo-concierge__avatar { margin-bottom: 0; }
+.lpsr-campaign-concierge .telemo-concierge__avatar::before { display: none; }
+.lpsr-campaign-concierge .telemo-concierge__character { filter: none; }
+.lpsr-campaign-concierge .telemo-concierge__bubble {
+  align-self: center;
+  padding: 12px 14px;
+  border-radius: 18px;
+  pointer-events: none;
+}
+.lpsr-campaign-concierge .telemo-concierge__comment {
+  min-height: 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.lpsr-campaign-concierge .telemo-concierge__bubble::before {
+  top: 50%;
+  bottom: auto;
+  margin-top: -6px;
+}
+.lpsr-campaign-concierge[data-section="hero"] .telemo-concierge__bubble { visibility: hidden; }
+
+.page-home.concept-08 .lpsr-campaign-hero + .reference-logo-band,
+.page-home.concept-08 .lpsr-campaign-hero + .reference-logo-band .reference-logo-band__inner {
+  height: var(--lpsr-campaign-band-height);
+  min-height: var(--lpsr-campaign-band-height);
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .page-home.concept-08 .lpsr-movie-background {
+    --lpsr-campaign-band-height: 156px;
+  }
+}
+
+@media (max-width: 767px) {
+  .telemo-concierge.lpsr-campaign-concierge {
+    --character-width: var(--campaign-guide-width, 64px);
+    width: min(calc(var(--character-width) + 224px), calc(100vw - var(--campaign-guide-right, 12px) - 12px));
+  }
+
+  .page-home.concept-08 .lpsr-movie-background {
+    --lpsr-campaign-band-height: 140px;
+  }
+
+  .page-home.concept-08 #hero.lpsr-campaign-hero {
+    --lpsr-campaign-art-width: min(100%, 560px);
+    height: auto;
+    min-height: 0;
+    padding-top: 0;
+  }
+
+  #hero.lpsr-campaign-hero .lpsr-campaign-hero__visual {
+    flex: none;
+    width: var(--lpsr-campaign-art-width);
+  }
+
+  #hero.lpsr-campaign-hero .lpsr-campaign-hero__canvas {
+    width: 100%;
+    aspect-ratio: 1122 / 1402;
+  }
+
+  #hero.lpsr-campaign-hero .lpsr-campaign-hero__title {
+    top: 4%;
+    left: 5%;
+    line-height: 1.2;
+  }
+  #hero .lpsr-campaign-hero__headline { font-size: 12.1cqw; }
+  #hero .lpsr-campaign-hero__subheadline { margin-top: .12em; font-size: 7.4cqw; }
+  #hero .lpsr-campaign-hero__ending { display: block; font-size: 12.1cqw; }
+  #hero .lpsr-campaign-hero__mobile-break { display: initial; }
+  #hero .lpsr-campaign-hero__wordmark { top: 50.5%; left: 6%; font-size: 20.5cqw; }
+  #hero .lpsr-campaign-hero__speech { top: 69%; left: 4%; right: auto; width: 64%; }
+  #hero .lpsr-campaign-hero__speech p { font-size: 8.2cqw; }
+
+  .page-home #hero.lpsr-campaign-hero .lpsr-campaign-hero__president {
+    right: max(12px, calc((100% - var(--lpsr-campaign-art-width)) / 2 + 12px), env(safe-area-inset-right));
+    bottom: 102px;
+    width: 64px;
+  }
+
+  #hero.lpsr-campaign-hero .lpsr-campaign-hero__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 12px 20px 24px;
+  }
+
+  .page-home.concept-08 #hero.lpsr-campaign-hero .btn {
+    gap: 6px;
+    min-width: 0;
+    min-height: 52px;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  #hero.lpsr-campaign-hero .btn > span { white-space: nowrap; }
+
+  .page-home.concept-08 .lpsr-campaign-hero + .reference-logo-band .reference-logo-band__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
+    align-items: stretch;
+    padding: 12px 0;
+  }
+
+  .page-home.concept-08 .lpsr-campaign-hero + .reference-logo-band .reference-logo-band__logos {
+    margin-top: 10px;
+  }
+
+  .page-home.concept-08 .lpsr-campaign-hero + .reference-logo-band .reference-logo-band__track img {
+    height: 48px;
+  }
+}
+
+@media (max-width: 767px) and (min-height: 540px) {
+  .page-home.concept-08 #hero.lpsr-campaign-hero {
+    --lpsr-campaign-art-width: min(100%, 560px, calc((100svh - var(--nav-height) - var(--lpsr-campaign-band-height) - 90px) * .8002853));
+  }
+}
+
+@media print {
+  .lpsr-campaign-concierge { display: none; }
+
+  .page-home.concept-08 #hero.lpsr-campaign-hero {
+    height: auto;
+    min-height: 0;
+    padding-top: 0;
+  }
+
+  #hero.lpsr-campaign-hero .lpsr-campaign-hero__visual { flex: none; }
+  #hero.lpsr-campaign-hero .lpsr-campaign-hero__canvas { width: 100%; }
+  #hero.lpsr-campaign-hero .lpsr-campaign-hero__actions { display: none; }
+}

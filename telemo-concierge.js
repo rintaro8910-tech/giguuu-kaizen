@@ -114,8 +114,8 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   onScroll();
-  // Keep reading and keyboard interaction stable; reduced-motion users advance manually.
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  // A still guide changes its bubble only when the section changes.
+  if (widget.dataset.guideFollow !== 'fixed' && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     setInterval(() => {
       if (document.hidden || widget.matches(':hover, :focus-within') || widget.classList.contains('is-collapsed')) return;
       next();
