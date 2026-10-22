@@ -117,13 +117,27 @@
     ],
     "eyebrow": "営業を強くする、6つの仕組み",
     "character": {
-      "path": "assets/telemo-comparison/telemo-robot.webp",
+      "path": "assets/concierge/president-cutout/poster.webp",
       "reuse": true,
-      "alt": "笑顔で営業を支えるTELEMOロボット",
+      "alt": "営業を案内するミニ社長",
       "speech": "現場の知見を、AIの力に。",
       "pixels": {
-        "width": 1145,
-        "height": 1374
+        "width": 256,
+        "height": 384
+      },
+      "motion": {
+        "sprite": "assets/concierge/president-cutout/wave.webp",
+        "frames": 8,
+        "entry_duration_ms": 900,
+        "wave_duration_ms": 2200,
+        "trigger": "section enters the middle viewport band: floating guide sinks, then the center stage enters when visible; click, tap, Enter or Space to replay",
+        "reduced_motion": "static portrait; no transition; existing guide motion pause is also respected",
+        "fallback": "static portrait if the sprite cannot load",
+        "reserved_stage_ratio": "1145 / 1374; preserve the previous layout dimensions",
+        "floating_guide_departure_ms": 560,
+        "center_start_after_ms": 580,
+        "while_in_section": "floating guide hidden and inert; central president remains in place",
+        "on_section_exit": "hide central character and restore the existing floating guide with its prior collapsed/inert state"
       }
     },
     "palette": {
@@ -136,10 +150,10 @@
     },
     "responsive": {
       "desktop_min_width_px": 1100,
-      "desktop": "three columns: left cards / center headline and robot / right cards",
-      "tablet": "horizontal headline with robot, then two columns in source order",
+      "desktop": "three columns: left cards / center headline and president / right cards",
+      "tablet": "horizontal headline with president, then two columns in source order",
       "mobile_max_width_px": 600,
-      "mobile": "horizontal headline with smaller robot, then one column in source order"
+      "mobile": "horizontal headline with smaller president, then one column in source order"
     },
     "adaptation_notes": [
       "Keep TELEMO content and teal palette; do not copy the reference service claims, brand mascot, blue palette or fonts.",

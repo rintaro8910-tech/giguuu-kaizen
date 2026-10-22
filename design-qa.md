@@ -1,3 +1,9 @@
+# Current character animation — 2026-10-22
+
+The benefits-section robot has been replaced by the existing president with a handoff from the floating guide. See `docs/design/benefits-founder-motion.md` and `output/benefits-founder/verification.json` for the current scope and passing verification. Layout QA below predates this character-only update.
+
+---
+
 # TELEMO benefits layout — 2026-10-22
 
 Scope: `index.html#telemo-core`, `telemo-benefits-study.css`, and `docs/design/telemo-benefits-reference.json`, on `design/aishift-background` only.
