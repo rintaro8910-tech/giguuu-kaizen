@@ -71,7 +71,7 @@
     <link rel="stylesheet" href="./telemo-benefits-founder.css?v=20261022c" />
     <link rel="stylesheet" href="./telemo-guide-comments.css?v=20261022a" />
     <link rel="stylesheet" href="./telemo-movie-background.css?v=20261022d" />
-    <link rel="stylesheet" href="./telemo-campaign-hero.css?v=20261022d" />
+    <link rel="stylesheet" href="./telemo-campaign-hero.css?v=20261022e" />
   </head>
 
   <body class="page-home concept-08 background-study">
@@ -148,7 +148,7 @@
             fetchpriority="high"
           />
         </picture>
-        <img class="lpsr-campaign-hero__president" src="./assets/concierge/president-cutout/poster.webp" width="256" height="384" alt="TELEMOを案内するミニ社長" decoding="async" />
+        <span class="lpsr-campaign-hero__president" data-campaign-guide-anchor aria-hidden="true"></span>
         <div class="lpsr-campaign-hero__actions">
           <a class="btn btn--primary" href="#telemo-how"><span>事業を見る</span><i class="btn__arrow" aria-hidden="true">→</i></a>
           <a class="btn btn--ghost" href="#contact"><span>お問い合わせ</span></a>
@@ -793,8 +793,18 @@
       </div>
     </footer>
 
-    <script src="./telemo-concierge.js?v=20261022e" defer></script>
-    <script src="./telemo-walker.js?v=20261022e" defer></script>
+    <aside class="telemo-concierge lpsr-campaign-concierge" data-guide-follow="fixed" data-section="hero" aria-label="ミニ社長のひとこと">
+      <div class="telemo-concierge__scene">
+        <span class="telemo-concierge__avatar" role="img" aria-label="TELEMOを案内するミニ社長">
+          <img class="telemo-concierge__character" src="./assets/concierge/president-cutout/poster.webp" width="256" height="384" alt="" decoding="async" />
+        </span>
+        <div class="telemo-concierge__bubble">
+          <p class="telemo-concierge__comment"></p>
+        </div>
+      </div>
+    </aside>
+    <script src="./telemo-concierge.js?v=20261022f" defer></script>
+    <script src="./telemo-campaign-guide.js?v=20261022a" defer></script>
 
     <script src="./boundary-ui.js?v=20261006i" defer></script>
     <!-- 比較セクションの数字カウントアップ(GSAP + ScrollTrigger)。reduced-motion 時と GSAP 未読込時は静的表示のまま -->
@@ -803,6 +813,6 @@
     <script src="./telemo-listen.js?v=20261019a" defer></script>
     <script src="./telemo-compare-count.js?v=20261013a" defer></script>
     <script src="./telemo-guide-comments.js?v=20261022b" defer></script>
-    <script src="./telemo-benefits-founder.js?v=20261022e" defer></script>
+    <script src="./telemo-benefits-founder.js?v=20261022f" defer></script>
   </body>
 </html>

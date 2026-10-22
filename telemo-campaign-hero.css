@@ -1,5 +1,5 @@
 /* Campaign hero study. Generated art supplies the headline and wordmark.
-   A small static president belongs to this hero, with no floating guide.
+   The small president keeps this hero's starting position while following scroll.
    Navigation and CTAs remain real HTML. Layout changes are scoped to this hero
    and the immediately following logo band so both fit in the first view. */
 .page-home.concept-08 .lpsr-movie-background {
@@ -87,8 +87,40 @@
   bottom: 20px;
   width: clamp(72px, 6vw, 112px);
   height: auto;
+  aspect-ratio: 2 / 3;
+  visibility: hidden;
   pointer-events: none;
 }
+
+/* This guide changes only its comment. The portrait remains still. */
+.telemo-concierge.lpsr-campaign-concierge {
+  right: var(--campaign-guide-right, max(24px, env(safe-area-inset-right)));
+  bottom: var(--campaign-guide-bottom, max(20px, env(safe-area-inset-bottom)));
+  --character-width: var(--campaign-guide-width, clamp(72px, 6vw, 112px));
+  width: min(calc(var(--character-width) + 252px), calc(100vw - var(--campaign-guide-right, 24px) - 12px));
+}
+
+.lpsr-campaign-concierge .telemo-concierge__scene { gap: 12px; }
+.lpsr-campaign-concierge .telemo-concierge__avatar { margin-bottom: 0; }
+.lpsr-campaign-concierge .telemo-concierge__avatar::before { display: none; }
+.lpsr-campaign-concierge .telemo-concierge__character { filter: none; }
+.lpsr-campaign-concierge .telemo-concierge__bubble {
+  align-self: center;
+  padding: 12px 14px;
+  border-radius: 18px;
+  pointer-events: none;
+}
+.lpsr-campaign-concierge .telemo-concierge__comment {
+  min-height: 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.lpsr-campaign-concierge .telemo-concierge__bubble::before {
+  top: 50%;
+  bottom: auto;
+  margin-top: -6px;
+}
+.lpsr-campaign-concierge[data-section="hero"] .telemo-concierge__bubble { visibility: hidden; }
 
 .page-home.concept-08 .lpsr-campaign-hero + .reference-logo-band,
 .page-home.concept-08 .lpsr-campaign-hero + .reference-logo-band .reference-logo-band__inner {
@@ -103,6 +135,11 @@
 }
 
 @media (max-width: 767px) {
+  .telemo-concierge.lpsr-campaign-concierge {
+    --character-width: var(--campaign-guide-width, 64px);
+    width: min(calc(var(--character-width) + 224px), calc(100vw - var(--campaign-guide-right, 12px) - 12px));
+  }
+
   .page-home.concept-08 .lpsr-movie-background {
     --lpsr-campaign-band-height: 140px;
   }
@@ -169,6 +206,8 @@
 }
 
 @media print {
+  .lpsr-campaign-concierge { display: none; }
+
   .page-home.concept-08 #hero.lpsr-campaign-hero {
     height: auto;
     min-height: 0;

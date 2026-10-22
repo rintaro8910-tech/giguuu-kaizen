@@ -1,3 +1,19 @@
+# Fixed mini-president with section comments — 2026-10-22
+
+Preview: http://localhost:8003/?v=fixed-president-comments#hero. Branch: `design/telemo-campaign-hero`. This supersedes the earlier removal of the floating president.
+
+The existing small president now follows the page at a fixed viewport position, with the same initial size/position as the approved hero. A hidden, image-free hero anchor preserves the responsive placement; the fixed portrait measures that anchor on initialization and resize, and never moves in response to scrolling. The portrait stays still. Only the compact text bubble changes when the current section changes, using existing copy. While the hero is current, its existing large balloon is used and the compact bubble is hidden. No booking button, narration, timed text rotation or avatar sprite animation is added to the fixed guide.
+
+The benefits section retains its separate center president/comments. Its handoff code skips a guide explicitly configured to stay fixed, so it cannot hide or move the floating portrait. The bubble has no pointer interaction and does not block controls beneath it. The mobile menu hides the guide while open. Existing hero artwork, logo separation, first-view client band, section copy and CTA links are preserved.
+
+`output/campaign-fixed-president/verification.json` passes at 1920 × 1080, 1440 × 900, 1024 × 768, 390 × 844, 375 × 667 and 320 × 568. Avatar viewport coordinates and dimensions remain identical across audio demos, founder, benefits and contact; section comments change and stay inside the viewport. The guide stays visible through the benefits section, the center president still arrives, returning to the hero hides the duplicate compact bubble, mobile-menu hiding and reduced-motion stillness pass. The initial portrait matches its hero anchor, the full client band still fits above the fold, and no horizontal overflow, page exceptions or HTTP failures occurred. Syntax checks pass for all three changed/new JavaScript files.
+
+Actual Chromium captures use deviceScaleFactor 1: `hero-1440.png`, `hero-390.png`, `listen-1440.png`, `listen-390.png` in that output directory. Desktop hero and desktop/mobile scrolled views were opened and inspected. The compact bubble can overlay page content as expected for this requested floating guide; pointer events pass through it. No actionable P0/P1/P2 findings remain. Native Safari was not independently tested.
+
+final result: passed
+
+---
+
 # Desktop wordmark / balloon separation — 2026-10-22
 
 Preview: http://localhost:8003/?v=wordmark-left-gap#hero. Branch: `design/telemo-campaign-hero`.
