@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
 
-function boot({ width = 1280, height = 900, reduced = false, failedAssets = false } = {}) {
+function boot({ width = 1280, height = 900, reduced = false, failedAssets = false, controls = true } = {}) {
   const callbacks = new Map();
   const requestedImages = [];
   const timers = new Map();
@@ -13,7 +13,7 @@ function boot({ width = 1280, height = 900, reduced = false, failedAssets = fals
   guide.dataset.section = 'hero';
   guide.classList = { add: x => classes.add(x), remove: x => classes.delete(x), contains: x => classes.has(x), toggle(x, on) { on ? classes.add(x) : classes.delete(x); } };
   avatar.classList = { toggle() {} };
-  guide.querySelector = x => x.includes('avatar') ? avatar : motion;
+  guide.querySelector = x => x.includes('avatar') ? avatar : controls ? motion : null;
   guide.getBoundingClientRect = () => ({ width: Math.min(340, width - 24), height: classes.has('is-collapsed') ? 32 : 260 });
   guide.matches = () => false;
   guide.style = { setProperty(k, v) { styles[k] = v; } };
@@ -67,4 +67,14 @@ assert(reduced.motion.disabled);
 const failure = boot({failedAssets: true}); await loaded();
 assert(!failure.classes.has('has-walker'));
 assert(failure.motion.hidden);
-console.log('PASS: fixed position, no walking frames, in-place gestures, pause, reduced motion, fallback.');
+
+const noControls = boot({ controls: false }); await loaded();
+assert(noControls.classes.has('has-walker'));
+noControls.section('telemo-how');
+assert.equal(noControls.avatar.dataset.state, 'talk');
+const noControlsReduced = boot({ controls: false, reduced: true }); await loaded();
+assert(noControlsReduced.classes.has('is-motion-paused'));
+assert.equal(noControlsReduced.avatar.dataset.state, 'still');
+const noControlsFailure = boot({ controls: false, failedAssets: true }); await loaded();
+assert(!noControlsFailure.classes.has('has-walker'));
+console.log('PASS: fixed position, no walking frames, in-place gestures, pause, reduced motion, fallback, absent controls.');

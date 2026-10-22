@@ -26,12 +26,13 @@
     settleTimer = setTimeout(() => setState('idle'), 3500);
   };
   const updateMotionButton = () => {
+    guide.classList.toggle('is-motion-paused', reduced());
+    if (!motionButton) return;
     motionButton.textContent = motionQuery.matches ? '動きを抑えて表示中' : reduced() ? '動きを再開' : '動きを止める';
     motionButton.disabled = motionQuery.matches;
     motionButton.setAttribute('aria-pressed', String(reduced()));
-    guide.classList.toggle('is-motion-paused', reduced());
   };
-  motionButton.addEventListener('click', () => {
+  motionButton?.addEventListener('click', () => {
     paused = !reduced();
     // The OS preference takes priority; comments and controls remain available.
     if (motionQuery.matches) paused = true;
@@ -66,5 +67,5 @@
     states.forEach((state) => guide.style.setProperty(`--guide-${state}`, `url("${spriteBase}/${state}.webp")`));
     guide.classList.add('has-walker');
     speak();
-  }).catch(() => { motionButton.hidden = true; });
+  }).catch(() => { if (motionButton) motionButton.hidden = true; });
 })();

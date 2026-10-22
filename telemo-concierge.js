@@ -82,7 +82,7 @@
   };
   const next = () => { index = (index + 1) % comments[current].length; update(); };
   update();
-  widget.querySelector('[data-concierge-next]').addEventListener('click', next);
+  widget.querySelector('[data-concierge-next]')?.addEventListener('click', next);
   if (scene && minimize && restore) {
     const collapse = (value) => {
       widget.classList.toggle('is-collapsed', value);
