@@ -14,7 +14,7 @@
   height: min(calc(100svh - var(--lpsr-campaign-band-height)), calc(50vw + var(--nav-height) + 94px));
   min-height: 0;
   padding: var(--nav-height) 0 0;
-  background: #eaf6f8;
+  background: #fff url('./assets/backgrounds/telemo-white-stripes.svg') repeat;
 }
 
 #hero.lpsr-campaign-hero .lpsr-campaign-hero__title {

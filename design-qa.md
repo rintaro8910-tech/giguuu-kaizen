@@ -1,3 +1,27 @@
+# White striped hero with continuous background — 2026-10-22
+
+Preview: http://localhost:8003/?v=white-striped-hero#hero. Branch: `design/telemo-campaign-hero`. This report supersedes the earlier pale-rectangle hero treatment.
+
+The latest user reference is `/var/folders/3l/38v471wx4fbbqrrv78ns5q600000gn/T/TemporaryItems/NSIRD_screencaptureui_0Fgyvf/スクリーンショット 2026-10-22 19.37.36.png` (2652 × 1342 source pixels). It guides the headline-above / product-left / speech-shape-right arrangement. The existing TELEMO adaptation keeps own-brand copy/materials and the previously requested small fixed president. White stripes replace the reference's blue grain under the user's explicit background request; reference actors, beverage, company, slogans, badge and colors are excluded from the webpage. Original screenshot CSS viewport/density are unknown.
+
+Built-in image_gen background-extraction edits produce `assets/hero/campaign/telemo-campaign-desktop-v4.png` (1774 × 887) and `telemo-campaign-mobile-v3.png` (1122 × 1402). Both are original RGBA output with measured alpha range 0–255 (58.4% / 53.8% fully transparent). The pale paper/floor backing is removed; navy headline, 3D teal/white letters, contact shadows and opaque white balloon remain. No raster post-processing was applied. Exact prompts/references and source roles are in the adjacent `.prompt.json` files and `generation-manifest.json`. Earlier PNGs are preserved.
+
+The hero uses one continuous white background with a subtle repeating diagonal stripe asset, including navigation/CTA space and former image margins. Therefore the stripes continue through transparent image regions without a tinted rectangular edge. No dimensions, text sizes, action targets or guide behavior changed. The requested “営業を、次のステージへ。” span is removed from the active pricing banner; its other copy is retained. Historical alternative pages are outside scope.
+
+## Visual evidence
+
+`output/campaign-white-stripes/desktop-before-after.png` and `mobile-before-after.png` compare matching 1440 × 900 and 390 × 844 CSS viewports respectively, normalized to equal column widths while preserving aspect ratios. Actual Chromium capture density is 1. Initial state: menu closed, hero current, compact guide bubble hidden, small president visible. The old rectangle boundary disappears; white letter extrusion/balloon remain distinct, all six letters and exact Japanese copy are readable, and desktop/mobile composition remains intact. `pricing-copy-1440.png` confirms the requested slogan is absent.
+
+The reference/live full-view composition board is `/tmp/telemo-white-stripes-reference-layout-comparison.png`, both inputs displayed at 680px width with preserved aspect ratios. It was opened and compared along with the desktop/mobile before/after boards and pricing capture. Differences in palette, own-brand content, portrait scale, two-line headline, native navigation/buttons and visible client band are intentional user requirements. The latest adaptation preserves the same large headline, left product and right speech-shape hierarchy. No actionable P0/P1/P2 findings remain.
+
+## Verification
+
+`output/campaign-white-stripes/verification.json` passes at 1920 × 1080, 1440 × 900, 1024 × 768, 390 × 844, 375 × 667 and 320 × 568. Correct transparent source variants decode; white base and stripe asset are active; the client band remains fully inside the first viewport; deleted slogan is absent; no horizontal overflow, page exceptions or HTTP failures occur. Guide coordinates/dimensions match the preceding approved version, and remain fixed when scrolling to audio demos while the comment changes. Previously verified keyboard/menu/form navigation behavior is unchanged. Native Safari was not independently tested.
+
+final result: passed
+
+---
+
 # Fixed mini-president with section comments — 2026-10-22
 
 Preview: http://localhost:8003/?v=fixed-president-comments#hero. Branch: `design/telemo-campaign-hero`. This supersedes the earlier removal of the floating president.
