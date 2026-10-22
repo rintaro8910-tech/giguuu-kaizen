@@ -71,6 +71,7 @@
     <link rel="stylesheet" href="./telemo-benefits-founder.css?v=20261022c" />
     <link rel="stylesheet" href="./telemo-guide-comments.css?v=20261022a" />
     <link rel="stylesheet" href="./telemo-movie-background.css?v=20261022d" />
+    <link rel="stylesheet" href="./telemo-campaign-hero.css?v=20261022b" />
   </head>
 
   <body class="page-home concept-08 background-study">
@@ -130,29 +131,26 @@
 
     <main class="lpsr-movie-background">
       <!-- ============ HERO / EDITORIAL STORYTELLING ============ -->
-      <section class="hero" id="hero">
-        <div class="hero__visual" aria-hidden="true">
+      <section class="hero lpsr-campaign-hero" id="hero" aria-labelledby="campaign-hero-title">
+        <h1 class="lpsr-campaign-hero__title" id="campaign-hero-title">
+          <span>本当の現場を知り尽くした、</span>
+          <span>コールセンター経営者がつくったAI</span>
+        </h1>
+        <picture class="lpsr-campaign-hero__visual">
+          <source media="(max-width: 767px)" srcset="./assets/hero/campaign/telemo-campaign-mobile-v1.png" width="1122" height="1402" />
           <img
-            class="kinetic-hero__image"
-            src="./assets/telemo-blender/telemo-kinetic-hero-teal-depth-2880.webp?v=20261022"
-            srcset="./assets/telemo-blender/telemo-kinetic-hero-teal-depth-1440.webp?v=20261022 1440w, ./assets/telemo-blender/telemo-kinetic-hero-teal-depth-2880.webp?v=20261022 2880w"
-            sizes="100vw"
-            width="2880"
-            height="1120"
-            alt=""
+            class="lpsr-campaign-hero__image"
+            src="./assets/hero/campaign/telemo-campaign-desktop-v1.png"
+            width="1774"
+            height="887"
+            alt="TELEMO。社長からのメッセージ：現場の知見を、AIの力に。"
             decoding="async"
             fetchpriority="high"
           />
-        </div>
-        <div class="hero__inner">
-          <h1 class="hero__title hero__title--statement reveal">
-            <span class="hero__line1">本当の現場を知り尽くした、</span>
-            <span class="hero__line2">コールセンター経営者がつくったAI</span>
-          </h1>
-          <div class="hero__actions reveal">
-            <a class="btn btn--primary" href="#telemo-how"><span>事業を見る</span><i class="btn__arrow">→</i></a>
-            <a class="btn btn--ghost" href="#contact"><span>お問い合わせ</span></a>
-          </div>
+        </picture>
+        <div class="lpsr-campaign-hero__actions">
+          <a class="btn btn--primary" href="#telemo-how"><span>事業を見る</span><i class="btn__arrow" aria-hidden="true">→</i></a>
+          <a class="btn btn--ghost" href="#contact"><span>お問い合わせ</span></a>
         </div>
         <a href="#founder" class="hero__scroll" aria-label="スクロール">
           <span>SCROLL</span>
@@ -817,5 +815,6 @@
     <script src="./telemo-compare-count.js?v=20261013a" defer></script>
     <script src="./telemo-guide-comments.js?v=20261022b" defer></script>
     <script src="./telemo-benefits-founder.js?v=20261022e" defer></script>
+    <script src="./telemo-campaign-hero.js?v=20261022a" defer></script>
   </body>
 </html>

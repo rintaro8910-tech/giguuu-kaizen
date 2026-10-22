@@ -1,3 +1,38 @@
+# TELEMO campaign hero — 2026-10-22
+
+Preview: http://localhost:8003/?v=campaign-hero-final. Branch: `design/telemo-campaign-hero`. This local review branch includes the pending background/audio-card design branch and the latest main's deeper 3D wordmark assets. The campaign change itself is limited to `index.html#hero`, a dedicated CSS/JS link, generated hero art and QA records.
+
+## Source and comparison evidence
+
+- Composition reference: the user's 2048 × 1074 advertising screenshot, `/var/folders/3l/38v471wx4fbbqrrv78ns5q600000gn/T/TemporaryItems/NSIRD_screencaptureui_GATbxD/スクリーンショット 2026-10-22 18.34.43.png`. Its original CSS viewport and density are unknown. The reference is used for the headline/product/character/speech-balloon arrangement only; its actors, products, wording, logo and bright palette are not included in the page. Original-reference/adaptation comparison: `/tmp/telemo-campaign-reference-layout-comparison.png`, both normalized to the same 680px display width, preserving aspect ratio. Header position, native CTAs, own brand/copy and the single president are intentional adaptations.
+- Selected desktop visual target: `assets/hero/campaign/telemo-campaign-desktop-v1.png`, 1774 × 887 pixels, 2:1. Selected mobile visual target: `assets/hero/campaign/telemo-campaign-mobile-v1.png`, 1122 × 1402 pixels. Both were generated with built-in image_gen, inspected, and kept unaltered. Exact prompts and source roles: `assets/hero/campaign/generation-manifest.json`.
+- Browser captures: `output/campaign-hero/hero-1920-1080.png`, `hero-1440-900.png`, `hero-1440-800.png`, `hero-390-844.png`, `hero-320-700.png`. Filenames indicate CSS viewport size; deviceScaleFactor is 1, so screenshot pixels equal CSS pixels. State: initial hero, navigation closed, both CTAs visible, floating guide hidden while the art already contains the president.
+- Same-input source/render comparisons: `output/campaign-hero/desktop-art-comparison.png` and `mobile-art-comparison.png`. Original art and actual rendered image regions are normalized to equal display widths. Desktop uses contain fitting with no clipping or stretching; mobile uses the full portrait artwork. These combined boards were opened and visually compared before passing QA.
+
+## Comparison history and fixes
+
+1. [P2, fixed] On the 1920 × 1080 viewport, the initial 900px hero height cap reduced the artwork to 1428px wide and left excessive side margins. Replaced the cap with the lesser of viewport height and the 2:1 artwork plus header/CTA height. The artwork now paints at 1788 × 894px and both CTAs remain above the fold. Same-viewport before/after evidence: `output/campaign-hero/wide-size-comparison.png`.
+2. [P2, fixed] At 320px, the initial primary-button label wrapped to two lines. Reduced horizontal padding/gap and kept its text on one line. Primary button height is now 54px, secondary 52px; both fit. Focused, same-viewport comparison: `output/campaign-hero/mobile-cta-comparison.png`.
+3. Final desktop/mobile art comparisons and full-view captures show no remaining actionable P0/P1/P2 findings. The two-pixel native-control height difference is minor and does not affect alignment or use.
+
+## Required fidelity surfaces
+
+- Fonts/typography: the exact original hero headline and the existing phrase “現場の知見を、AIの力に。” are part of the generated advertising art, retained as image text. The headline is also a single accessible HTML h1. Generated lettering uses a heavy, friendly Japanese gothic hierarchy. Navigation and real CTA labels retain the site's local fonts; CTA sizes are 15px desktop and 13px mobile. No text clipping, Japanese substitutions or squeezed image proportions were observed.
+- Spacing/layout: large headline above the reduced 3D TELEMO wordmark, president and speech balloon on the right; mobile is a portrait recomposition. Wordmark occupies approximately 64% of the desktop artwork rather than the old full-width treatment. Header and buttons stay separate HTML. At every verified viewport, CTAs are above the fold and document horizontal overflow is zero.
+- Colors/tokens: pale teal/off-white paper texture, navy headline, teal front faces, white 3D sides and white speech balloon. Existing orange primary CTA is preserved. No dark background panel or reference campaign colors are added.
+- Image quality: both generated assets are loaded at their correct aspect ratios and remain original PNGs. All six TELEMO letters, the president's identity/pose, Japanese copy and balloon are legible. The original art supplies the wordmark, person and balloon; no code-drawn substitutes are used. The mobile hair/wordmark overlap is part of the selected artwork and leaves the wordmark readable.
+- Copy/content: original two-line hero statement, existing CTA labels/links and existing brand message are retained. No metrics, achievements, offers or new claims are invented. HTML outside the hero is byte-identical after excluding the two dedicated CSS/JS links.
+
+## Browser and functional verification
+
+`output/campaign-hero/verification.json`: 1920 × 1080, 1440 × 900, 1440 × 800, 1024 × 768, 768 × 1024, 390 × 844 and 320 × 700. Responsive image selection, image decoding, no overflow, one accessible h1 and CTA touch targets of at least 52px pass. Keyboard focus/Enter on the main CTA navigates to the workflow; contact CTA reaches the existing form; mobile menu opens, navigates and closes. The floating president restores outside the hero, and the benefits-section center entrance/greeting/next-comment handoff still works. Reduced-motion hero rendering passes. No page exceptions or failed HTTP responses occurred. No form was submitted and no new audio was added.
+
+Verification used the previously authorized Playwright browser and local Chromium captures. Native Safari was not independently verified. PNG optimization is optional follow-up polish; there are no remaining blocking findings. The prototype remains running locally for review.
+
+final result: passed
+
+---
+
 # Desktop background spacing — 2026-10-22
 
 At widths of 1024px and above, the six existing background panels alternate grid / plain: audio demos, workflow, benefits, pricing, company, contact. The pricing panel now uses its solid pale teal surface with the white paper layer. This is a panel-based interpretation of the user's requested spacing. Mobile backgrounds are preserved. Stylesheet version: `20261022d`.
