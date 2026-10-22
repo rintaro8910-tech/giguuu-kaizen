@@ -69,6 +69,7 @@
     ],
   };
   const copy = widget.querySelector('.telemo-concierge__comment');
+  if (!copy) return;
   const scene = widget.querySelector('.telemo-concierge__scene');
   const minimize = widget.querySelector('[data-concierge-minimize]');
   const restore = widget.querySelector('[data-concierge-restore]');
@@ -82,16 +83,18 @@
   const next = () => { index = (index + 1) % comments[current].length; update(); };
   update();
   widget.querySelector('[data-concierge-next]').addEventListener('click', next);
-  const collapse = (value) => {
-    widget.classList.toggle('is-collapsed', value);
-    scene.hidden = value;
-    restore.setAttribute('aria-expanded', String(!value));
-    widget.dispatchEvent(new CustomEvent('telemo:guide-collapse', { detail: { collapsed: value } }));
-    try { sessionStorage.setItem('telemo-concierge-collapsed', String(value)); } catch (_) {}
-  };
-  minimize.addEventListener('click', () => { collapse(true); restore.focus(); });
-  restore.addEventListener('click', () => { collapse(false); minimize.focus(); });
-  try { collapse(sessionStorage.getItem('telemo-concierge-collapsed') === 'true'); } catch (_) {}
+  if (scene && minimize && restore) {
+    const collapse = (value) => {
+      widget.classList.toggle('is-collapsed', value);
+      scene.hidden = value;
+      restore.setAttribute('aria-expanded', String(!value));
+      widget.dispatchEvent(new CustomEvent('telemo:guide-collapse', { detail: { collapsed: value } }));
+      try { sessionStorage.setItem('telemo-concierge-collapsed', String(value)); } catch (_) {}
+    };
+    minimize.addEventListener('click', () => { collapse(true); restore.focus(); });
+    restore.addEventListener('click', () => { collapse(false); minimize.focus(); });
+    try { collapse(sessionStorage.getItem('telemo-concierge-collapsed') === 'true'); } catch (_) {}
+  }
   // Read section positions in a single animation frame as the visitor scrolls.
   const sections = Object.keys(comments).map((id) => document.getElementById(id)).filter(Boolean);
   let scheduled = false;

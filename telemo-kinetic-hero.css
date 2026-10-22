@@ -122,7 +122,7 @@
   line-height: 1.85;
   letter-spacing: 0;
 }
-.page-home.concept-08 .hero__actions { display: flex; gap: clamp(12px, 1.43vw, 32px); flex-wrap: wrap; }
+.page-home.concept-08 .hero__actions { grid-column: 1; grid-row: 3; display: flex; gap: clamp(12px, 1.43vw, 32px); flex-wrap: wrap; margin-top: clamp(20px, 2vw, 32px); }
 .page-home.concept-08 .hero__actions .btn {
   min-height: clamp(52px, 3.76vw, 80px);
   border-radius: 999px;
