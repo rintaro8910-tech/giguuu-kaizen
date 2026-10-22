@@ -1,3 +1,11 @@
+# Audio demo vertical stack — 2026-10-22
+
+The three audio demo cards now use one column at every viewport width, in the existing order: 回線デモ, デリバリーデモ, MAデモ. The override is scoped to `#telemo-listen` in `telemo-movie-background.css`; its stylesheet version is updated to `20261022b`. This intentionally increases the desktop audio section height. Existing copy, audio files, card styling and backgrounds are preserved.
+
+Browser verification at 1440, 390 and 320px: three aligned, non-overlapping vertical cards; no horizontal overflow or page exceptions. All three audio sources load without media errors. Visual desktop verification passed. The background comparison below describes the earlier background-only commit.
+
+---
+
 # Movie reference background study — 2026-10-22
 
 Branch: `design/movie-background`, based on merged main `dc5d355`. Preview: http://localhost:8002/?v=movie-background#telemo-core.

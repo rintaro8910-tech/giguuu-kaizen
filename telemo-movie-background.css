@@ -1,5 +1,5 @@
 /* Background study: fine graph paper, cut-paper edges and alternating surfaces.
-   Original CSS/SVG only; content, typography and layout stay on the main styles.
+   Audio demos stack vertically; other content, typography and layout stay on the main styles.
    Scope: homepage main.lpsr-movie-background. No motion or third-party assets. */
 
 .page-home main.lpsr-movie-background {
@@ -20,6 +20,10 @@
     100% calc(100% - var(--lpsr-movie-cut)), 28% 100%,
     0 calc(100% - var(--lpsr-movie-cut))
   );
+}
+
+.page-home .lpsr-movie-background > #telemo-listen .telemo-listen__demos {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 /* A cut-paper backing belongs to the portrait side, leaving the story on white. */
