@@ -1,3 +1,27 @@
+# Native HTML / CSS / SVG hero — 2026-10-22
+
+Preview: http://localhost:8003/?v=code-hero#hero. Branch: `design/telemo-campaign-hero`. This supersedes the raster-art implementation below. The user's explicit request to construct the hero in code determines the medium.
+
+The hero no longer uses a generated PNG. Its visible h1, TELEMO wordmark and balloon copy are editable HTML text. CSS text shadows create the white letter depth and soft contact shadow; an inline SVG path draws the balloon, and the existing native SVG tile supplies white stripes. The existing small president is the only bitmap in the hero experience, rendered in its separate fixed guide. No new image generation, framework, library, canvas or dependency is added. Original generated files and their prompts remain archived in `assets/hero/campaign/generation-manifest.json`.
+
+## Visual target and comparisons
+
+The layout reference remains the user's advertising screenshot `/var/folders/3l/38v471wx4fbbqrrv78ns5q600000gn/T/TemporaryItems/NSIRD_screencaptureui_0Fgyvf/スクリーンショット 2026-10-22 19.37.36.png` (2652 × 1342 pixels, original viewport/density unknown). It supplies the top headline / left product / right speech arrangement. White stripes, own-brand Japanese copy, small fixed president, native controls and first-view client band remain intentional user requirements; source beverage, actors, claims and branding are excluded.
+
+The immediate implementation targets are the preceding approved white-stripe captures in `output/campaign-white-stripes/hero-1440-900.png` and `hero-390-844.png`. `output/campaign-code-hero/desktop-before-after.png` and `mobile-before-after.png` compare those to the code implementation at matching 1440 × 900 and 390 × 844 CSS viewports and equal column display widths, with aspect ratios preserved. Actual capture density is 1. State: initial hero, menu closed, compact guide bubble hidden. The original reference / live comparison is `/tmp/telemo-code-hero-reference-comparison.png`, normalized to equal 680px display widths. These boards and the 320 × 568 capture were opened and inspected.
+
+Typography uses the site's local Noto Sans JP at weight 900, navy headline and teal emphasis. Desktop has two headline lines; mobile recomposes the same copy into four lines. Logo letters are selectable HTML with CSS depth; the code version intentionally replaces photoreal material shading with solid brand colors and clean type. The balloon retains two centered text lines, a white fill, teal outline and down-right tail. The white background is continuous and there is no raster boundary. Logo/heading/balloon separation, foreground copy, native actions and client band are preserved.
+
+[P2, fixed] Initial mobile title/logo boxes overlapped, and the first bubble text adjustment left insufficient interior padding. Reduced/repositioned the mobile wordmark and set a balanced bubble font size. Final captures and geometry checks show separated title/logo/balloon regions, readable centered copy inside the balloon and no CTA overlap. No actionable P0/P1/P2 findings remain.
+
+## Browser verification
+
+`output/campaign-code-hero/verification.json` passes at 1920 × 1080, 1440 × 900, 1440 × 800, 1440 × 640, 1024 × 768, 768 × 1024, 767 × 900, 390 × 844, 375 × 667 and 320 × 568. All show one visible h1 with exact copy, live TELEMO text, no hero img/picture/canvas element, and zero generated campaign-image requests. No title/logo or logo/balloon intersection, horizontal overflow, clipped balloon text or CTA overlap occurs. The complete client band remains in the first viewport, CTAs are at least 52px tall, and the president retains its viewport position when scrolling while its comment updates. Keyboard primary CTA, contact navigation and mobile menu opening/closing pass. Heading, wordmark and balloon remain visible with JavaScript disabled. No page exceptions or failed HTTP responses occurred. Native Safari was not independently tested.
+
+final result: passed
+
+---
+
 # White striped hero with continuous background — 2026-10-22
 
 Preview: http://localhost:8003/?v=white-striped-hero#hero. Branch: `design/telemo-campaign-hero`. This report supersedes the earlier pale-rectangle hero treatment.

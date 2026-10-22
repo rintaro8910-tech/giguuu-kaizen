@@ -1,4 +1,4 @@
-/* Campaign hero study. Generated art supplies the headline and wordmark.
+/* Campaign hero built with live HTML text, CSS type depth and an SVG balloon.
    The small president keeps this hero's starting position while following scroll.
    Navigation and CTAs remain real HTML. Layout changes are scoped to this hero
    and the immediately following logo band so both fit in the first view. */
@@ -19,30 +19,116 @@
 
 #hero.lpsr-campaign-hero .lpsr-campaign-hero__title {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
+  top: 12%;
+  left: 5%;
+  width: 92%;
+  margin: 0;
   padding: 0;
-  overflow: hidden;
-  clip-path: inset(50%);
+  color: #0a2a44;
+  font-family: var(--rf-display);
+  font-weight: 900;
+  font-feature-settings: "palt";
+  letter-spacing: -.035em;
+  line-height: 1.25;
   white-space: nowrap;
   border: 0;
 }
 
+#hero .lpsr-campaign-hero__headline {
+  display: block;
+  font-size: 5.5cqw;
+}
+#hero .lpsr-campaign-hero__subheadline {
+  display: block;
+  margin-top: .2em;
+  font-size: 4.85cqw;
+}
+#hero .lpsr-campaign-hero__mobile-break { display: none; }
+
 #hero.lpsr-campaign-hero .lpsr-campaign-hero__visual {
   display: flex;
   flex: 1 1 auto;
+  align-items: center;
   justify-content: center;
   width: 100%;
   min-height: 0;
 }
 
-#hero.lpsr-campaign-hero .lpsr-campaign-hero__image {
+#hero.lpsr-campaign-hero .lpsr-campaign-hero__canvas {
+  position: relative;
+  flex: none;
+  width: min(100%, calc((100svh - var(--lpsr-campaign-band-height) - var(--nav-height) - 94px) * 2));
+  aspect-ratio: 2;
+  container-type: inline-size;
+}
+
+#hero .lpsr-campaign-hero__wordmark {
+  position: absolute;
+  top: 49%;
+  left: 4%;
+  width: max-content;
+  color: #008e9e;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 15.6cqw;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.065em;
+  white-space: nowrap;
+  transform: skewY(-2deg) scaleY(1.16);
+  transform-origin: left center;
+  -webkit-text-stroke: .045cqw #007c8a;
+  text-shadow:
+    -0.07cqw -0.035cqw 0 #f1f5f6,
+    -0.14cqw -0.070cqw 0 #f1f5f6,
+    -0.21cqw -0.105cqw 0 #f1f5f6,
+    -0.28cqw -0.140cqw 0 #f1f5f6,
+    -0.35cqw -0.175cqw 0 #f1f5f6,
+    -0.42cqw -0.210cqw 0 #f1f5f6,
+    -0.49cqw -0.245cqw 0 #f1f5f6,
+    -0.56cqw -0.280cqw 0 #f1f5f6,
+    -0.63cqw -0.315cqw 0 #f1f5f6,
+    -0.70cqw -0.350cqw 0 #f1f5f6,
+    -0.77cqw -0.385cqw 0 #f1f5f6,
+    -0.84cqw -0.420cqw 0 #f1f5f6,
+    -0.91cqw -0.455cqw 0 #f1f5f6,
+    -0.98cqw -0.490cqw 0 #f1f5f6,
+    -1.05cqw -0.525cqw 0 #f1f5f6,
+    -1.12cqw -0.560cqw 0 #f1f5f6,
+    -1.19cqw -0.595cqw 0 #f1f5f6,
+    -1.26cqw -0.630cqw 0 #f1f5f6,
+    -1.33cqw -0.665cqw 0 #f1f5f6,
+    -1.40cqw -0.700cqw 0 #bacbd0;
+  filter: drop-shadow(0 .8cqw .5cqw #0a2a4425);
+}
+
+#hero .lpsr-campaign-hero__speech {
+  position: absolute;
+  top: 54%;
+  right: 2%;
+  width: 32%;
+  aspect-ratio: 5 / 3;
+}
+#hero .lpsr-campaign-hero__speech svg {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 0;
-  object-fit: contain;
+  overflow: visible;
+}
+#hero .lpsr-campaign-hero__speech p {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  margin: 0;
+  color: #008c9b;
+  font-family: var(--rf-display);
+  font-size: 3.9cqw;
+  font-weight: 900;
+  font-feature-settings: "palt";
+  line-height: 1.25;
+  letter-spacing: -.025em;
+  text-align: center;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
 }
 
 #hero.lpsr-campaign-hero .lpsr-campaign-hero__actions {
@@ -156,7 +242,23 @@
     width: var(--lpsr-campaign-art-width);
   }
 
-  #hero.lpsr-campaign-hero .lpsr-campaign-hero__image { height: auto; }
+  #hero.lpsr-campaign-hero .lpsr-campaign-hero__canvas {
+    width: 100%;
+    aspect-ratio: 1122 / 1402;
+  }
+
+  #hero.lpsr-campaign-hero .lpsr-campaign-hero__title {
+    top: 4%;
+    left: 5%;
+    line-height: 1.2;
+  }
+  #hero .lpsr-campaign-hero__headline { font-size: 12.1cqw; }
+  #hero .lpsr-campaign-hero__subheadline { margin-top: .12em; font-size: 7.4cqw; }
+  #hero .lpsr-campaign-hero__ending { display: block; font-size: 12.1cqw; }
+  #hero .lpsr-campaign-hero__mobile-break { display: initial; }
+  #hero .lpsr-campaign-hero__wordmark { top: 50.5%; left: 6%; font-size: 20.5cqw; }
+  #hero .lpsr-campaign-hero__speech { top: 69%; left: 4%; right: auto; width: 64%; }
+  #hero .lpsr-campaign-hero__speech p { font-size: 8.2cqw; }
 
   .page-home #hero.lpsr-campaign-hero .lpsr-campaign-hero__president {
     right: max(12px, calc((100% - var(--lpsr-campaign-art-width)) / 2 + 12px), env(safe-area-inset-right));
@@ -215,6 +317,6 @@
   }
 
   #hero.lpsr-campaign-hero .lpsr-campaign-hero__visual { flex: none; }
-  #hero.lpsr-campaign-hero .lpsr-campaign-hero__image { height: auto; }
+  #hero.lpsr-campaign-hero .lpsr-campaign-hero__canvas { width: 100%; }
   #hero.lpsr-campaign-hero .lpsr-campaign-hero__actions { display: none; }
 }

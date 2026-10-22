@@ -2,47 +2,30 @@
   "created_at": "2026-10-22T09:53:43.464217+00:00",
   "tool": "built-in image_gen",
   "actual_model": "not exposed by the tool",
-  "purpose": "TELEMO campaign hero generated from supplied composition and existing own-brand assets",
+  "purpose": "Historical image-generation sources and the current HTML/CSS/SVG campaign hero",
   "branch": "design/telemo-campaign-hero",
-  "preview": "http://localhost:8003/?v=white-striped-hero#hero",
+  "preview": "http://localhost:8003/?v=code-hero#hero",
   "html": "index.html#hero",
-  "assets": [
-    {
-      "path": "assets/hero/campaign/telemo-campaign-desktop-v4.png",
-      "dimensions": {
-        "width": 1774,
-        "height": 887
-      },
-      "prompt": "Use case: background-extraction\nAsset type: production TELEMO landing-page hero artwork, foreground-only transparent PNG for compositing over a white subtle striped HTML background.\nPrimary request: Remove ONLY the pale cyan/teal/off-white paper BACKGROUND AND FLOOR from the approved source image and replace it with genuine alpha transparency. Preserve the existing foreground artwork exactly, in its original pixel placement and size. There must be NO rectangular tinted backing or opaque full-canvas texture.\nRetain as opaque foreground: every navy Japanese headline character; all six freestanding 3D TELEMO letters including their TEAL FRONT FACES and THICK WHITE SIDE FACES; the entire speech balloon's OPAQUE WHITE INTERIOR, teal border, tail, and teal text. White letter extrusion surfaces and the balloon's white fill MUST remain white/opaque, never cut out. Preserve anti-aliased edges and natural soft contact shadows immediately beneath the letters as semi-transparent neutral gray shadows. Remove the broad cyan floor tint and paper grain everywhere outside these foreground shapes/shadows.\nInvariants: Keep exact source canvas size/aspect ratio, all margins, every position, every glyph, line break, scale, perspective, material, and color of foreground. Do not rearrange or redraw the design. Keep the existing separation between the final O and speech balloon. No people or new elements. Do not draw stripes; stripes will be supplied by HTML behind this transparent image.\nConstraints: True transparent alpha background, not white, not checkerboard painted into pixels. Do not turn white 3D faces or white balloon interior transparent. Do not crop, zoom, stretch, add borders, recolor the logo, introduce any gradient or add text. Only background removal.\nCanvas: exact 1774x887 pixels, 2:1 landscape.\nText unchanged: headline line1「本当の現場を知り尽くした、」; line2「コールセンター経営者がつくったAI」. Wordmark「TELEMO」. Balloon line1「現場の知見を、」; line2「AIの力に。」.",
-      "prompt_metadata": "assets/hero/campaign/telemo-campaign-desktop-v4.prompt.json",
-      "mode": "built-in image_gen",
-      "intent": "edit",
-      "transparent_background": true
-    },
-    {
-      "path": "assets/hero/campaign/telemo-campaign-mobile-v3.png",
-      "dimensions": {
-        "width": 1122,
-        "height": 1402
-      },
-      "prompt": "Use case: background-extraction\nAsset type: production TELEMO landing-page hero artwork, foreground-only transparent PNG for compositing over a white subtle striped HTML background.\nPrimary request: Remove ONLY the pale cyan/teal/off-white paper BACKGROUND AND FLOOR from the approved source image and replace it with genuine alpha transparency. Preserve the existing foreground artwork exactly, in its original pixel placement and size. There must be NO rectangular tinted backing or opaque full-canvas texture.\nRetain as opaque foreground: every navy Japanese headline character; all six freestanding 3D TELEMO letters including their TEAL FRONT FACES and THICK WHITE SIDE FACES; the entire speech balloon's OPAQUE WHITE INTERIOR, teal border, tail, and teal text. White letter extrusion surfaces and the balloon's white fill MUST remain white/opaque, never cut out. Preserve anti-aliased edges and natural soft contact shadows immediately beneath the letters as semi-transparent neutral gray shadows. Remove the broad cyan floor tint and paper grain everywhere outside these foreground shapes/shadows.\nInvariants: Keep exact source canvas size/aspect ratio, all margins, every position, every glyph, line break, scale, perspective, material, and color of foreground. Do not rearrange or redraw the design. Keep the existing separation between the final O and speech balloon. No people or new elements. Do not draw stripes; stripes will be supplied by HTML behind this transparent image.\nConstraints: True transparent alpha background, not white, not checkerboard painted into pixels. Do not turn white 3D faces or white balloon interior transparent. Do not crop, zoom, stretch, add borders, recolor the logo, introduce any gradient or add text. Only background removal.\nCanvas: exact1122x1402 pixels, portrait.\nText unchanged: headline line1「本当の現場を」; line2「知り尽くした、」; line3「コールセンター経営者が」; line4「つくったAI」. Wordmark「TELEMO」. Balloon line1「現場の知見を、」; line2「AIの力に。」.",
-      "prompt_metadata": "assets/hero/campaign/telemo-campaign-mobile-v3.prompt.json",
-      "mode": "built-in image_gen",
-      "intent": "edit",
-      "transparent_background": true
-    }
-  ],
+  "assets": [],
   "implementation": {
-    "image_text": "Approved headline and speech balloon are in the generated artwork. One accessible HTML h1 preserves the statement.",
+    "image_text": "Headline, TELEMO wordmark and speech copy are all editable HTML text. One visible accessible h1 holds the complete original statement.",
     "president": "Existing transparent poster.webp in a fixed guide. It retains the approved hero placement and size through scrolling; only its compact bubble changes with the current section. No portrait motion or sprite animation.",
     "navigation_and_ctas": "Existing functional HTML links.",
-    "scope": "Hero placement anchor, compact fixed guide, scoped CSS/placement script and existing section-comment handling. Benefits center president/comments remain independent.",
+    "scope": "Hero markup and scoped CSS. Existing navigation, native CTAs, first-view logo band, fixed president and section comments are preserved.",
     "publication": "local review branch",
     "first_view": "Hero and adjacent client logo band fit together in the initial desktop and portrait-phone viewport; artwork preserves its aspect ratio.",
-    "latest_edit": "Remove tinted image/floor backing so the image boundary disappears; use white stripes across the complete hero; remove the requested pricing slogan. Preserve the reference's headline-above/product-left/balloon-right arrangement with existing own-brand copy and small fixed president.",
-    "background": "Genuine transparent desktop/mobile foreground PNGs composited over the hero's white base and subtle diagonal stripes. White 3D sides and balloon interior remain opaque."
+    "latest_edit": "Replace the previous full hero PNG with native code under explicit user instruction. Only the existing separate president portrait remains a bitmap in the hero experience.",
+    "background": "White background and repeating code-native SVG stripes. No raster background or gradient.",
+    "medium": "Live HTML text, CSS dimensional type, inline SVG speech outline and SVG stripe background. No generated campaign image is loaded.",
+    "active_files": [
+      "index.html#hero",
+      "telemo-campaign-hero.css",
+      "assets/backgrounds/telemo-white-stripes.svg",
+      "assets/concierge/president-cutout/poster.webp",
+      "telemo-campaign-guide.js"
+    ]
   },
-  "updated_at": "2026-10-22T10:41:01.623621+00:00",
+  "updated_at": "2026-10-22T10:57:33.721105+00:00",
   "previous_assets": [
     {
       "path": "assets/hero/campaign/telemo-campaign-desktop-v1.png",
@@ -94,6 +77,30 @@
       "prompt_metadata": "assets/hero/campaign/telemo-campaign-mobile-v2.prompt.json",
       "mode": "built-in image_gen",
       "intent": "edit"
+    },
+    {
+      "path": "assets/hero/campaign/telemo-campaign-desktop-v4.png",
+      "dimensions": {
+        "width": 1774,
+        "height": 887
+      },
+      "prompt": "Use case: background-extraction\nAsset type: production TELEMO landing-page hero artwork, foreground-only transparent PNG for compositing over a white subtle striped HTML background.\nPrimary request: Remove ONLY the pale cyan/teal/off-white paper BACKGROUND AND FLOOR from the approved source image and replace it with genuine alpha transparency. Preserve the existing foreground artwork exactly, in its original pixel placement and size. There must be NO rectangular tinted backing or opaque full-canvas texture.\nRetain as opaque foreground: every navy Japanese headline character; all six freestanding 3D TELEMO letters including their TEAL FRONT FACES and THICK WHITE SIDE FACES; the entire speech balloon's OPAQUE WHITE INTERIOR, teal border, tail, and teal text. White letter extrusion surfaces and the balloon's white fill MUST remain white/opaque, never cut out. Preserve anti-aliased edges and natural soft contact shadows immediately beneath the letters as semi-transparent neutral gray shadows. Remove the broad cyan floor tint and paper grain everywhere outside these foreground shapes/shadows.\nInvariants: Keep exact source canvas size/aspect ratio, all margins, every position, every glyph, line break, scale, perspective, material, and color of foreground. Do not rearrange or redraw the design. Keep the existing separation between the final O and speech balloon. No people or new elements. Do not draw stripes; stripes will be supplied by HTML behind this transparent image.\nConstraints: True transparent alpha background, not white, not checkerboard painted into pixels. Do not turn white 3D faces or white balloon interior transparent. Do not crop, zoom, stretch, add borders, recolor the logo, introduce any gradient or add text. Only background removal.\nCanvas: exact 1774x887 pixels, 2:1 landscape.\nText unchanged: headline line1「本当の現場を知り尽くした、」; line2「コールセンター経営者がつくったAI」. Wordmark「TELEMO」. Balloon line1「現場の知見を、」; line2「AIの力に。」.",
+      "prompt_metadata": "assets/hero/campaign/telemo-campaign-desktop-v4.prompt.json",
+      "mode": "built-in image_gen",
+      "intent": "edit",
+      "transparent_background": true
+    },
+    {
+      "path": "assets/hero/campaign/telemo-campaign-mobile-v3.png",
+      "dimensions": {
+        "width": 1122,
+        "height": 1402
+      },
+      "prompt": "Use case: background-extraction\nAsset type: production TELEMO landing-page hero artwork, foreground-only transparent PNG for compositing over a white subtle striped HTML background.\nPrimary request: Remove ONLY the pale cyan/teal/off-white paper BACKGROUND AND FLOOR from the approved source image and replace it with genuine alpha transparency. Preserve the existing foreground artwork exactly, in its original pixel placement and size. There must be NO rectangular tinted backing or opaque full-canvas texture.\nRetain as opaque foreground: every navy Japanese headline character; all six freestanding 3D TELEMO letters including their TEAL FRONT FACES and THICK WHITE SIDE FACES; the entire speech balloon's OPAQUE WHITE INTERIOR, teal border, tail, and teal text. White letter extrusion surfaces and the balloon's white fill MUST remain white/opaque, never cut out. Preserve anti-aliased edges and natural soft contact shadows immediately beneath the letters as semi-transparent neutral gray shadows. Remove the broad cyan floor tint and paper grain everywhere outside these foreground shapes/shadows.\nInvariants: Keep exact source canvas size/aspect ratio, all margins, every position, every glyph, line break, scale, perspective, material, and color of foreground. Do not rearrange or redraw the design. Keep the existing separation between the final O and speech balloon. No people or new elements. Do not draw stripes; stripes will be supplied by HTML behind this transparent image.\nConstraints: True transparent alpha background, not white, not checkerboard painted into pixels. Do not turn white 3D faces or white balloon interior transparent. Do not crop, zoom, stretch, add borders, recolor the logo, introduce any gradient or add text. Only background removal.\nCanvas: exact1122x1402 pixels, portrait.\nText unchanged: headline line1「本当の現場を」; line2「知り尽くした、」; line3「コールセンター経営者が」; line4「つくったAI」. Wordmark「TELEMO」. Balloon line1「現場の知見を、」; line2「AIの力に。」.",
+      "prompt_metadata": "assets/hero/campaign/telemo-campaign-mobile-v3.prompt.json",
+      "mode": "built-in image_gen",
+      "intent": "edit",
+      "transparent_background": true
     }
   ],
   "latest_composition_reference": {
