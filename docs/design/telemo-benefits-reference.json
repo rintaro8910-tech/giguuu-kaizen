@@ -120,7 +120,7 @@
       "path": "assets/concierge/president-cutout/poster.webp",
       "reuse": true,
       "alt": "営業を案内するミニ社長",
-      "speech": "現場の知見を、AIの力に。",
+      "speech": "お待たせしました、星野です！ここからは僕がご案内します。",
       "pixels": {
         "width": 256,
         "height": 384
@@ -138,6 +138,21 @@
         "center_start_after_ms": 580,
         "while_in_section": "floating guide hidden and inert; central president remains in place",
         "on_section_exit": "hide central character and restore the existing floating guide with its prior collapsed/inert state"
+      },
+      "dialogue": [
+        "お待たせしました、星野です！ここからは僕がご案内します。",
+        "声も、トーク設計も。営業現場の知見を詰め込んでいます。",
+        "結果を見て、一緒に改善。その積み重ねが大切なんです。"
+      ],
+      "comments": {
+        "controller": "telemo-guide-comments.js",
+        "arrival_delay_ms": 900,
+        "advance_interval_ms": 8000,
+        "stop_after_last_comment": true,
+        "manual_next": true,
+        "reduced_motion": "show greeting immediately; advance manually",
+        "talk_sprite": "assets/concierge/president-cutout/talk.webp",
+        "audio": false
       }
     },
     "palette": {

@@ -1,5 +1,7 @@
 # Benefits president handoff — 2026-10-22
 
+Follow-up: the central text bubble and comment gestures were added later the same day. See `benefits-founder-comments.md` for the current text-only behavior. The verification below records the earlier handoff implementation.
+
 The robot in `index.html#telemo-core` is replaced by the existing mini-president asset. When this section enters the middle band of the viewport, the existing floating guide sinks below the window over 560ms. After 580ms, the center character rises from below the visible window and settles into the original stage. The center stays present and the floating guide stays hidden/inert while the section is active. Outside the section the center hides and the floating guide returns, preserving its prior collapsed, motion and inert state.
 
 The center portrait is a keyboard-accessible replay button. Arrival takes 900ms; the eight-frame hand wave runs twice over 2200ms and then returns to the static pose. OS reduced motion and the existing guide's motion-pause setting display a static portrait. A failed animation asset also leaves the static portrait visible.

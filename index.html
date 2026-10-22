@@ -69,6 +69,7 @@
     <link rel="stylesheet" href="./background-study.css?v=20261022a" />
     <link rel="stylesheet" href="./telemo-benefits-study.css?v=20261022a" />
     <link rel="stylesheet" href="./telemo-benefits-founder.css?v=20261022c" />
+    <link rel="stylesheet" href="./telemo-guide-comments.css?v=20261022a" />
   </head>
 
   <body class="page-home concept-08 background-study">
@@ -412,11 +413,17 @@
             <p class="telemo-benefits__eyebrow">営業を強くする、6つの仕組み</p>
             <h2 class="telemo-benefits__title" id="telemo-core-title"><span>営業の悩みを、</span><strong>仕組みで解決。</strong></h2>
             <div class="telemo-benefits__character lpsr-benefits-founder" data-lpsr-founder>
-              <p class="telemo-benefits__speech">現場の知見を、AIの力に。</p>
+              <div class="telemo-benefits__speech lpsr-guide-comments">
+                <p class="lpsr-guide-comments__text" data-guide-line role="status" aria-live="polite">お待たせしました、星野です！ここからは僕がご案内します。</p>
+                <div class="lpsr-guide-comments__tools">
+                  <button type="button" data-guide-next aria-label="星野社長の次のコメントを読む">次のコメント ↻</button>
+                </div>
+              </div>
               <button class="lpsr-benefits-founder__replay" type="button" aria-label="社長の登場アニメーションをもう一度再生" title="クリックしてもう一度再生">
                 <span class="lpsr-benefits-founder__portrait">
                   <img class="lpsr-benefits-founder__poster" src="./assets/concierge/president-cutout/poster.webp" width="256" height="384" alt="営業を案内するミニ社長" loading="lazy" decoding="async" />
                   <span class="lpsr-benefits-founder__wave" aria-hidden="true"></span>
+                  <span class="lpsr-guide-comments__talk" aria-hidden="true"></span>
                 </span>
               </button>
             </div>
@@ -816,6 +823,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js" defer></script>
     <script src="./telemo-listen.js?v=20261019a" defer></script>
     <script src="./telemo-compare-count.js?v=20261013a" defer></script>
-    <script src="./telemo-benefits-founder.js?v=20261022c" defer></script>
+    <script src="./telemo-guide-comments.js?v=20261022a" defer></script>
+    <script src="./telemo-benefits-founder.js?v=20261022e" defer></script>
   </body>
 </html>

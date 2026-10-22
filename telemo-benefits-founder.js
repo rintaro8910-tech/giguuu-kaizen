@@ -17,6 +17,7 @@
   let ready;
   let previousInert;
   let previousAriaHidden;
+  const announceArrival = delay => root.dispatchEvent(new CustomEvent('telemo:president-arrive', { detail: { delay } }));
 
   const reduced = () => {
     try { return motion.matches || sessionStorage.getItem('telemo-guide-motion') === 'paused'; }
@@ -42,12 +43,14 @@
     stop();
     if (reduced()) {
       root.classList.remove('is-awaiting-guide');
+      announceArrival(0);
       return;
     }
     const canAnimate = await load();
     if (!active || current !== generation || document.hidden) return;
     if (!canAnimate || reduced()) {
       root.classList.remove('is-awaiting-guide');
+      announceArrival(0);
       return;
     }
     // Start below the visible window, then settle in the original center stage.
@@ -59,6 +62,7 @@
         if (!active || current !== generation) return;
         root.classList.remove('is-awaiting-guide');
         root.classList.add('is-playing');
+        announceArrival(900);
         finishTimer = setTimeout(stop, 2200);
       });
     });
@@ -91,8 +95,10 @@
         if (previousAriaHidden === null) guide.removeAttribute('aria-hidden');
         else guide.setAttribute('aria-hidden', previousAriaHidden);
       }
+      root.dispatchEvent(new CustomEvent('telemo:president-leave'));
       return;
     }
+    root.dispatchEvent(new CustomEvent('telemo:president-depart'));
     if (guide) {
       previousInert = guide.inert;
       previousAriaHidden = guide.getAttribute('aria-hidden');

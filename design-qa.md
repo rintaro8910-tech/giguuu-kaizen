@@ -1,3 +1,9 @@
+# Current president comments — 2026-10-22
+
+The center president now greets visitors in a text speech bubble, advances through three comments and supports a manual next button. There is no narration feature. See `docs/design/benefits-founder-comments.md` and `output/benefits-comments/verification.json`. Earlier animation and layout QA is preserved below.
+
+---
+
 # Current character animation — 2026-10-22
 
 The benefits-section robot has been replaced by the existing president with a handoff from the floating guide. See `docs/design/benefits-founder-motion.md` and `output/benefits-founder/verification.json` for the current scope and passing verification. Layout QA below predates this character-only update.
