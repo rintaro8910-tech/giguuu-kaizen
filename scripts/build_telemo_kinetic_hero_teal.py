@@ -1,5 +1,5 @@
 """TEAL VARIANT (copy of build_telemo_kinetic_hero.py): teal TEL, white office + TELEMO robot photo in EMO,
-white / pale-teal environment. Writes telemo-kinetic-hero-teal*.
+white / pale-teal environment. Writes telemo-kinetic-hero-teal-depth*.
 
 Render the KINETIC TELEMO hero still (3D "TELEMO" in a bright white glass space) in Blender.
 
@@ -12,10 +12,10 @@ Usage (from the project root):
     blender -b --python scripts/build_telemo_kinetic_hero_teal.py -- final
 
 Final outputs (2880x1120, sRGB, no alpha):
-    assets/telemo-blender/telemo-kinetic-hero-teal.png
-    assets/telemo-blender/telemo-kinetic-hero-teal-2880.webp   (2880x1120)
-    assets/telemo-blender/telemo-kinetic-hero-teal-1440.webp   (1440x560)
-    assets/telemo-blender/telemo-kinetic-hero-teal.blend
+    assets/telemo-blender/telemo-kinetic-hero-teal-depth.png
+    assets/telemo-blender/telemo-kinetic-hero-teal-depth-2880.webp   (2880x1120)
+    assets/telemo-blender/telemo-kinetic-hero-teal-depth-1440.webp   (1440x560)
+    assets/telemo-blender/telemo-kinetic-hero-teal-depth.blend
 
 Only the 3D scene is rendered (no UI text). The bottom ~14 % fades to #FFFFFF in a numpy
 post-pass so HTML text can sit on it.
@@ -29,7 +29,8 @@ projection, so the photo runs continuously across E, M and O; the man is placed 
 
 View transform: "Standard" (keeps the photo's sRGB colours 1:1 on the emission faces and keeps
 the navy dark; AgX washed navy to lavender in the earlier TELEMO render).
-Overrides (env): TELEMO_SCALE (render %), TELEMO_SAMPLES, TELEMO_WORK_DIR, TELEMO_LENS.
+Overrides (env): TELEMO_SCALE, TELEMO_SAMPLES, TELEMO_WORK_DIR, TELEMO_LENS,
+TELEMO_DEPTH, TELEMO_BEVEL, TELEMO_FACE_CAMERA, TELEMO_OUTPUT_STEM.
 """
 
 import math
@@ -46,6 +47,7 @@ from mathutils import Matrix, Vector
 T0 = time.time()
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets" / "telemo-blender"
+OUTPUT_STEM = os.environ.get("TELEMO_OUTPUT_STEM", "telemo-kinetic-hero-teal-depth")
 PHOTO = ROOT / "assets" / "telemo-blender" / "telemo-hero-office-robot.png"
 FONT = Path("/System/Library/Fonts/Supplemental/Arial Black.ttf")
 
@@ -188,10 +190,10 @@ def set_visibility(obj, camera=True, diffuse=True, glossy=True, transmission=Tru
 
 # ---------------------------------------------------------------- letters
 CAP = 2.0          # cap height (T/E/L/M), scene units
-DEPTH = 0.30       # shallow extrusion
-BEVEL = 0.02
+DEPTH = float(os.environ.get("TELEMO_DEPTH", "0.95"))
+BEVEL = float(os.environ.get("TELEMO_BEVEL", "0.045"))
 GAP = 0.17         # gap between neighbouring glyphs before the solve's horizontal squeeze
-FACE_CAMERA = 0.85  # each letter turns this much of the way toward the camera (keeps returns slim)
+FACE_CAMERA = float(os.environ.get("TELEMO_FACE_CAMERA", "0.45"))
 
 font = bpy.data.fonts.load(str(FONT)) if FONT.exists() else None
 
@@ -760,9 +762,9 @@ print("[check] per-letter x0,x1,top,bottom (%): " + "; ".join(
 # ---------------------------------------------------------------- save + render
 if MODE == "final":
     OUT.mkdir(parents=True, exist_ok=True)
-    blend = OUT / "telemo-kinetic-hero-teal.blend"
+    blend = OUT / f"{OUTPUT_STEM}.blend"
     bpy.ops.wm.save_as_mainfile(filepath=str(blend), compress=True)
-    bak = OUT / "telemo-kinetic-hero-teal.blend1"
+    bak = OUT / f"{OUTPUT_STEM}.blend1"
     if bak.exists():
         bak.unlink()
 
@@ -802,10 +804,10 @@ def save_image(arr, path, fmt, quality=90):
 
 
 if MODE == "final":
-    save_image(px, OUT / "telemo-kinetic-hero-teal.png", "PNG")
-    save_image(px, OUT / "telemo-kinetic-hero-teal-2880.webp", "WEBP", quality=82)
+    save_image(px, OUT / f"{OUTPUT_STEM}.png", "PNG")
+    save_image(px, OUT / f"{OUTPUT_STEM}-2880.webp", "WEBP", quality=88)
     half = px.reshape(h // 2, 2, w // 2, 2, 4).mean(axis=(1, 3))
-    save_image(half, OUT / "telemo-kinetic-hero-teal-1440.webp", "WEBP", quality=82)
+    save_image(half, OUT / f"{OUTPUT_STEM}-1440.webp", "WEBP", quality=88)
 else:
     save_image(px, WORK / "preview.png", "PNG")
 print("[done] %.1fs total" % (time.time() - T0))
