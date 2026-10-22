@@ -1,3 +1,25 @@
+# Small static hero president — 2026-10-22
+
+Preview: http://localhost:8003/?v=president-top-only#hero. Branch: `design/telemo-campaign-hero`. This report supersedes the historical campaign-hero report below.
+
+The user's latest screenshot identifies the global floating mini-president and bubble as unwanted. That aside is removed. A smaller transparent president is positioned absolutely inside the top hero, so he leaves the screen with that section. The center benefits-section president, entrance and text comments remain available. The obsolete hero visibility script is removed; `telemo-concierge.js` remains because it also initializes the existing booking panel.
+
+## Visual evidence and intentional changes
+
+- Built-in image_gen edit assets: `assets/hero/campaign/telemo-campaign-desktop-v2.png` (1774 × 887) and `telemo-campaign-mobile-v2.png` (1122 × 1402). The baked-in large president is removed and the existing balloon tail points down-right. Original v1 files are preserved. Exact edit prompts, references and actual dimensions are in adjacent `.prompt.json` files and `generation-manifest.json`. No raster post-processing was applied.
+- Existing character asset: `assets/concierge/president-cutout/poster.webp`, 256 × 384. Desktop image width is 72–112 CSS pixels; mobile is 64px. It is static within the hero, has no pointer interaction and does not cover the CTA links. A single accessible h1 and native HTML navigation/CTAs remain.
+- Current browser captures: `output/campaign-president-small/hero-{1920-1080,1440-900,1024-768,768-1024,390-844,320-700}.png`. Filenames indicate CSS viewport size. Chromium deviceScaleFactor is 1. Initial navigation is closed. `hero-section-*` captures isolate the hero. Scrolled captures at 1440 and 390px demonstrate the absence of the floating widget.
+- Combined source/render boards: `desktop-comparison.png` and `mobile-comparison.png` in the same output directory. Both columns use equal display widths with preserved aspect ratios. The complete generated art is compared against the live HTML hero, which intentionally adds the small transparent president and native controls. The desktop rendering also includes navigation above the artwork. `president-size-comparison.png` compares before/after live pages at the same 1440 × 900 viewport. All three boards were opened and visually inspected.
+- Fonts, Japanese text, hierarchy, pale teal texture, 3D TELEMO wordmark, existing colors, CTA labels and section order are preserved. No new claims or statistics were added. No clipping, distorted image proportions, CTA overlap or remaining actionable P0/P1/P2 findings were found in the inspected desktop/mobile views.
+
+## Verification
+
+`output/campaign-president-small/verification.json` passes at 1920 × 1080, 1440 × 900, 1024 × 768, 768 × 1024, 390 × 844 and 320 × 700. At every width the hero president is inside the hero with `position: absolute`, the global concierge count is zero, the mini president leaves the viewport after scrolling, CTAs fit above the fold and horizontal overflow is zero. Correct desktop/mobile v2 assets decode successfully. Keyboard primary CTA, contact navigation/form presence, mobile menu, center president arrival/greeting/next comment, booking preparation state and reduced motion pass. No page exceptions or HTTP failures occurred. Forms were not submitted. Native Safari was not independently tested.
+
+final result: passed
+
+---
+
 # TELEMO campaign hero — 2026-10-22
 
 Preview: http://localhost:8003/?v=campaign-hero-final. Branch: `design/telemo-campaign-hero`. This local review branch includes the pending background/audio-card design branch and the latest main's deeper 3D wordmark assets. The campaign change itself is limited to `index.html#hero`, a dedicated CSS/JS link, generated hero art and QA records.

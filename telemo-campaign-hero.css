@@ -1,7 +1,8 @@
-/* Campaign hero study. Original generated artwork supplies the headline,
-   dimensional wordmark and president. Navigation and CTAs remain real HTML.
-   All layout changes are scoped to this hero; the guide modifier is temporary. */
+/* Campaign hero study. Generated art supplies the headline and wordmark.
+   A small static president belongs to this hero, with no floating guide.
+   Navigation and CTAs remain real HTML. Layout changes are scoped to this hero. */
 .page-home.concept-08 #hero.lpsr-campaign-hero {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,8 +76,12 @@
   color: var(--rf-accent-hover);
 }
 
-.telemo-concierge.lpsr-campaign-guide--offstage {
-  visibility: hidden;
+.page-home #hero.lpsr-campaign-hero .lpsr-campaign-hero__president {
+  position: absolute;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: 20px;
+  width: clamp(72px, 6vw, 112px);
+  height: auto;
   pointer-events: none;
 }
 
@@ -103,6 +108,12 @@
   }
 
   #hero.lpsr-campaign-hero .lpsr-campaign-hero__image { height: auto; }
+
+  .page-home #hero.lpsr-campaign-hero .lpsr-campaign-hero__president {
+    right: max(12px, calc((100% - 560px) / 2 + 12px), env(safe-area-inset-right));
+    bottom: 102px;
+    width: 64px;
+  }
 
   #hero.lpsr-campaign-hero .lpsr-campaign-hero__actions {
     display: grid;

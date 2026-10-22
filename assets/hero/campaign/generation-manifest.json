@@ -4,9 +4,41 @@
   "actual_model": "not exposed by the tool",
   "purpose": "TELEMO campaign hero generated from supplied composition and existing own-brand assets",
   "branch": "design/telemo-campaign-hero",
-  "preview": "http://localhost:8003/?v=campaign-hero-final",
+  "preview": "http://localhost:8003/?v=president-top-only",
   "html": "index.html#hero",
   "assets": [
+    {
+      "path": "assets/hero/campaign/telemo-campaign-desktop-v2.png",
+      "dimensions": {
+        "width": 1774,
+        "height": 887
+      },
+      "prompt": "Use case: precise-object-edit\nAsset type: approved desktop TELEMO landing-page hero artwork, 2:1 landscape.\nPrimary request: Remove the entire human president character from the approved source image. This is the ONLY change. The character will be placed separately in HTML, so this final image must contain NO human.\nEdit target: the referenced image is the exact approved art. Preserve its canvas dimensions/aspect, headline text, TELEMO wordmark and speech balloon.\nChange only: erase the president's entire head, face, hair, ears, body/white shirt, arms and gesturing hand, trousers, both white shoes and human cast shadow. Fill only the removed-person regions with the surrounding existing pale teal/off-white fine paper background texture. Change ONLY the speech-balloon tail direction: remove the old upward-pointing tail and smoothly close its old spot using the existing white fill and teal border. Add one short clean tail at the lower-right edge pointing down-right toward the future small character at the bottom-right of the HTML viewport. Preserve the balloon's main body shape, text, size and location.\nInvariants: Keep all Japanese headline lettering EXACT, same position, size, font, navy color and line breaks: first line 「本当の現場を知り尽くした、」; second line 「コールセンター経営者がつくったAI」. Keep all six 3D letters 「TELEMO」 identical in placement, scale, teal fronts, white side faces, perspective, materials and soft shadows. Keep the existing white speech balloon in the exact same location, size and shape, including its teal border, with only its tail redirected down-right as specified. Keep balloon text EXACT: first line 「現場の知見を、」; second line 「AIの力に。」, same typography and position. Keep all background outside the removed-human regions unchanged.\nConstraints: No replacement character, object or decorative content. No rearranging, zooming, cropping, extending, recoloring or restyling. No changes to typography, words, punctuation or margins. No new logos, UI, buttons or text. Keep same 2:1 canvas and full original composition. Final artwork is source image minus the president, nothing else.",
+      "prompt_metadata": "assets/hero/campaign/telemo-campaign-desktop-v2.prompt.json",
+      "mode": "built-in image_gen",
+      "intent": "edit"
+    },
+    {
+      "path": "assets/hero/campaign/telemo-campaign-mobile-v2.png",
+      "dimensions": {
+        "width": 1122,
+        "height": 1402
+      },
+      "prompt": "Use case: precise-object-edit\nAsset type: approved mobile portrait TELEMO landing-page hero artwork, approximately4:5 portrait, original canvas1122x1402.\nPrimary request: Remove the entire baked-in human president character from the approved mobile source image, and redirect the speech-balloon tail toward bottom-right. Preserve EVERYTHING else.\nEdit target: the referenced original mobile hero art. This is a local surgical edit, not a redesign or re-composition.\nChange only: erase ALL human elements: head, face, hair including hair overlapping the bottom-right of the O, neck, shirt, torso, arms, gesturing hand, trousers, both white shoes, and human shadow. Fill only these regions with the surrounding existing pale teal/off-white fine paper background. Reconstruct the unobstructed right edge and any covered surfaces/shadows of the final O in TELEMO faithfully: same thick teal front, white side material and perspective as existing glyph.\nTail change: Remove the old upward/right-pointing speech-balloon tail from its upper-right edge and smoothly close that old spot with the existing white fill and teal border. Add one short clean tail at the balloon's LOWER-RIGHT edge pointing down-right toward a future small separately positioned character at the viewport bottom-right. Preserve the balloon's main body shape, text, size, location and outline style.\nInvariants: Keep all four Japanese headline lines EXACT and in the SAME positions, SAME font sizes, navy color, heavy rounded font and line breaks: line1 「本当の現場を」; line2 「知り尽くした、」; line3 「コールセンター経営者が」; line4 「つくったAI」. Keep all six 3D 「TELEMO」 letters identical in position, size, baseline, teal front faces, white side faces, depth, shadows and perspective, with the O now fully unobstructed. Keep the white speech balloon main body shape and exact location/size, and its exact two-line text unchanged: line1 「現場の知見を、」; line2 「AIの力に。」. Preserve all background outside removed-human and tail edit regions.\nConstraints: No character replacement, no smaller character, no new object, words, decorations, logos or UI. No repositioning, resizing, recoloring, typography changes, cropping, zooming, canvas extensions or redesign. Keep same portrait aspect ratio and margins. Final image must be source mobile v1 with president removed and tail redirected down-right, nothing else.",
+      "prompt_metadata": "assets/hero/campaign/telemo-campaign-mobile-v2.prompt.json",
+      "mode": "built-in image_gen",
+      "intent": "edit"
+    }
+  ],
+  "implementation": {
+    "image_text": "Approved headline and speech balloon are in the generated artwork. One accessible HTML h1 preserves the statement.",
+    "president": "Existing transparent poster.webp placed separately as a small, absolute-positioned image inside the hero. No viewport-following widget.",
+    "navigation_and_ctas": "Existing functional HTML links.",
+    "scope": "Hero, removal of global floating concierge markup and obsolete hero visibility script. Center benefits president/comments retained.",
+    "publication": "local review branch"
+  },
+  "updated_at": "2026-10-22T10:18:25.385Z",
+  "previous_assets": [
     {
       "path": "assets/hero/campaign/telemo-campaign-desktop-v1.png",
       "dimensions": {
@@ -25,11 +57,5 @@
       "prompt": "Use case: ads-marketing\nAsset type: Final production MOBILE portrait companion hero artwork, exactly 1024x1280 if possible, aspect ratio 4:5.\nPrimary request: Recompose the selected desktop TELEMO hero art from image 1 into a portrait mobile campaign hero. DO NOT crop the desktop. Retain its visual language, palette, texture, 3D typography and president identity with an intentionally redesigned mobile layout.\nInput images: Image 1 is the selected TELEMO desktop art and full style/content reference; preserve its pale teal paper background, navy rounded heavy Japanese gothic headline, freestanding teal/white 3D TELEMO wordmark and white teal-outlined speech balloon. Image 2 is supporting identity reference for the ONLY allowed human subject. Preserve exact face, brown hair, smile, earring, white T-shirt, navy trousers and oversized head / small stylized body.\nScene/backdrop: Flat pale teal #eaf6f8 / off-white fine paper texture, bright and soft with light natural subject shadows. No dark backgrounds, no colored gradient, no grid, no new decorative content.\nComposition/framing: Generous safe edges. Exact four-line Japanese headline near the top, x7%-93%, y5%-31%, heavy navy #0a2a44 rounded gothic font. Keep all four lines extremely legible when rendered at a phone width of390px. First two headline lines can be larger; third line slightly smaller if necessary to preserve exact characters on one line.\nAcross the middle x7%-93%,y37%-55%, place the large horizontal freestanding 3D TELEMO wordmark: all SIX letters T E L E M O readable, deep teal front faces, thick white side faces, soft natural shadows, same material as desktop. Do not crop or cover any letter.\nAt lower-right x64%-94%,y53%-93%, place the friendly mini president with exact original face, oversized realistic head, small stylized body, white T-shirt, navy trousers and white sneakers. He smiles and gestures open palm toward the lettering, same identity as both references, no face substitution. Keep face unobstructed.\nAt lower-left x5%-73%,y68%-92%, place the large white rounded organic speech balloon with teal outline, two lines of large bold teal text. Tail points toward president. Balloon may sit in front of the lower body edge but must NOT obscure his face or the TELEMO lettering.\nText (verbatim, NO other words): headline line1 「本当の現場を」; line2 「知り尽くした、」; line3 「コールセンター経営者が」; line4 「つくったAI」. Wordmark 「TELEMO」. Speech balloon line1 「現場の知見を、」; line2 「AIの力に。」.\nTypography: Exact Japanese characters and punctuation. Large, rounded, bold, clear, professional Japanese gothic. Navy headline, teal balloon copy. No repeated or omitted phrases.\nConstraints: This is hero ART only. No UI, navigation, browser chrome, buttons, URLs, statistics or claims, additional names/logos or characters. No beverage, source brand, source actors, red/yellow badge, decorative text or watermarks. Maintain mobile portrait4:5 ratio; do not deliver landscape art. Recompose the selected desktop, do not alter the selected desktop file.",
       "prompt_metadata": "assets/hero/campaign/telemo-campaign-mobile-v1.prompt.json"
     }
-  ],
-  "implementation": {
-    "image_text": "Headline and speech balloon remain part of the generated artwork. One accessible HTML h1 preserves the original statement.",
-    "navigation_and_ctas": "Existing functional HTML links, no rasterized controls.",
-    "scope": "Hero only, plus dedicated CSS/JS links and guide visibility modifier.",
-    "publication": "local review branch"
-  }
+  ]
 }
