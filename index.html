@@ -66,9 +66,13 @@
     <link rel="stylesheet" href="./hero-preview.css?v=20261014a" />
     <script src="./hero-options-data.js?v=20261014a" defer></script>
     <script src="./hero-preview.js?v=20261014a" defer></script>
+    <link rel="stylesheet" href="./background-study.css?v=20261022a" />
+    <link rel="stylesheet" href="./telemo-benefits-study.css?v=20261022a" />
+    <link rel="stylesheet" href="./telemo-benefits-founder.css?v=20261022c" />
+    <link rel="stylesheet" href="./telemo-guide-comments.css?v=20261022a" />
   </head>
 
-  <body class="page-home concept-08">
+  <body class="page-home concept-08 background-study">
     <!-- 3D 背景キャンバスは main.js が body 先頭に自動挿入 -->
 
     <!-- スクリーン全体に乗せる近未来オーバーレイ（グリッド/走査線/ノイズ） -->
@@ -399,36 +403,57 @@
         <p class="telemo-compare__note">※TELEMOの月額費用（35万円）には、架電時の通話料が含まれています。コール数に応じた通話料を別途ご負担いただく必要はありません。</p>
       </section>
 
-      <!-- ============ TELEMO / 量だけではない4つの仕組み（提案資料 p.6） ============ -->
+      <!-- TELEMO strengths: layout extracted in docs/design/telemo-benefits-reference.json. -->
       <section class="sec telemo-core" id="telemo-core" aria-labelledby="telemo-core-title">
-        <div class="ref-head reveal">
-          <h2 id="telemo-core-title">「<span>量</span>」だけでは、営業は<span>強くならない。</span></h2>
-          <p>TELEMOは、電話の量だけでなく、営業設計・データ分析・改善の仕組みまで備えています。</p>
-        </div>
-        <div class="telemo-core__grid reveal">
-          <article class="telemo-core__card">
-            <h3><span>01</span>生声</h3>
-            <img class="telemo-core__image" src="./assets/telemo-core/generated/01-natural-voice-v1.jpg" width="960" height="640" alt="自然な営業音声を収録するスタジオマイクとポップフィルター" loading="lazy" decoding="async" />
-            <p class="telemo-core__text">実際の営業マンの声を使用。営業に必要なトーン・間・抑揚まで設計しています。</p>
-            <p class="telemo-core__point"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 16v8 M12 10v20 M18 6v28 M24 12v16 M30 9v22 M36 15v10" /></svg><span>人に近い、<br />自然な会話を実現。</span></p>
+        <div class="telemo-benefits">
+          <div class="telemo-benefits__center">
+            <p class="telemo-benefits__eyebrow">営業を強くする、6つの仕組み</p>
+            <h2 class="telemo-benefits__title" id="telemo-core-title"><span>営業の悩みを、</span><strong>仕組みで解決。</strong></h2>
+            <div class="telemo-benefits__character lpsr-benefits-founder" data-lpsr-founder>
+              <div class="telemo-benefits__speech lpsr-guide-comments">
+                <p class="lpsr-guide-comments__text" data-guide-line role="status" aria-live="polite">お待たせしました！ここからは僕がご案内します。</p>
+                <div class="lpsr-guide-comments__tools">
+                  <button type="button" data-guide-next aria-label="社長の次のコメントを読む">次のコメント ↻</button>
+                </div>
+              </div>
+              <button class="lpsr-benefits-founder__replay" type="button" aria-label="社長の登場アニメーションをもう一度再生" title="クリックしてもう一度再生">
+                <span class="lpsr-benefits-founder__portrait">
+                  <img class="lpsr-benefits-founder__poster" src="./assets/concierge/president-cutout/poster.webp" width="256" height="384" alt="営業を案内するミニ社長" loading="lazy" decoding="async" />
+                  <span class="lpsr-benefits-founder__wave" aria-hidden="true"></span>
+                  <span class="lpsr-guide-comments__talk" aria-hidden="true"></span>
+                </span>
+              </button>
+            </div>
+          </div>
+          <article class="telemo-benefits__card telemo-benefits__card--voice">
+            <p class="telemo-benefits__label"><span>01</span>生声</p>
+            <h3>人に近い、<br />自然な会話を。</h3>
+            <p class="telemo-benefits__body">実際の営業マンの声を使用。営業に必要なトーン・間・抑揚まで設計しています。</p>
           </article>
-          <article class="telemo-core__card">
-            <h3><span>02</span>トークツリー</h3>
-            <img class="telemo-core__image" src="./assets/telemo-core/generated/02-talk-tree-v1.jpg" width="960" height="640" alt="挨拶から質問・回答・切り返しへ分岐する営業トークツリー" loading="lazy" decoding="async" />
-            <p class="telemo-core__text">営業現場から逆算して、質問・回答・アウト返し・分岐を設計。商材ごとに最適なトークを構築します。</p>
-            <p class="telemo-core__point"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M5 7h24a3 3 0 0 1 3 3v13a3 3 0 0 1-3 3H15l-7 6v-6H5a3 3 0 0 1-3-3V10a3 3 0 0 1 3-3z M9 14h16 M9 19h11" /></svg><span>現場で成果が出る<br />トーク設計。</span></p>
+          <article class="telemo-benefits__card telemo-benefits__card--tree">
+            <p class="telemo-benefits__label"><span>02</span>トークツリー</p>
+            <h3>現場で成果が出る、<br />トーク設計。</h3>
+            <p class="telemo-benefits__body">営業現場から逆算して、質問・回答・アウト返し・分岐を設計。商材ごとに最適なトークを構築します。</p>
           </article>
-          <article class="telemo-core__card">
-            <h3><span>03</span>データ分析・改善</h3>
-            <img class="telemo-core__image" src="./assets/telemo-core/generated/03-analysis-v1.jpg" width="960" height="640" alt="架電結果を確認する分析画面のイメージ" loading="lazy" decoding="async" />
-            <p class="telemo-core__text">どこまで進んだのか。どこで断られたのか。何が成果につながったのか。結果を分析し、次の改善につなげます。</p>
-            <p class="telemo-core__point"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 35h32" /><rect x="7" y="22" width="6" height="13" /><rect x="17" y="14" width="6" height="21" /><rect x="27" y="6" width="6" height="29" /></svg><span>データで、<br />営業はもっと強くなる。</span></p>
+          <article class="telemo-benefits__card telemo-benefits__card--analysis">
+            <p class="telemo-benefits__label"><span>03</span>データ分析・改善</p>
+            <h3>結果を分析し、<br />次の改善へ。</h3>
+            <p class="telemo-benefits__body">どこまで進んだのか。どこで断られたのか。何が成果につながったのか。結果を分析し、次の改善につなげます。</p>
           </article>
-          <article class="telemo-core__card">
-            <h3><span>04</span>RW<small>（Runaway）</small></h3>
-            <img class="telemo-core__image" src="./assets/telemo-core/generated/04-human-support-v1.jpg" width="960" height="640" alt="想定外の会話を人がフォローするコールセンター担当者" loading="lazy" decoding="async" />
-            <p class="telemo-core__text">想定していない質問や、AIだけでは判断できない会話が発生した場合は、人がフォローできる仕組みです。</p>
-            <p class="telemo-core__point"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 23v-3a13 13 0 0 1 26 0v3" /><rect x="4" y="21" width="7" height="11" rx="2.5" /><rect x="29" y="21" width="7" height="11" rx="2.5" /><path d="M32.5 32v1a5 5 0 0 1-5 5H23" /></svg><span>AIだけで完結しない。<br />人の力も活かす。</span></p>
+          <article class="telemo-benefits__card telemo-benefits__card--handover">
+            <p class="telemo-benefits__label"><span>04</span>RW（Runaway）</p>
+            <h3>想定外の会話には、<br />人のフォローを。</h3>
+            <p class="telemo-benefits__body">想定していない質問や、AIだけでは判断できない会話が発生した場合は、人がフォローできる仕組みです。</p>
+          </article>
+          <article class="telemo-benefits__card telemo-benefits__card--calls">
+            <p class="telemo-benefits__label"><span>05</span>自動架電</p>
+            <h3>大量のリストにも、<br />安定したアプローチ。</h3>
+            <p class="telemo-benefits__body">数万件規模のリストにも、安定した品質で架電が可能です。新規営業から休眠顧客の掘り起こしまで、さまざまな営業シーンに対応します。</p>
+          </article>
+          <article class="telemo-benefits__card telemo-benefits__card--support">
+            <p class="telemo-benefits__label"><span>06</span>伴走サポート</p>
+            <h3>導入したあとも、<br />改善まで一緒に。</h3>
+            <p class="telemo-benefits__body">システムの提供だけでなく、営業のプロとしての知見をもとに、運用の改善まで伴走します。</p>
           </article>
         </div>
       </section>
@@ -789,5 +814,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js" defer></script>
     <script src="./telemo-listen.js?v=20261019a" defer></script>
     <script src="./telemo-compare-count.js?v=20261013a" defer></script>
+    <script src="./telemo-guide-comments.js?v=20261022b" defer></script>
+    <script src="./telemo-benefits-founder.js?v=20261022e" defer></script>
   </body>
 </html>
