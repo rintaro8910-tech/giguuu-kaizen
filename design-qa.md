@@ -1,3 +1,17 @@
+# Desktop wordmark / balloon separation — 2026-10-22
+
+Preview: http://localhost:8003/?v=wordmark-left-gap#hero. Branch: `design/telemo-campaign-hero`.
+
+The desktop hero now uses `assets/hero/campaign/telemo-campaign-desktop-v3.png` (1774 × 887), edited with built-in image_gen from the approved v2 asset. The 3D TELEMO group moves left and becomes slightly smaller; all six letters, including the complete O, have clear pale background space before the speech balloon. The headline, balloon copy/position, palette and canvas remain visually consistent. Exact edit prompt and references are in `telemo-campaign-desktop-v3.prompt.json`; previous assets are preserved. No raster post-processing was applied. The only consuming-code change is the desktop image path in `index.html`; mobile artwork, styles, behavior, copy and later sections are unchanged.
+
+Visual evidence: `output/campaign-wordmark-gap/wordmark-before-after.png` compares v2/v3 at equal 676px display widths. `source-render-comparison.png` compares selected v3 artwork against the live HTML first view, also at equal widths with preserved aspect ratios. Both boards were opened and inspected for all six letter shapes, visible separation from the balloon, exact Japanese text, perspective, texture and overall layout. The HTML deliberately adds native navigation/actions and the small separate president. No actionable P0/P1/P2 findings remain.
+
+`output/campaign-wordmark-gap/verification.json` passes at 1440 × 900, 1024 × 768 and 390 × 844. Correct desktop v3 and unchanged mobile v2 assets decode at their original dimensions; the whole client-logo band remains inside the initial viewport, no horizontal overflow or floating guide is present, and no page exceptions or HTTP failures occurred. Actual Chromium captures use deviceScaleFactor 1. The prior broader responsive and interaction checks below remain applicable because geometry and behavior are unchanged.
+
+final result: passed
+
+---
+
 # Hero and client logo band in the first view — 2026-10-22
 
 Preview: http://localhost:8003/?v=clients-first-view#hero. This report supersedes the preceding height/spacing measurements. Branch: `design/telemo-campaign-hero`.
