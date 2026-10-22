@@ -176,6 +176,14 @@
   );
 }
 
+/* Alternate the six existing background panels on desktop:
+   listen / how / core / plan / company / contact = grid / plain / grid / plain / grid / plain. */
+@media (min-width: 1024px) {
+  .page-home .lpsr-movie-background > #telemo-plan::before {
+    background-image: none;
+  }
+}
+
 @media (max-width: 959px) {
   .page-home .lpsr-movie-background > #founder::before {
     top: 112px;

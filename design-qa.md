@@ -1,3 +1,11 @@
+# Desktop background spacing — 2026-10-22
+
+At widths of 1024px and above, the six existing background panels alternate grid / plain: audio demos, workflow, benefits, pricing, company, contact. The pricing panel now uses its solid pale teal surface with the white paper layer. This is a panel-based interpretation of the user's requested spacing. Mobile backgrounds are preserved. Stylesheet version: `20261022d`.
+
+Browser comparison at 1440, 1024 and 390px: section heights and positions are identical to the prior version, no horizontal overflow or page exceptions, and the mobile background images are unchanged. Desktop computed background images confirm the alternating six-panel sequence. Desktop pricing was visually inspected.
+
+---
+
 # Compact shared audio demo card — 2026-10-22
 
 The three audio demos now share one white outer card with thin dividers. Each desktop row places the demo label and description beside its native audio player; mobile moves the player beneath the label. Existing HTML copy and all audio sources are byte-identical; only the stylesheet version changes to `20261022c` and the scoped CSS is updated.
