@@ -1,3 +1,19 @@
+# Movie reference background study — 2026-10-22
+
+Branch: `design/movie-background`, based on merged main `dc5d355`. Preview: http://localhost:8002/?v=movie-background#telemo-core.
+
+The background treatment adapts the reference's fine graph paper, diagonal paper edges and alternating chapter surfaces to the existing white / pale teal palette. Original SVG grid and circle outlines are local assets. No reference images, fonts, scripts or copy are included. No gradients or new motion are added. Reference observations and source CSS fingerprint: `docs/design/movie-background-reference.json`.
+
+Scope: the new `telemo-movie-background.css` and two SVG assets. `index.html` adds one stylesheet link at the end of the head and a class on main; removing these additions yields byte-identical HTML against the base commit. Existing CSS, JavaScript, content, links, forms, images and layout remain unchanged.
+
+Verification: `output/movie-background/verification.json`. Browser comparisons at 1440, 768, 390 and 320px found identical section geometry, heading typography and links against main; all six benefit cards remain present and document horizontal overflow is zero. The mobile menu opens, follows the service anchor and closes. Keyboard comment advancement, normal-motion guide departure / center arrival / greeting / next comment / guide restoration, and reduced-motion display pass. The three new resources return HTTP 200, with no page exceptions or failed HTTP responses. Forms were not submitted.
+
+Visual evidence: `output/movie-background/{1440,390}-{telemo-core,telemo-listen,telemo-plan,founder}.png`. Desktop and mobile backgrounds, paper edges and character/comment readability were visually inspected. The new branch is local only.
+
+final result: passed
+
+---
+
 # Current president comments — 2026-10-22
 
 The center president now greets visitors in a text speech bubble, advances through three comments and supports a manual next button. There is no narration feature. See `docs/design/benefits-founder-comments.md` and `output/benefits-comments/verification.json`. Earlier animation and layout QA is preserved below.
