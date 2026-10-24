@@ -3,8 +3,8 @@
   if (!root) return;
   const section = root.closest('#telemo-core');
   const replay = root.querySelector('.lpsr-benefits-founder__replay');
-  // A guide configured to stay fixed is independent of this center stage.
-  const guide = document.querySelector('.telemo-concierge:not([data-guide-follow="fixed"])');
+  // Hand the floating guide, including the fixed hero guide, over to this stage.
+  const guide = document.querySelector('.telemo-concierge');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   let active = false;
   let stageVisible = false;

@@ -1,4 +1,4 @@
-/* GIGUUU / TELEMO header. Overlays the top of the hero image; turns into a translucent bar once the page is scrolled.
+/* GIGUUU / TELEMO header. Solid white at the top and while scrolling.
    Selectors are prefixed with `header.ggh` so they win over boundary.css / index-refine.css regardless of load order. */
 :root { --nav-height: 92px; }
 
@@ -15,15 +15,13 @@
   margin: 0 0 calc(var(--nav-height) * -1); /* overlay the hero image instead of pushing it down */
   padding: 0;
   border-bottom: 0;
-  background: transparent;
+  background: #fff;
   box-shadow: none;
   transition: background-color 240ms ease, box-shadow 240ms ease;
 }
 .page-home header.ggh.is-scrolled {
-  background: rgba(255, 255, 255, .94);
+  background: #fff;
   box-shadow: 0 1px 0 rgba(0, 96, 108, .08), 0 10px 30px rgba(16, 48, 92, .07);
-  -webkit-backdrop-filter: saturate(1.4) blur(14px);
-  backdrop-filter: saturate(1.4) blur(14px);
 }
 
 .page-home header.ggh .ggh__inner {
@@ -256,7 +254,7 @@
 @media (max-width: 767px) {
   :root { --nav-height: 64px; }
   .page-home header.ggh { margin-bottom: 0; background: #fff; }
-  .page-home header.ggh.is-scrolled { background: rgba(255, 255, 255, .94); }
+  .page-home header.ggh.is-scrolled { background: #fff; }
   .page-home header.ggh .ggh__inner { padding: 0 16px 0 20px; }
   .page-home header.ggh .ggh__logo { font-size: 24px; }
   .page-home header.ggh .ggh__contact { display: none; }

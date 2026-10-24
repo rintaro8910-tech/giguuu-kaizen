@@ -82,7 +82,7 @@
 }
 
 .telemo-concierge.lpsr-benefits-guide--departing {
-  transform: translateY(calc(100% + 64px));
+  transform: translateY(calc(100% + var(--campaign-guide-bottom, 64px) + 32px));
   opacity: 0;
   pointer-events: none;
   transition-delay: 0ms, 380ms;
