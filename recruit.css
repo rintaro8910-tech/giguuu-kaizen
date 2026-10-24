@@ -191,7 +191,7 @@
 .rc-job__cta { margin-top: 40px; text-align: center; }
 .page-recruit .rc-job__cta .btn { min-width: 280px; letter-spacing: .16em; }
 
-/* ---------- ページ上部へ戻る(TELEMOのロボット) ---------- */
+/* ---------- ページ上部へ戻る(ミニ社長) ---------- */
 .rc-top {
   position: fixed;
   right: 20px;
@@ -238,8 +238,8 @@
   background: #fff;
   transform: translateX(-50%) rotate(45deg);
 }
-.rc-top__robot { display: block; width: 100%; height: auto; transition: transform var(--dur-fast); }
-.rc-top:hover .rc-top__robot { transform: translateY(-4px); }
+.rc-top__president { display: block; width: 100%; height: auto; transition: transform var(--dur-fast); }
+.rc-top:hover .rc-top__president { transform: translateY(-4px); }
 .rc-top:focus-visible { outline: 2px solid var(--rf-accent-hover); outline-offset: 4px; }
 
 /* ---------- レスポンシブ ---------- */
@@ -269,7 +269,7 @@
   .rc-top__bubble { font-size: 12px; padding: 3px 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .rc-top, .rc-top.is-visible, .rc-top__robot { transition: none; }
+  .rc-top, .rc-top.is-visible, .rc-top__president { transition: none; }
 }
 .page-recruit .rc-intro__copy .grad { display: inline-block; white-space: nowrap; }
 .page-recruit .rc-job__row dd { line-break: strict; word-break: auto-phrase; }
