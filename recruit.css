@@ -333,10 +333,11 @@
 .rc-illustrated__text p { margin: 0; font-size: clamp(13px, 1.05vw, 17px); font-weight: 500; line-height: 1.85; letter-spacing: .01em; }
 .rc-illustrated__roles { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
 .rc-illustrated__roles li { padding: 6px 20px; border-radius: 999px; background: var(--rc-blue-pale); color: #086b9f; font-size: 14px; font-weight: 700; line-height: 1.4; }
-.rc-illustrated__cta { display: flex; justify-content: center; align-items: center; gap: 24px; min-height: 64px; padding: 16px 24px; border-radius: 999px; background: var(--rc-blue); color: #fff; font-size: clamp(17px, 1.8vw, 28px); font-weight: 700; letter-spacing: .02em; text-decoration: none; transition: background-color 180ms ease; }
-.rc-illustrated__cta img { display: block; flex-shrink: 0; }
-.rc-illustrated__cta:hover { background: #103dc0; }
-.rc-illustrated__cta:focus-visible,
+.rc-illustrated__cta { display: flex; justify-content: center; align-items: center; gap: 24px; min-height: 64px; padding: 16px 24px; border-radius: 999px; background: var(--rf-accent); color: #fff; font-size: clamp(17px, 1.8vw, 28px); font-weight: 700; letter-spacing: .02em; text-decoration: none; transition: background-color 180ms ease; }
+.rc-illustrated__cta svg { display: block; flex-shrink: 0; }
+.rc-illustrated__cta:hover,
+.rc-illustrated__cta:active { background: var(--rf-accent-hover); }
+.rc-illustrated__cta:focus-visible { outline: 3px solid var(--rf-accent-hover); outline-offset: 4px; }
 .rc-firstview--illustrated .rc-toc__item:focus-visible { outline: 3px solid var(--rc-blue); outline-offset: 4px; }
 .rc-firstview--illustrated .rc-toc { padding: 24px var(--rc-pad); background: var(--rc-blue-pale); }
 .rc-firstview--illustrated .rc-toc__list { gap: 0; }
@@ -365,7 +366,7 @@
   .rc-illustrated__roles { gap: 6px; margin-top: 12px; }
   .rc-illustrated__roles li { padding: 5px 10px; font-size: 12px; }
   .rc-illustrated__cta { gap: 18px; min-height: 48px; padding: 12px 20px; font-size: 18px; }
-  .rc-illustrated__cta img { width: 22px; height: 22px; }
+  .rc-illustrated__cta svg { width: 22px; height: 22px; }
   .rc-firstview--illustrated .rc-toc { padding-block: 12px; }
   .rc-firstview--illustrated .rc-toc__list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 0; }
   .rc-firstview--illustrated .rc-toc__list > li:nth-child(odd) { border-left: 0; }
