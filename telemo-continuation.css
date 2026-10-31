@@ -109,6 +109,10 @@
   text-align: center;
 }
 .telemo-how__grid li:last-child { background: #ddfbf4; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .telemo-how__grid li.reveal { transition: transform 0.2s ease-out; }
+  .telemo-how__grid li.reveal:hover { z-index: 1; transform: scale(1.06); }
+}
 .telemo-how__grid li:not(:last-child)::after {
   content: '›';
   position: absolute;

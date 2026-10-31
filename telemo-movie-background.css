@@ -176,6 +176,11 @@
   );
 }
 
+/* The tinted section panels are retired; these chapters now sit on the page's white. */
+.page-home .lpsr-movie-background > :is(#telemo-listen, #founder, #telemo-how, #telemo-plan, #contact)::before {
+  display: none;
+}
+
 /* Alternate the six existing background panels on desktop:
    listen / how / core / plan / company / contact = grid / plain / grid / plain / grid / plain. */
 @media (min-width: 1024px) {

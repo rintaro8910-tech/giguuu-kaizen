@@ -87,6 +87,7 @@
   min-width: 0;
   min-height: 236px;
   padding: 28px;
+  border: 1px solid var(--rf-border);
   border-radius: 28px 28px 0 28px;
   background: #fff;
 }

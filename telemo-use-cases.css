@@ -109,8 +109,21 @@
   .page-home main > #telemo-cases { padding: 64px var(--page-padding) 72px; }
   .page-home #telemo-cases .telemo-cases__intro h2 { font-size: clamp(32px, 8vw, 44px); letter-spacing: -.06em; }
   .page-home #telemo-cases .telemo-cases__intro p { margin-top: 16px; font-size: 15px; }
-  .page-home #telemo-cases .telemo-cases__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 28px; }
-  .page-home #telemo-cases .telemo-cases__card { padding: 5px; }
+  /* Sideways scroller that runs to the screen edges, with the next card peeking in. */
+  .page-home #telemo-cases .telemo-cases__grid {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(72vw, 280px);
+    gap: 10px;
+    margin: 28px calc(var(--page-padding) * -1) 0;
+    padding-inline: var(--page-padding);
+    overflow-x: auto;
+    scroll-padding-inline: var(--page-padding);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .page-home #telemo-cases .telemo-cases__grid::-webkit-scrollbar { display: none; }
+  .page-home #telemo-cases .telemo-cases__card { padding: 5px; scroll-snap-align: start; }
   .page-home #telemo-cases .telemo-cases__card-head { flex-direction: column; align-items: flex-start; gap: 6px; height: auto; min-height: 84px; padding: 6px 8px 8px; }
   .page-home #telemo-cases .telemo-cases__card-head span { padding-right: 0; border-right: 0; font-size: 22px; }
   .page-home #telemo-cases .telemo-cases__card-head h3 { font-size: 14px; word-break: auto-phrase; }
