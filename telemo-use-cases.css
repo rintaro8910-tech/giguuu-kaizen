@@ -123,6 +123,7 @@
     scrollbar-width: none;
   }
   .page-home #telemo-cases .telemo-cases__grid::-webkit-scrollbar { display: none; }
+  .page-home #telemo-cases .telemo-cases__grid:focus-visible { outline: 2px solid var(--rf-accent); outline-offset: -2px; }
   .page-home #telemo-cases .telemo-cases__card { padding: 5px; scroll-snap-align: start; }
   .page-home #telemo-cases .telemo-cases__card-head { flex-direction: column; align-items: flex-start; gap: 6px; height: auto; min-height: 84px; padding: 6px 8px 8px; }
   .page-home #telemo-cases .telemo-cases__card-head span { padding-right: 0; border-right: 0; font-size: 22px; }

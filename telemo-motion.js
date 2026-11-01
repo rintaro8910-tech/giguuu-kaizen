@@ -39,6 +39,7 @@
   ];
 
   const pending = new Map();
+  const animations = [];
   const reveal = element => {
     pending.delete(element);
     element.classList.remove(ARMED);
@@ -47,7 +48,7 @@
   const play = (element, frames, order) => {
     reveal(element);
     try {
-      element.animate(frames(element), { duration: DURATION, delay: order * STAGGER, easing: EASE, fill: 'backwards' });
+      animations.push(element.animate(frames(element), { duration: DURATION, delay: order * STAGGER, easing: EASE, fill: 'backwards' }));
     } catch (_) {
       // 動かなくても内容は表示済み。
     }
@@ -63,11 +64,17 @@
   };
 
   let observer;
+  let scrubObserver;
   const stopAll = () => {
     observer?.disconnect();
+    scrubObserver?.disconnect();
+    animations.forEach(animation => animation.cancel());
     pending.forEach((_, element) => element.classList.remove(ARMED));
     pending.clear();
     root.classList.remove('lpsr-motion-ready');
+    scrubActive = false;
+    cancelAnimationFrame(scrubFrame);
+    scrubFrame = 0;
     if (photo) photo.style.scale = '';
     window.removeEventListener('scroll', requestScrub);
   };
@@ -110,11 +117,12 @@
   pending.forEach((_, element) => observer.observe(element));
 
   if (frame && photo) {
-    new IntersectionObserver(entries => {
+    scrubObserver = new IntersectionObserver(entries => {
       scrubActive = entries.some(entry => entry.isIntersecting);
       if (!scrubActive) photo.style.scale = '';
       requestScrub();
-    }).observe(frame);
+    });
+    scrubObserver.observe(frame);
     window.addEventListener('scroll', requestScrub, { passive: true });
   }
 
