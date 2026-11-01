@@ -1,4 +1,58 @@
-/* Mobile interaction for the existing TELEMO use-case cards only. */
+/* Layout and mobile interaction for the existing TELEMO use-case cards only. */
+.page-home main > #telemo-cases {
+  background: #fff;
+}
+
+/* Desktop: three cards, two wide cards, then three cards. */
+@media (min-width: 1101px) {
+  .page-home #telemo-cases .lpsr-cases-scroll {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 18px 14px;
+  }
+
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card {
+    grid-column: span 4;
+  }
+
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(2),
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(6),
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(8) {
+    margin-top: 22px;
+  }
+
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(1),
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(3),
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(7) {
+    margin-bottom: 22px;
+  }
+
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(4),
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(5) {
+    grid-column: span 6;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    grid-template-rows: auto 1fr;
+    column-gap: 6px;
+  }
+
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(4) img,
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(5) img {
+    grid-row: 1 / 3;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(4) img { grid-column: 2; }
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(4) :is(.telemo-cases__card-head, p) { grid-column: 1; }
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(5) img { grid-column: 1; }
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(5) :is(.telemo-cases__card-head, p) { grid-column: 2; }
+}
+
+@media (min-width: 601px) and (max-width: 1100px) {
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(even) { margin-top: 24px; }
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card:nth-child(odd) { margin-bottom: 24px; }
+}
+
 @media (max-width: 600px) {
   .page-home #telemo-cases .lpsr-cases-scroll {
     grid-template-columns: none;
