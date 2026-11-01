@@ -1,0 +1,29 @@
+/* Mobile interaction for the existing TELEMO use-case cards only. */
+@media (max-width: 600px) {
+  .page-home #telemo-cases .lpsr-cases-scroll {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(82vw, 340px);
+    gap: 12px;
+    margin-inline: calc(var(--page-padding) * -1);
+    padding-inline: var(--page-padding);
+    padding-bottom: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: var(--page-padding);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: #00657b #edf3f5;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .page-home #telemo-cases .lpsr-cases-scroll:focus-visible {
+    outline: 2px solid #00657b;
+    outline-offset: -2px;
+  }
+
+  .page-home #telemo-cases .lpsr-cases-scroll > .telemo-cases__card {
+    scroll-snap-align: start;
+  }
+}
