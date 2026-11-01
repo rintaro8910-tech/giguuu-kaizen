@@ -162,10 +162,16 @@
 
 /* This guide changes only its comment. The portrait remains still. */
 .telemo-concierge.lpsr-campaign-concierge {
-  right: var(--campaign-guide-right, max(24px, env(safe-area-inset-right)));
-  bottom: var(--campaign-guide-bottom, max(20px, env(safe-area-inset-bottom)));
+  right: max(12px, env(safe-area-inset-right));
+  bottom: max(12px, env(safe-area-inset-bottom));
   --character-width: var(--campaign-guide-width, clamp(96px, 10vw, 184px));
-  width: min(calc(var(--character-width) + 252px), calc(100vw - var(--campaign-guide-right, 24px) - 12px));
+  width: min(calc(var(--character-width) + 252px), calc(100vw - 24px));
+}
+
+/* Keep the hero anchor only while the hero is the active section. */
+.telemo-concierge.lpsr-campaign-concierge[data-section="hero"] {
+  right: var(--campaign-guide-right, max(12px, env(safe-area-inset-right)));
+  bottom: var(--campaign-guide-bottom, max(12px, env(safe-area-inset-bottom)));
 }
 
 .lpsr-campaign-concierge .telemo-concierge__scene { gap: 12px; }
@@ -206,7 +212,7 @@
 @media (max-width: 767px) {
   .telemo-concierge.lpsr-campaign-concierge {
     --character-width: var(--campaign-guide-width, clamp(80px, 24vw, 104px));
-    width: min(calc(var(--character-width) + 224px), calc(100vw - var(--campaign-guide-right, 12px) - 12px));
+    width: min(calc(var(--character-width) + 224px), calc(100vw - 24px));
   }
 
   .page-home.concept-08 .lpsr-movie-background {
