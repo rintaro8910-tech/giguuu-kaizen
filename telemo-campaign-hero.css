@@ -168,7 +168,7 @@
   width: min(calc(var(--character-width) + 252px), calc(100vw - 24px));
 }
 
-/* Match the hero illustration only while the hero is the active section. */
+/* Keep the hero anchor only while the hero is the active section. */
 .telemo-concierge.lpsr-campaign-concierge[data-section="hero"] {
   right: var(--campaign-guide-right, max(12px, env(safe-area-inset-right)));
   bottom: var(--campaign-guide-bottom, max(12px, env(safe-area-inset-bottom)));
