@@ -97,7 +97,7 @@
     updateOverflow();
   });
   document.documentElement.classList.add("ui-ready");
-  // ---- お問い合わせフォーム（Web3Forms 送信） ----
+  // ---- お問い合わせフォーム（Apps Script 送信） ----
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
   if (form) {
@@ -106,9 +106,9 @@
         if (field.validity.valid) field.removeAttribute("aria-invalid");
       });
     });
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+    form.addEventListener("submit", (e) => {
       if (!form.checkValidity()) {
+        e.preventDefault();
         form.querySelectorAll("[required]").forEach(field => field.setAttribute("aria-invalid", String(!field.validity.valid)));
         form.querySelector(":invalid")?.focus();
         status.style.color = "var(--magenta)";
@@ -116,33 +116,14 @@
         return;
       }
       const btn = form.querySelector('button[type="submit"]');
+      form.elements.namedItem("return_url").value = window.location.href;
       status.style.color = "var(--cyan)";
       status.textContent = "▸ 送信中...";
       if (btn) btn.disabled = true;
-      try {
-        const res = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { Accept: "application/json" },
-          body: new FormData(form),
-        });
-        const data = await res.json();
-        if (data.success) {
-          status.style.color = "var(--cyan)";
-          status.textContent =
-            "✓ 送信ありがとうございます。担当より折り返しご連絡いたします。";
-          form.reset();
-        } else {
-          status.style.color = "var(--magenta)";
-          status.textContent =
-            "▸ 送信に失敗しました。お手数ですが時間をおいて再度お試しください。";
-        }
-      } catch (err) {
-        status.style.color = "var(--magenta)";
-        status.textContent =
-          "▸ 通信エラーが発生しました。時間をおいて再度お試しください。";
-      } finally {
-        if (btn) btn.disabled = false;
-      }
+    });
+    window.addEventListener("pageshow", () => {
+      const btn = form.querySelector('button[type="submit"]');
+      if (btn) btn.disabled = false;
     });
   }
 })();
