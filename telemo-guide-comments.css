@@ -61,6 +61,12 @@
 @media (min-width: 601px) and (max-width: 1099px) {
   #telemo-core .lpsr-benefits-founder .lpsr-guide-comments__text { font-size: 12px; }
 }
+@media (min-width: 1100px) {
+  #telemo-core .lpsr-benefits-founder .lpsr-guide-comments { padding: 10px 10px 6px; border-radius: 14px; }
+  #telemo-core .lpsr-benefits-founder .lpsr-guide-comments__text { min-height: 0; font-size: 11px; line-height: 1.6; }
+  #telemo-core .lpsr-guide-comments__tools { margin-top: 2px; }
+  #telemo-core .lpsr-guide-comments__tools button { min-height: 28px; font-size: 10px; }
+}
 @media (max-width: 600px) {
   #telemo-core .telemo-benefits__center { grid-template-columns: minmax(0, 1fr); }
   #telemo-core .lpsr-benefits-founder {

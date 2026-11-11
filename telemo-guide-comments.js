@@ -5,7 +5,7 @@
   const next = root.querySelector('[data-guide-next]');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const lines = [
-    'お待たせしました！ここからは僕がご案内します。',
+    'ここからは6つの仕組みをご案内します。',
     '声も、トーク設計も。営業現場の知見を詰め込んでいます。',
     '結果を見て、一緒に改善。その積み重ねが大切なんです。',
   ];

@@ -102,7 +102,7 @@
   }
 }
 
-/* A cut-paper backing belongs to the portrait side, leaving the story on white. */
+/* The portrait side shares the founder chapter's white background. */
 .page-home .lpsr-movie-background > #founder {
   position: relative;
   isolation: isolate;
@@ -116,7 +116,7 @@
   bottom: 80px;
   left: var(--study-gutter);
   width: max(28%, calc((100% - var(--rf-content)) / 2 + 328px));
-  background: var(--rf-surface-tint);
+  background: #fff;
   clip-path: polygon(0 2%, 100% 0, 96% 96%, 24% 100%, 0 97%);
   pointer-events: none;
 }

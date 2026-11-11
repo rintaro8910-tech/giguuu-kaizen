@@ -4,8 +4,8 @@
 .page-home #telemo-cases .lpsr-cases-scroll {
   grid-template-columns: none;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% - 100px) / 3);
-  gap: 50px;
+  grid-auto-columns: calc((100% - 96px) / 4.25);
+  gap: 24px;
   max-width: 1090px;
   margin: 56px auto 0;
   padding: 4px 0 20px;
@@ -87,7 +87,7 @@
 }
 @media (min-width: 601px) and (max-width: 900px) {
   .page-home #telemo-cases .lpsr-cases-scroll {
-    grid-auto-columns: calc((100% - 25px) / 2);
+    grid-auto-columns: calc((100% - 50px) / 2.25);
     gap: 25px;
   }
 }
@@ -95,7 +95,7 @@
   .page-home #telemo-cases .lpsr-cases-scroll {
     grid-template-columns: none;
     grid-auto-flow: column;
-    grid-auto-columns: min(82vw, 340px);
+    grid-auto-columns: min(72vw, 280px);
     gap: 12px;
     max-width: none;
     margin: 42px calc(var(--page-padding) * -1) 0;

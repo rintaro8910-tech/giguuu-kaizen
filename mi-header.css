@@ -47,6 +47,11 @@
   white-space: nowrap;
 }
 .page-home header.ggh .ggh__logo > span { display: inline; }
+.page-home header.ggh .ggh__logo > img {
+  display: block;
+  width: 240px;
+  height: auto;
+}
 .page-home header.ggh .ggh__logo,
 .page-home header.ggh .ggh__navigation { position: relative; top: -5px; }
 
@@ -189,6 +194,10 @@
 .page-home header.ggh .ggh__panel .ggh__panel-contact:hover { background: #00606c; color: #fff; }
 @keyframes ggh-panel-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 
+@media (min-width: 901px) and (max-width: 1199px) {
+  .page-home header.ggh .ggh__logo > img { width: 210px; }
+}
+
 /* ---- 901-1100px: tighter desktop header ---- */
 @media (max-width: 1100px) {
   :root { --nav-height: 80px; }
@@ -257,6 +266,7 @@
   .page-home header.ggh.is-scrolled { background: #fff; }
   .page-home header.ggh .ggh__inner { padding: 0 16px 0 20px; }
   .page-home header.ggh .ggh__logo { font-size: 24px; }
+  .page-home header.ggh .ggh__logo > img { width: 190px; }
   .page-home header.ggh .ggh__contact { display: none; }
   .page-home header.ggh .ggh__burger { width: 46px; height: 46px; margin-left: auto; }
   .page-home header.ggh .ggh__primary a.ggh__mobile-contact {

@@ -1,142 +1,195 @@
-// TELEMO LP の登場の動き。#hero とミニ社長には触らない。
-// 動きは 1 セクションにつき 1 つ、一度だけ。文言や数字は書き換えない。
-// 動かすのは opacity / clip-path / 個別の translate・scale だけで、既存の transform やホバーと競合しない。
+// Kio's sequential entrances and Casa Malka's image masks, adapted to TELEMO.
 (() => {
   'use strict';
+  if (!('IntersectionObserver' in window) || !Element.prototype.animate) return;
+
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-  if (reduce.matches || !('IntersectionObserver' in window) || !Element.prototype.animate) return;
-
   const root = document.documentElement;
-  const ARMED = 'lpsr-motion-armed';
-  const EASE = 'cubic-bezier(.22,1,.36,1)';
-  const DURATION = 480;
-  const STAGGER = 50;
+  const hero = document.querySelector('#hero.telemo-office-hero');
+  const wordmark = hero?.querySelector('.telemo-office-hero__wordmark img');
+  const photoFrame = document.querySelector('.telemo-support-redesign__photo');
+  const photo = photoFrame?.querySelector('img');
+  const armedClass = 'lpsr-motion-armed';
+  const easing = 'cubic-bezier(.22, 1, .36, 1)';
+  const played = new WeakSet();
+  const pending = new Map();
+  const animations = new Set();
+  let observer;
+  let scrubObserver;
+  let heroActive = false;
+  let photoActive = false;
+  let heroPlayed = false;
+  let scrubFrame = 0;
+  let navigating = false;
+  let navTimer;
 
-  // 中心の点から、角を落とした形に開いて矩形へ戻る
-  const opening = () => ({
-    clipPath: [
-      'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%)',
-      'polygon(22% 0, 100% 0, 100% 66%, 82% 100%, 0 100%, 0 40%)',
-      'polygon(0 0, 100% 0, 100% 66%, 100% 100%, 0 100%, 0 0)',
-    ],
-    offset: [0, .74, 1],
-  });
   const shift = (x, y = 0) => ({ opacity: [0, 1], translate: [`${x}px ${y}px`, '0 0'] });
-  const coreCard = element => {
-    if (innerWidth <= 600) return shift(0, 10);
-    return shift(element.matches(':nth-of-type(odd)') ? -18 : 18);
-  };
-
-  // [対象, 動き]。同じ組の要素が同時に画面へ入ると 0.05 秒ずつずれて出る。
+  const opening = () => ({ clipPath: ['inset(12% 8%)', 'inset(0% 0%)'], scale: [.96, 1] });
+  const coreCard = element => innerWidth <= 600 ? shift(0, 10) : shift(element.matches(':nth-of-type(odd)') ? -18 : 18);
   const groups = [
     ['.founder__photo', opening],
     ['.telemo-how__grid li', () => shift(0, 14)],
-    ['.telemo-cases__card', () => ({ opacity: [0, 1], scale: [.97, 1] })],
+    ['.telemo-cases__card', () => ({ opacity: [0, 1], scale: [.96, 1] })],
     ['.telemo-compare__card--human', () => shift(-20)],
     ['.telemo-compare__card--ai', () => shift(20)],
     ['.telemo-benefits__card', coreCard],
     ['.telemo-support__step', () => shift(-10)],
   ];
 
-  const pending = new Map();
-  const animations = [];
-  const reveal = element => {
-    pending.delete(element);
-    element.classList.remove(ARMED);
-    observer?.unobserve(element);
-  };
-  const play = (element, frames, order) => {
-    reveal(element);
+  const animate = (element, frames, duration, delay = 0) => {
+    if (!element || document.hidden || reduce.matches) return;
     try {
-      animations.push(element.animate(frames(element), { duration: DURATION, delay: order * STAGGER, easing: EASE, fill: 'backwards' }));
-    } catch (_) {
-      // 動かなくても内容は表示済み。
+      const animation = element.animate(frames, { duration, delay, easing, fill: 'backwards' });
+      animations.add(animation);
+      animation.finished.then(() => animations.delete(animation), () => animations.delete(animation));
+    } catch {
+      // Unsupported keyframes leave the element in its readable static state.
+      element.classList.remove(armedClass);
     }
   };
 
-  // アンカー移動中に通過・着地する要素は、動かさずにすぐ読めるようにする
-  let navigating = false;
-  let navTimer;
-  const startNavigation = () => {
-    navigating = true;
-    clearTimeout(navTimer);
-    navTimer = setTimeout(() => { navigating = false; }, 1600);
+  const reveal = element => {
+    played.add(element);
+    pending.delete(element);
+    element.classList.remove(armedClass);
+    observer?.unobserve(element);
   };
 
-  let observer;
-  let scrubObserver;
-  const stopAll = () => {
+  const playHero = () => {
+    if (!hero || heroPlayed || location.hash || scrollY > 40) return;
+    heroPlayed = true;
+    const mobile = innerWidth < 768;
+    animate(hero.querySelector('.telemo-office-hero__intro'), {
+      clipPath: ['inset(0 50% round 2em)', 'inset(0 0% round 2em)'],
+      opacity: [.2, 1],
+    }, 540);
+    animate(hero.querySelector('.telemo-office-hero__headline'), {
+      clipPath: ['inset(100% 0 -20%)', 'inset(0% 0 -20%)'],
+      translate: [mobile ? '0 8px' : '0 16px', '0 0'],
+    }, 700, 90);
+    animate(hero.querySelector('.telemo-office-hero__wordmark'), {
+      opacity: [0, 1, 1],
+      scale: [mobile ? .88 : .78, mobile ? 1.015 : 1.025, 1],
+      rotate: [mobile ? '-1.5deg' : '-3deg', '.35deg', '0deg'],
+      translate: [mobile ? '0 12px' : '0 22px', '0 -2px', '0 0'],
+      offset: [0, .72, 1],
+    }, 850, 140);
+    animate(hero.querySelector('.telemo-office-hero__speech'), {
+      opacity: [0, 1, 1],
+      scale: [.84, 1.02, 1],
+      transformOrigin: ['90% 85%', '90% 85%', '90% 85%'],
+      offset: [0, .75, 1],
+    }, 620, 330);
+    animate(hero.querySelector('.telemo-office-hero__president img'), {
+      opacity: [0, 1], scale: [.92, 1],
+    }, 480, 300);
+  };
+
+  const updateScrub = () => {
+    scrubFrame = 0;
+    if (document.hidden || reduce.matches) return;
+    const heroBox = heroActive ? hero.getBoundingClientRect() : null;
+    const photoBox = photoActive ? photoFrame.getBoundingClientRect() : null;
+    if (heroBox && wordmark) {
+      const progress = Math.min(1, Math.max(0, -heroBox.top / heroBox.height));
+      hero.style.setProperty('--office-wordmark-shift', `${progress * (innerWidth < 768 ? 8 : 18)}px`);
+    }
+    if (photoBox && photo) {
+      const progress = Math.min(1, Math.max(0, (innerHeight - photoBox.top) / ((innerHeight + photoBox.height) / 2)));
+      photo.style.scale = progress >= 1 ? '' : String(1 + .08 * (1 - progress));
+      photoFrame.style.clipPath = progress >= 1 ? '' : `inset(${(1 - progress) * 9}%)`;
+    }
+  };
+  const requestScrub = () => {
+    if (!document.hidden && (heroActive || photoActive) && !scrubFrame) scrubFrame = requestAnimationFrame(updateScrub);
+  };
+
+  const cancelAnimations = () => {
+    animations.forEach(animation => animation.cancel());
+    animations.clear();
+  };
+  const stop = () => {
     observer?.disconnect();
     scrubObserver?.disconnect();
-    animations.forEach(animation => animation.cancel());
-    pending.forEach((_, element) => element.classList.remove(ARMED));
+    cancelAnimations();
+    pending.forEach((_, element) => element.classList.remove(armedClass));
     pending.clear();
     root.classList.remove('lpsr-motion-ready');
-    scrubActive = false;
     cancelAnimationFrame(scrubFrame);
     scrubFrame = 0;
+    heroActive = false;
+    photoActive = false;
+    hero?.style.removeProperty('--office-wordmark-shift');
     if (photo) photo.style.scale = '';
+    if (photoFrame) photoFrame.style.clipPath = '';
     window.removeEventListener('scroll', requestScrub);
   };
 
-  // スクロール連動はこの 1 か所だけ。枠の中心が画面中央に来たら元の大きさで止まる。
-  const frame = document.querySelector('.telemo-support-redesign__photo');
-  const photo = frame?.querySelector('img');
-  let scrubActive = false;
-  let scrubFrame = 0;
-  const updateScrub = () => {
-    scrubFrame = 0;
-    if (!scrubActive || !photo) return;
-    const box = frame.getBoundingClientRect();
-    const progress = Math.min(1, Math.max(0, (innerHeight - box.top) / ((innerHeight + box.height) / 2)));
-    photo.style.scale = progress >= 1 ? '' : String(1 + .1 * (1 - progress));
-  };
-  const requestScrub = () => { scrubFrame ||= requestAnimationFrame(updateScrub); };
-
-  root.classList.add('lpsr-motion-ready');
-  groups.forEach(([selector, frames], index) => {
-    document.querySelectorAll(selector).forEach(element => {
-      element.classList.add(ARMED);
-      pending.set(element, { frames, index });
+  const start = () => {
+    if (reduce.matches || document.hidden) return;
+    observer?.disconnect();
+    scrubObserver?.disconnect();
+    observer = new IntersectionObserver(entries => {
+      const counts = new Map();
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const item = pending.get(entry.target);
+        if (!item) return;
+        reveal(entry.target);
+        if (navigating || entry.boundingClientRect.top < -40 || entry.target.contains(document.activeElement)) return;
+        const order = counts.get(item.index) ?? 0;
+        counts.set(item.index, order + 1);
+        animate(entry.target, item.frames(entry.target), 620, Math.min(order * 65, 260));
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
+    root.classList.add('lpsr-motion-ready');
+    groups.forEach(([selector, frames], index) => {
+      document.querySelectorAll(selector).forEach(element => {
+        if (played.has(element)) return;
+        element.classList.add(armedClass);
+        pending.set(element, { frames, index });
+        observer.observe(element);
+      });
     });
-  });
-
-  observer = new IntersectionObserver(entries => {
-    const counts = new Map();
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const item = pending.get(entry.target);
-      if (!item) return;
-      // 上から入ってきたものとアンカーの着地先は、動かさない
-      if (navigating || entry.boundingClientRect.top < -40) { reveal(entry.target); return; }
-      const order = counts.get(item.index) ?? 0;
-      counts.set(item.index, order + 1);
-      play(entry.target, item.frames, order);
-    });
-  }, { rootMargin: '0px 0px -12% 0px', threshold: 0 });
-  pending.forEach((_, element) => observer.observe(element));
-
-  if (frame && photo) {
     scrubObserver = new IntersectionObserver(entries => {
-      scrubActive = entries.some(entry => entry.isIntersecting);
-      if (!scrubActive) photo.style.scale = '';
+      entries.forEach(entry => {
+        if (entry.target === hero) heroActive = entry.isIntersecting;
+        if (entry.target === photoFrame) {
+          photoActive = entry.isIntersecting;
+          if (!photoActive) {
+            photo.style.scale = '';
+            photoFrame.style.clipPath = '';
+          }
+        }
+      });
       requestScrub();
     });
-    scrubObserver.observe(frame);
+    if (hero && wordmark) scrubObserver.observe(hero);
+    if (photoFrame && photo) scrubObserver.observe(photoFrame);
     window.addEventListener('scroll', requestScrub, { passive: true });
-  }
+    playHero();
+  };
 
+  const startNavigation = () => {
+    navigating = true;
+    cancelAnimations();
+    clearTimeout(navTimer);
+    navTimer = setTimeout(() => { navigating = false; }, 1600);
+  };
   const settle = event => {
+    for (const animation of animations) {
+      if (animation.effect?.target?.contains(event.target)) animation.cancel();
+    }
     for (let element = event.target; element && element !== document.body; element = element.parentElement) {
       if (pending.has(element)) reveal(element);
     }
   };
   if (location.hash) startNavigation();
-  window.addEventListener('hashchange', startNavigation);
   document.addEventListener('click', event => {
     const link = event.target.closest?.('a[href^="#"]');
-    if (link && link.getAttribute('href').length > 1) startNavigation();
+    if (link?.getAttribute('href').length > 1) startNavigation();
   }, true);
+  window.addEventListener('hashchange', startNavigation);
   window.addEventListener('scrollend', () => {
     if (!navigating) return;
     clearTimeout(navTimer);
@@ -144,6 +197,11 @@
   });
   document.addEventListener('focusin', settle);
   document.addEventListener('pointerdown', settle, { passive: true });
-  window.addEventListener('beforeprint', () => [...pending.keys()].forEach(reveal));
-  reduce.addEventListener('change', event => { if (event.matches) stopAll(); });
+  document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+  window.addEventListener('beforeprint', stop);
+  window.addEventListener('afterprint', start);
+  window.addEventListener('pageshow', start);
+  window.addEventListener('resize', requestScrub, { passive: true });
+  reduce.addEventListener('change', () => reduce.matches ? stop() : start());
+  start();
 })();

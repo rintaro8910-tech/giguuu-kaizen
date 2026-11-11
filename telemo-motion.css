@@ -19,12 +19,6 @@
    配置だけを上書きする。文言、配色、カードの枠はそのまま。
    大きさを行で変える、段違いにする、一部を重ねる、の 3 つで単調な並びを崩す。 */
 
-/* 音声デモ: 行を左右に段違いにする。スマホは再生バーの幅を優先してそのまま。 */
-@media (min-width: 901px) {
-  .page-home .lpsr-movie-background > #telemo-listen .telemo-listen__demo:nth-child(odd) { margin-right: 7%; }
-  .page-home .lpsr-movie-background > #telemo-listen .telemo-listen__demo:nth-child(even) { margin-left: 7%; }
-}
-
 /* 創業者: 名前の札を写真に重ね、本文を一段下げる */
 @media (min-width: 1200px) {
   .page-home #founder .founder__grid { grid-template-columns: minmax(0, 400px) minmax(0, 1fr); }

@@ -131,6 +131,7 @@
 // Progressive motion: visible by default, one entrance per visit, no scroll takeover.
 (function () {
   "use strict";
+  if (document.body.classList.contains("page-home")) return;
   if (!window.IntersectionObserver || !Element.prototype.animate) return;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
   const active = new Map();
