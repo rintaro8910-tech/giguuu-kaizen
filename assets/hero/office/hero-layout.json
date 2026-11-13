@@ -167,7 +167,7 @@
   "behavior": {
     "primaryCtaTarget": "telemo-how",
     "secondaryCtaTarget": "contact",
-    "guide": "ヒーローには静止ポートレートを表示。次のセクションからは画面下へ固定。6つの仕組みのセクションでは説明用の社長に切り替え、セクションを離れると右下の社長を再表示。メニュー表示中は隠す。",
+    "guide": "ヒーローのポートレートが画面内に見えている間は右下の社長を隠し、画面外へ出てから右下へ表示。6つの仕組みでは説明用の社長に切り替え、セクションを離れると右下の社長を再表示。メニュー表示中は隠す。",
     "bookingUrl": "https://timerex.net/s/telemokanri_c8e4/3da2d732"
   },
   "assets": {
@@ -272,6 +272,32 @@
       "javascriptDisabled": "passed",
       "keyboardHorizontalScroll": "passed",
       "presidentHandoff": "passed"
+    },
+    "heroPortraitHandoff": {
+      "widths": [
+        320,
+        390,
+        768,
+        1440,
+        1882
+      ],
+      "duplicatePortraitsDuringScroll": false,
+      "floatingGuideRestoredAfterHero": true,
+      "returnScroll": "passed",
+      "benefitsHandoff": "passed"
+    },
+    "kioHeroEntrance": {
+      "date": "2026-11-13",
+      "widths": [
+        320,
+        390,
+        768,
+        1440
+      ],
+      "overflowDuringAnimation": false,
+      "allAnimationsFinished": true,
+      "reducedMotion": "passed",
+      "anchorInterruption": "passed"
     }
   },
   "motion": {
@@ -291,28 +317,28 @@
     "heroTimelineMs": [
       {
         "element": "intro",
-        "delay": 0,
-        "duration": 540
+        "delay": 300,
+        "duration": 750
       },
       {
         "element": "headline",
-        "delay": 90,
-        "duration": 700
+        "delay": 650,
+        "duration": 750
       },
       {
         "element": "wordmark",
-        "delay": 140,
-        "duration": 850
+        "delay": 1000,
+        "duration": 950
       },
       {
         "element": "president image",
-        "delay": 300,
-        "duration": 480
+        "delay": 1350,
+        "duration": 950
       },
       {
         "element": "speech",
-        "delay": 330,
-        "duration": 620
+        "delay": 1700,
+        "duration": 750
       }
     ],
     "scrollEffects": {
@@ -323,6 +349,29 @@
       "supportPhotoMaxInsetPercent": 9,
       "supportPhotoMaxScale": 1.08
     },
-    "accessibility": "prefers-reduced-motion時は静止。アンカー操作・フォーカス・非表示タブで中断。JavaScriptが無効でも本文とリンクを表示。"
+    "accessibility": "prefers-reduced-motion時は静止。アンカー操作・フォーカス・非表示タブで中断。JavaScriptが無効でも本文とリンクを表示。",
+    "heroEntrance": {
+      "reference": "https://www.kio.ac.jp/bds/",
+      "method": "小さい状態から拡大し、一度大きく弾んで元のサイズへ収束。350ms間隔で順に登場。",
+      "normalScale": [
+        0.3,
+        1.15,
+        1
+      ],
+      "prominentScale": [
+        0.15,
+        1.25,
+        1
+      ],
+      "mobilePeakScale": {
+        "headline": 1.04,
+        "wordmark": 1.08,
+        "president": 1.12,
+        "speech": 1.05
+      },
+      "normalEasing": "cubic-bezier(.18,.89,.32,1.28)",
+      "prominentEasing": "cubic-bezier(.18,.89,.32,1.35)",
+      "totalDurationMs": 2450
+    }
   }
 }

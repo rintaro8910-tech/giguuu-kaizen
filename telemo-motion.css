@@ -123,11 +123,6 @@
   .page-home #telemo-core .telemo-benefits__card:nth-of-type(even) { margin-top: 32px; }
   .page-home #telemo-core .telemo-benefits__card:nth-of-type(odd) { margin-bottom: 32px; }
 }
-@media (max-width: 600px) {
-  .page-home #telemo-core .telemo-benefits__card:nth-of-type(odd) { margin-right: 20px; }
-  .page-home #telemo-core .telemo-benefits__card:nth-of-type(even) { margin-left: 20px; }
-}
-
 /* 改善サイクル: 上下に振る */
 @media (min-width: 960px) {
   .page-home .telemo-support__step:nth-child(odd) { margin-top: 24px; }

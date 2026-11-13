@@ -24,10 +24,8 @@
   let navTimer;
 
   const shift = (x, y = 0) => ({ opacity: [0, 1], translate: [`${x}px ${y}px`, '0 0'] });
-  const opening = () => ({ clipPath: ['inset(12% 8%)', 'inset(0% 0%)'], scale: [.96, 1] });
   const coreCard = element => innerWidth <= 600 ? shift(0, 10) : shift(element.matches(':nth-of-type(odd)') ? -18 : 18);
   const groups = [
-    ['.founder__photo', opening],
     ['.telemo-how__grid li', () => shift(0, 14)],
     ['.telemo-cases__card', () => ({ opacity: [0, 1], scale: [.96, 1] })],
     ['.telemo-compare__card--human', () => shift(-20)],
@@ -36,10 +34,10 @@
     ['.telemo-support__step', () => shift(-10)],
   ];
 
-  const animate = (element, frames, duration, delay = 0) => {
+  const animate = (element, frames, duration, delay = 0, animationEasing = easing) => {
     if (!element || document.hidden || reduce.matches) return;
     try {
-      const animation = element.animate(frames, { duration, delay, easing, fill: 'backwards' });
+      const animation = element.animate(frames, { duration, delay, easing: animationEasing, fill: 'backwards' });
       animations.add(animation);
       animation.finished.then(() => animations.delete(animation), () => animations.delete(animation));
     } catch {
@@ -56,33 +54,25 @@
   };
 
   const playHero = () => {
-    if (!hero || heroPlayed || location.hash || scrollY > 40) return;
+    if (!hero || heroPlayed || (location.hash && location.hash !== '#hero') || scrollY > 40) return;
     heroPlayed = true;
     const mobile = innerWidth < 768;
-    animate(hero.querySelector('.telemo-office-hero__intro'), {
-      clipPath: ['inset(0 50% round 2em)', 'inset(0 0% round 2em)'],
-      opacity: [.2, 1],
-    }, 540);
-    animate(hero.querySelector('.telemo-office-hero__headline'), {
-      clipPath: ['inset(100% 0 -20%)', 'inset(0% 0 -20%)'],
-      translate: [mobile ? '0 8px' : '0 16px', '0 0'],
-    }, 700, 90);
-    animate(hero.querySelector('.telemo-office-hero__wordmark'), {
-      opacity: [0, 1, 1],
-      scale: [mobile ? .88 : .78, mobile ? 1.015 : 1.025, 1],
-      rotate: [mobile ? '-1.5deg' : '-3deg', '.35deg', '0deg'],
-      translate: [mobile ? '0 12px' : '0 22px', '0 -2px', '0 0'],
-      offset: [0, .72, 1],
-    }, 850, 140);
-    animate(hero.querySelector('.telemo-office-hero__speech'), {
-      opacity: [0, 1, 1],
-      scale: [.84, 1.02, 1],
-      transformOrigin: ['90% 85%', '90% 85%', '90% 85%'],
-      offset: [0, .75, 1],
-    }, 620, 330);
-    animate(hero.querySelector('.telemo-office-hero__president img'), {
-      opacity: [0, 1], scale: [.92, 1],
-    }, 480, 300);
+    const sequence = [
+      { selector: '.telemo-office-hero__intro', peak: 1.12 },
+      { selector: '.telemo-office-hero__headline', peak: mobile ? 1.04 : 1.06 },
+      { selector: '.telemo-office-hero__wordmark', peak: mobile ? 1.08 : 1.15, prominent: true },
+      { selector: '.telemo-office-hero__president img', peak: mobile ? 1.12 : 1.25, prominent: true, origin: '50% 100%' },
+      { selector: '.telemo-office-hero__speech', peak: mobile ? 1.05 : 1.15, origin: '90% 85%' },
+    ];
+    sequence.forEach((item, index) => {
+      animate(hero.querySelector(item.selector), {
+        opacity: [0, 1, 1],
+        scale: [item.prominent ? .15 : .3, item.peak, 1],
+        transformOrigin: [item.origin || '50% 50%', item.origin || '50% 50%', item.origin || '50% 50%'],
+        offset: [0, item.prominent ? .55 : .6, 1],
+      }, item.prominent ? 950 : 750, 300 + index * 350,
+      item.prominent ? 'cubic-bezier(.18, .89, .32, 1.35)' : 'cubic-bezier(.18, .89, .32, 1.28)');
+    });
   };
 
   const updateScrub = () => {

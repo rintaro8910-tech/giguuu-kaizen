@@ -234,14 +234,16 @@
   }
 }
 
-/* The scene contains its own portrait; the page guide resumes on later sections. */
-.page-home .telemo-concierge.lpsr-campaign-concierge[data-section="hero"] {
+/* Keep one portrait visible while the hero overlaps the next section. */
+.page-home .telemo-concierge.lpsr-campaign-concierge[data-section="hero"],
+.page-home .telemo-concierge.lpsr-campaign-concierge.is-hero-portrait-visible {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
 
-.page-home .telemo-concierge.lpsr-campaign-concierge[data-section="hero"] .telemo-concierge__bubble {
+.page-home .telemo-concierge.lpsr-campaign-concierge[data-section="hero"] .telemo-concierge__bubble,
+.page-home .telemo-concierge.lpsr-campaign-concierge.is-hero-portrait-visible .telemo-concierge__bubble {
   visibility: hidden;
 }
 

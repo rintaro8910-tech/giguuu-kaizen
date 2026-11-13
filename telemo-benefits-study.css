@@ -144,6 +144,62 @@
   text-wrap: pretty;
 }
 
+@media (max-width: 767px) {
+  .telemo-benefits__toggle {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 24px;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    min-height: 44px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    text-align: left;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  .telemo-benefits__toggle:focus-visible {
+    outline: 2px solid var(--rf-accent);
+    outline-offset: 4px;
+  }
+
+  .telemo-benefits__toggle-indicator {
+    position: relative;
+    width: 24px;
+    height: 24px;
+  }
+
+  .telemo-benefits__toggle-indicator::before,
+  .telemo-benefits__toggle-indicator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 2px;
+    background: currentColor;
+    transform: translate(-50%, -50%);
+  }
+
+  .telemo-benefits__toggle-indicator::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .telemo-benefits__toggle[aria-expanded="true"] .telemo-benefits__toggle-indicator::after {
+    opacity: 0;
+  }
+
+  .page-home #telemo-core .telemo-benefits__card.is-description-collapsed h3 {
+    margin-bottom: 0;
+  }
+}
+
 /* Keep the six strengths and the center guide together on a desktop screen.
    Content retains its natural height at zoom levels or sizes that need more room. */
 @media (min-width: 1100px) {
