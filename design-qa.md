@@ -282,3 +282,11 @@ Scope: `index.html#founder` and `founder.css`. This report covers the selected f
 P3: generated reference typography and the site's actual font rendering differ slightly; native capture compression prevents a pixel-level antialiasing verdict. The selected composition, hierarchy, palette and content are implemented. Unrelated page sections are outside this report.
 
 final result: passed
+
+## 2026-11-16 導入の流れ（案2）
+
+- Reference: user-supplied horizontal.png.
+- Implementation: six equal-width cards on desktop; vertical timeline on screens 900px and below.
+- Static checks: `git diff --check` passed; local CSS returned HTTP 200.
+- Visual comparison: blocked because the in-app browser access host was unavailable. Desktop and mobile rendering still require visual inspection.
+- final result: blocked
