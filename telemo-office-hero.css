@@ -361,3 +361,13 @@
     break-inside: avoid;
   }
 }
+
+/* Carry the office illustration's mint into the following content. */
+.page-home.background-study main > #hero + section.reference-logo-band {
+  background: linear-gradient(180deg, #d9f1eb 0%, #eff9f6 100%);
+  border-bottom-color: #d9eae6;
+}
+
+.page-home.background-study main > section#telemo-listen {
+  background: linear-gradient(180deg, #f5fbf9 0%, #fff 55%);
+}
