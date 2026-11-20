@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./mi-header.css?v=20261108-logo" />
     <link rel="stylesheet" href="./index-refine.css?v=20261013a" />
     <link rel="stylesheet" href="./policies.css?v=20261119c" />
-    <link rel="stylesheet" href="./contact.css?v=20261120-timerex" />
+    <link rel="stylesheet" href="./contact.css?v=20261120-form" />
   </head>
   <body class="page-home concept-08 page-policy page-contact" id="top">
     <a class="policy-skip" href="#policy-content">本文へ移動</a>
@@ -50,20 +50,6 @@
       </nav>
       <h1>お問い合わせ</h1>
       <p class="contact__lead">事業・採用・TELEMO導入のご相談など、お気軽にお問い合わせください。</p>
-      <nav class="contact__methods" aria-label="お問い合わせ方法">
-        <a href="#booking">導入相談を予約する</a>
-        <a href="#contact-message-form">メールで問い合わせる</a>
-      </nav>
-
-      <section class="contact__booking" id="booking" aria-labelledby="booking-title">
-        <h2 id="booking-title">TELEMOの導入相談を予約する</h2>
-        <p>所要時間は30分です。カレンダーからご都合のよい日時をお選びください。</p>
-        <p class="contact__booking-link"><a href="https://timerex.net/s/Takahisa_Katayama_5558/eed442d2" target="_blank" rel="noopener noreferrer">予約ページを別タブで開く</a></p>
-        <div id="timerex_calendar" data-url="https://timerex.net/s/Takahisa_Katayama_5558/eed442d2"></div>
-      </section>
-
-      <section class="contact__message" id="contact-message-form" aria-labelledby="contact-message-title">
-        <h2 id="contact-message-title">メールでお問い合わせ</h2>
       <form class="contact__form" id="contactForm" action="https://script.google.com/macros/s/AKfycbzCK7SQe3MKfglaFz-YFDP2pD3V4jWLX-Rw1t4_WD1yVh7bzv1SjM722_u0sbVAj_c/exec" method="POST" accept-charset="UTF-8" novalidate>
             <input type="hidden" name="return_url" />
             <input type="checkbox" name="botcheck" style="display: none" tabindex="-1" autocomplete="off" />
@@ -92,7 +78,6 @@
             </button>
             <p class="contact__status" id="formStatus" role="status"></p>
           </form>
-      </section>
       <a class="policy-page__back" href="./index.html#footer">トップページへ戻る</a>
     </main>
 
@@ -121,15 +106,5 @@
       </div>
     </footer>
     <script src="./boundary-ui.js?v=20261111a" defer></script>
-    <script id="timerex_embed" src="https://asset.timerex.net/js/embed.js"></script>
-    <script>
-      if (typeof TimerexCalendar === 'function') {
-        TimerexCalendar({
-          onBookingComplete: () => {
-            window.location.assign(new URL('./index.html', window.location.href).href);
-          },
-        });
-      }
-    </script>
   </body>
 </html>
