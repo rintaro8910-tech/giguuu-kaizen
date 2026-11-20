@@ -123,7 +123,13 @@
     <script src="./boundary-ui.js?v=20261111a" defer></script>
     <script id="timerex_embed" src="https://asset.timerex.net/js/embed.js"></script>
     <script>
-      if (typeof TimerexCalendar === 'function') TimerexCalendar();
+      if (typeof TimerexCalendar === 'function') {
+        TimerexCalendar({
+          onBookingComplete: () => {
+            window.location.assign(new URL('./index.html', window.location.href).href);
+          },
+        });
+      }
     </script>
   </body>
 </html>
