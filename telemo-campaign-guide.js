@@ -1,7 +1,32 @@
 (() => {
   const guide = document.querySelector('.lpsr-campaign-concierge');
+  if (!guide) return;
+
+  // Hide the entire floating guide before it can cover any footer link.
+  // Native hidden also works when an older copy of the stylesheet is cached.
+  const footer = document.querySelector('footer');
+  const setFooterVisibility = (visible) => {
+    guide.hidden = visible;
+    guide.classList.toggle('is-footer-visible', visible);
+  };
+  const syncFooterVisibility = () => {
+    const box = footer?.getBoundingClientRect();
+    setFooterVisibility(Boolean(box && box.top <= innerHeight + 24 && box.bottom >= 0));
+  };
+  syncFooterVisibility();
+  window.addEventListener('pageshow', syncFooterVisibility);
+  window.addEventListener('resize', syncFooterVisibility, { passive: true });
+  if (footer && 'IntersectionObserver' in window) {
+    const footerObserver = new IntersectionObserver(([entry]) => {
+      setFooterVisibility(entry.isIntersecting);
+    }, { rootMargin: '0px 0px 24px 0px' });
+    footerObserver.observe(footer);
+  } else if (footer) {
+    window.addEventListener('scroll', syncFooterVisibility, { passive: true });
+  }
+
   const anchor = document.querySelector('[data-campaign-guide-anchor]');
-  if (!guide || !anchor) return;
+  if (!anchor) return;
   const header = document.querySelector('header.ggh');
   let initialBottom = 12;
   let scrollScheduled = false;

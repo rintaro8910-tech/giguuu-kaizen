@@ -1,6 +1,6 @@
 # お問い合わせフォームの送信先
 
-サイトの `#contact` フォームは、専用 Google アカウントの Apps Script Web アプリへ POST します。スクリプトは入力内容を `telemo-office@giguuu.jp` にメール送信します。返信先にはフォーム入力者のメールアドレスを設定します。
+サイトの `contact.html` にある `#contactForm` は、専用 Google アカウントの Apps Script Web アプリへ POST します。各ページのフッターやお問い合わせボタンから移動できます。スクリプトは入力内容を `telemo-office@giguuu.jp` にメール送信します。返信先にはフォーム入力者のメールアドレスを設定します。
 
 - Apps Script プロジェクト: https://script.google.com/home/projects/1ilt-qf5lElqsPUIvT91arcGWxDGT29L0fEsqbDQ8u-JfEBMUSt9g7VXp/edit
 - Web アプリ URL: https://script.google.com/macros/s/AKfycbzCK7SQe3MKfglaFz-YFDP2pD3V4jWLX-Rw1t4_WD1yVh7bzv1SjM722_u0sbVAj_c/exec

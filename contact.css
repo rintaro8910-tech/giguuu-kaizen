@@ -1,0 +1,106 @@
+/* The existing contact form now has its own page. */
+.page-contact .contact__lead {
+  margin-bottom: 32px;
+  color: var(--rf-text);
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: normal;
+  text-wrap: wrap;
+}
+
+.page-contact .contact__form {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.page-contact .field label {
+  color: var(--rf-heading);
+}
+
+.page-contact .field input,
+.page-contact .field textarea {
+  background: var(--color-bg);
+}
+
+.page-contact .field input::placeholder,
+.page-contact .field textarea::placeholder {
+  color: var(--color-muted);
+}
+
+.page-contact .field [aria-invalid="true"] {
+  border: 2px solid var(--color-action-ink);
+}
+
+.page-contact .contact__form > button {
+  background: var(--rf-accent-hover);
+  color: var(--color-bg);
+}
+
+.page-contact .contact__form > button:hover {
+  background: var(--rf-heading);
+}
+
+.page-contact .contact__form > button:disabled {
+  cursor: wait;
+}
+
+.page-contact .contact__methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin: 0 0 48px;
+}
+
+.page-contact .contact__methods a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 700;
+  text-underline-offset: 4px;
+}
+
+.page-contact .contact__booking,
+.page-contact .contact__message {
+  scroll-margin-top: 120px;
+}
+
+.page-contact .contact__booking {
+  padding-bottom: 40px;
+  margin-bottom: 48px;
+  border-bottom: 1px solid var(--rf-border);
+}
+
+.page-contact .contact__booking h2,
+.page-contact .contact__message h2 {
+  margin: 0 0 20px;
+  color: var(--rf-heading);
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 800;
+  line-height: 1.6;
+  letter-spacing: normal;
+}
+
+.page-contact .contact__booking p {
+  color: var(--rf-text);
+  line-height: 1.9;
+}
+
+.page-contact .contact__booking-link {
+  margin: 12px 0 24px;
+  font-size: 14px;
+  text-underline-offset: 4px;
+}
+
+.page-contact #timerex_calendar {
+  min-height: 640px;
+}
+
+.page-contact .contact__methods a:focus-visible,
+.page-contact .contact__booking-link a:focus-visible {
+  outline: 3px solid var(--rf-accent-hover);
+  outline-offset: 4px;
+}
